@@ -9,12 +9,12 @@ class Estudiante extends Model
   protected $table="estudiantes";
   protected $filiable=[
     'codigo',
-    'codigo_acudiente',
     'nombres',
     'apellidos',
     'email',
     'password',
-    'grupo_id'
+    'grupo_id',
+    'codigo_acudiente'
   ];
 
   public function acudiente() {
