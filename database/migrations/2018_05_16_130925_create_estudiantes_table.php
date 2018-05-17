@@ -19,11 +19,11 @@ class CreateEstudiantesTable extends Migration
             $table->string('apellidos');
             $table->string('email')->unique();
             $table->string('password');
-            $table->unsignedInteger('grado_id');
+            $table->unsignedInteger('grupo_id');
             $table->string('codigo_acudiente');
             
-            $table->foreign('grado_id')
-                  ->references('id')->on('grados')
+            $table->foreign('grupo_id')
+                  ->references('id')->on('grupos')
                   ->onDelete('cascade');
                   
             $table->foreign('codigo_acudiente')
