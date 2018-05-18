@@ -14,7 +14,7 @@ class Grupo extends Model
   ];
 
   public function grado() {
-    return $this->belongso('App\Grado');
+    return $this->belongsTo('App\Grado');
   }
 
   public function jornada() {
