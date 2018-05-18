@@ -18,6 +18,8 @@ class Estudiante extends Model
     'codigo_acudiente'
   ];
 
+  public $incrementing = false;
+  
   public function acudiente() {
     return $this->belongsTo('App\Acudiente','codigo_acudiente');
   }

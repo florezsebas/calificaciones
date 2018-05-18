@@ -15,7 +15,9 @@ class Docente extends Model
     'email',
     'password'
   ];
-
+  
+  public $incrementing = false;
+  
   public function cursos() {
     return $this->hasMany('App\Curso','codigo_profesor','codigo');
   }

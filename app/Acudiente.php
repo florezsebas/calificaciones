@@ -16,6 +16,8 @@ class Acudiente extends Model
     'password'
   ];
 
+  public $incrementing = false;
+
   public function estudiantes() {
     return $this->hasMany('App\Estudiante','codigo_acudiente','codigo');
   }
