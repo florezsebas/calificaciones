@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Docente extends Model
 {
+  protected $primaryKey = 'codigo';
   protected $table="docentes";
   protected $filiable=[
     'codigo',

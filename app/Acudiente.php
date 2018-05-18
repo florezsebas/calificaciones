@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Acudiente extends Model
 {
+  protected $primaryKey = 'codigo';
   protected $table="acudientes";
   protected $filiable=[
     'codigo',
