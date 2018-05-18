@@ -13,7 +13,7 @@ class Observacion extends Model
   ];
 
   public function estudiantes() {
-    return $this->belongTo('App\Estudiante','codigo_estudiante');
+    return $this->belongsTo('App\Estudiante','codigo_estudiante');
   }
 
   public function curso() {

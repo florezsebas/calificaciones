@@ -18,11 +18,11 @@ class Estudiante extends Model
   ];
 
   public function acudiente() {
-    return $this->belongTo('App\Acudiente','codigo_acudiente');
+    return $this->belongsTo('App\Acudiente','codigo_acudiente');
   }
 
   public function grupo() {
-    return $this->belongTo('App\Grupo');
+    return $this->belongsTo('App\Grupo');
   }
   
   public function observaciones() {

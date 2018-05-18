@@ -14,6 +14,6 @@ class Subactividad extends Model
   ];
 
   public function actividad() {
-    return $this->belongTo("App\Actividad");
+    return $this->belongsTo("App\Actividad");
   }
 }

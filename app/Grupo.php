@@ -14,11 +14,11 @@ class Grupo extends Model
   ];
 
   public function grado() {
-    return $this->belongTo('App\Grado');
+    return $this->belongso('App\Grado');
   }
 
   public function jornada() {
-    return $this->belongTo('App\Jornada');
+    return $this->belongsTo('App\Jornada');
   }
 
   public function estudiantes() {

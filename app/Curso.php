@@ -15,15 +15,15 @@ class Curso extends Model
   ];
 
   public function grupo() {
-    return $this->belongTo('App\Grupo');
+    return $this->belongsTo('App\Grupo');
   }
 
   public function profesor() {
-    return $this->belongTo('App\Profesor','codigo_profesor');
+    return $this->belongsTo('App\Profesor','codigo_profesor');
   }
 
   public function periodo() {
-    return $this->belongTo('App\Periodo');
+    return $this->belongsTo('App\Periodo');
   }
 
   public function actividades() {

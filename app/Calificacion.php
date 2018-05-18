@@ -13,10 +13,10 @@ class Calificacion extends Model
     ];
 
     public function estudiantes() {
-      return $this->belongTo('App\Estudiante','codigo_estudiante');
+      return $this->belongsTo('App\Estudiante','codigo_estudiante');
     }
 
     public function curso() {
-      return $this->belongTo('App\Curso');
+      return $this->belongsTo('App\Curso');
     }
 }

@@ -18,6 +18,6 @@ class Actividad extends Model
   }
 
   public function curso() {
-    return $this->belongTo('App\Curso');
+    return $this->belongsTo('App\Curso');
   }
 }
