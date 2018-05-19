@@ -24,7 +24,7 @@ $acu->save();
 
 $est = new App\Estudiante;
 $est->codigo = "111";
-$est->codigo_acudiente = "000";
+$est->codigo_acudiente = "1";
 $est->grupo_id = 1;
 $est->nombres = "Carlos Mario";
 $est->apellidos = "Otalvaro Garcia";
