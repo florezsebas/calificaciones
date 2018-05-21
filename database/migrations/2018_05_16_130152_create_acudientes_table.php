@@ -15,11 +15,7 @@ class CreateAcudientesTable extends Migration
     {
         Schema::create('acudientes', function (Blueprint $table) {
             $table->string('codigo')->primary();
-            $table->string('nombres');
-            $table->string('apellidos');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->rememberToken();
+            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }

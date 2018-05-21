@@ -15,10 +15,7 @@ class CreateDocentesTable extends Migration
     {
         Schema::create('docentes', function (Blueprint $table) {
             $table->string('codigo')->primary();
-            $table->string('nombres');
-            $table->string('apellidos');
-            $table->string('email')->unique();
-            $table->string('password');
+            $table->unsignedInteger('unsignedInteger0');
             $table->rememberToken();
             $table->timestamps();
         });
