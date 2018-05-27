@@ -8,8 +8,9 @@ class Periodo extends Model
 {
   protected $table="periodos";
   protected $filiable=[
+    'nombre',
     'fecha_inicio',
-    'fecha_fin'
+    'fecha_fin',
   ];
 
   public function cursos() {
