@@ -17,7 +17,7 @@ class CreateEstudiantesTable extends Migration
             $table->string('codigo')->primary();
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('grupo_id');
-            $table->string('codigo_acudiente');
+            $table->string('codigo_acudiente')->default(null);
             
             $table->foreign('grupo_id')
                   ->references('id')->on('grupos')
@@ -26,9 +26,6 @@ class CreateEstudiantesTable extends Migration
             $table->foreign('codigo_acudiente')
                   ->references('codigo')->on('acudientes')
                   ->onDelete('cascade');
-            
-            $table->rememberToken();
-            $table->timestamps();
         });
     }
 
