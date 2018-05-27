@@ -10,10 +10,6 @@ class Acudiente extends Model
   protected $table="acudientes";
   protected $filiable=[
     'codigo',
-    'nombres',
-    'apellidos',
-    'email',
-    'password'
   ];
 
   public $incrementing = false;

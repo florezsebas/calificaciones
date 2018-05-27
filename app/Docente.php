@@ -10,10 +10,6 @@ class Docente extends Model
   protected $table="docentes";
   protected $filiable=[
     'codigo',
-    'nombres',
-    'apellidos',
-    'email',
-    'password'
   ];
   
   public $incrementing = false;

@@ -10,12 +10,8 @@ class Estudiante extends Model
   protected $table="estudiantes";
   protected $filiable=[
     'codigo',
-    'nombres',
-    'apellidos',
-    'email',
-    'password',
     'grupo_id',
-    'codigo_acudiente'
+    'codigo_acudiente',
   ];
 
   public $incrementing = false;
