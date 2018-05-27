@@ -163,7 +163,7 @@ return [
         /*
          * Providers Personales
          */
-        Collective\Bus\BusServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
     ],
 
     /*
