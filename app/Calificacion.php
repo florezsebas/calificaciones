@@ -16,7 +16,11 @@ class Calificacion extends Model
       return $this->belongsTo('App\Estudiante','codigo_estudiante');
     }
 
-    public function curso() {
+    public function cursos() {
       return $this->belongsTo('App\Curso');
+    }
+    
+    public function periodo() {
+      return $this->hasMany('App\Periodo')
     }
 }

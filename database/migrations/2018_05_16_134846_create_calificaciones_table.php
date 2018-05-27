@@ -17,10 +17,15 @@ class CreateCalificacionesTable extends Migration
             $table->increments('id');
             $table->double('valor');
             $table->unsignedInteger('curso_id');
+            $table->unsignedInteger('periodo_id');
             $table->string('codigo_estudiante');
             
             $table->foreign('curso_id')
                   ->references('id')->on('cursos')
+                  ->onDelete('cascade');
+                  
+            $table->foreign('periodo_id')
+                  ->references('id')->on('periodos')
                   ->onDelete('cascade');
             
             $table->foreign('codigo_estudiante')

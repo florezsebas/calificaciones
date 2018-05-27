@@ -22,10 +22,6 @@ class Curso extends Model
     return $this->belongsTo('App\Profesor','codigo_profesor');
   }
 
-  public function periodo() {
-    return $this->belongsTo('App\Periodo');
-  }
-
   public function actividades() {
     return $this->hasMany('App\Actividad');
   }

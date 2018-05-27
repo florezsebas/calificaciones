@@ -12,8 +12,8 @@ class Periodo extends Model
     'fecha_inicio',
     'fecha_fin',
   ];
-
-  public function cursos() {
-    return $this->hasMany('App\Curso');
+  
+  public function calificaciones() {
+    return $this->belongsTo('App\Calificacion');
   }
 }
