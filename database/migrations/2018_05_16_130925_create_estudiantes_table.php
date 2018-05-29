@@ -26,6 +26,8 @@ class CreateEstudiantesTable extends Migration
             $table->foreign('codigo_acudiente')
                   ->references('codigo')->on('acudientes')
                   ->onDelete('cascade');
+                  
+            $table->timestamps();
         });
     }
 
