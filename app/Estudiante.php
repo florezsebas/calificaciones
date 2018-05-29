@@ -12,6 +12,7 @@ class Estudiante extends Model
     'codigo',
     'grupo_id',
     'codigo_acudiente',
+    'user_id',
   ];
 
   public $incrementing = false;

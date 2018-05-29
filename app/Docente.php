@@ -8,9 +8,7 @@ class Docente extends Model
 {
   protected $primaryKey = 'codigo';
   protected $table="docentes";
-  protected $filiable=[
-    'codigo',
-  ];
+  protected $filiable=[ 'codigo', 'user_id',];
   
   public $incrementing = false;
   
