@@ -19,6 +19,10 @@ class CreateEstudiantesTable extends Migration
             $table->unsignedInteger('grupo_id');
             $table->string('codigo_acudiente')->default(null);
             
+            $table->foreign('user_id')
+                  ->references('id')->on('users')
+                  ->onDelete('cascade');
+            
             $table->foreign('grupo_id')
                   ->references('id')->on('grupos')
                   ->onDelete('cascade');
