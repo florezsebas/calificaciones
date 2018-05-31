@@ -17,6 +17,10 @@ class CreateAcudientesTable extends Migration
             $table->string('codigo')->primary();
             $table->unsignedInteger('user_id');
             $table->timestamps();
+            
+            $table->foreign('user_id')
+                  ->references('id')->on('users')
+                  ->onDelete('cascade');
         });
     }
 
