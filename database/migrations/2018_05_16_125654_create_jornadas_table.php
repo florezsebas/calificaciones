@@ -16,8 +16,8 @@ class CreateJornadasTable extends Migration
         Schema::create('jornadas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->dateTime('hora_inicio');
-            $table->dateTime('hora_fin');
+            $table->timeTz('hora_inicio');
+            $table->timeTz('hora_fin');
             $table->timestamps();
         });
     }
