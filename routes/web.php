@@ -15,12 +15,48 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', function() {
-    return view('admin/dashboard');
-});
-
 Auth::routes();
 
-
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'admin'], function(){
+   
+   Route::resource('usuarios/docentes', 'DocentesController');
+   Route::get('usuarios/docentes/{id}/destroy', [
+            'uses' => 'DocentesController@destroy',
+            'as'   => 'docentes.destroy'    
+   ]);
+   
+   Route::resource('usuarios/acudientes', 'AcudientesController');
+   Route::get('usuarios/acudientes/{id}/destroy', [
+            'uses' => 'AcudientesController@destroy',
+            'as'   => 'acudientes.destroy'
+   ]);
+   
+   Route::resource('usuarios/estudiantes', 'EstudiantesController');
+   Route::get('usuarios/Estudiantes/{id}/destroy', [
+            'uses' => 'EstudiantesController@destroy',
+            'as' =>   'estudiantes.destroy'
+   ]);
+   
+   
+   Route::resource('jornadas', 'JornadasController');
+   Route::get('jornadas/{id}/destroy', [
+           'uses' => 'JornadasController@destroy',
+           'as'   => 'jornadas.destroy'
+   ]);
+   
+   Route::resource('grados', 'GradosController');
+   Route::get('grados/{id}/destroy', [
+            'uses' => 'GradosController@destroy',
+            'as'   => 'grados.destroy'
+   ]);
+   
+   
+   Route::resource('grupos', 'GruposController');
+   Route::get('grupos/{id}/destroy', [
+            'uses' => 'GruposController@destroy',
+            'as'   => 'grupos.destroy'
+   ]);
+   
+});
