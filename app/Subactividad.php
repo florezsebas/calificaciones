@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Subactividad extends Model
 {
   protected $table="subactividades";
-  protected $filiable=[
+  protected $fillable=[
     'nombre',
     'porcentaje',
     'actividad_id'

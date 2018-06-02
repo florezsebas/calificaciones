@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Grupo extends Model
 {
   protected $table="grupos";
-  protected $filiable=[
+  protected $fillable=[
     'nombre',
     'jornada_id',
     'grado_id'

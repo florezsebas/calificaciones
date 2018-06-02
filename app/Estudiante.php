@@ -8,7 +8,7 @@ class Estudiante extends Model
 {
   protected $primaryKey = 'codigo';
   protected $table="estudiantes";
-  protected $filiable=[
+  protected $fillable=[
     'codigo',
     'grupo_id',
     'codigo_acudiente',
@@ -31,6 +31,10 @@ class Estudiante extends Model
 
   public function calificaciones() {
     return $this->hasMany('App\Calificacion','codigo_estudiante','codigo');
+  }
+  
+  public function user() {
+    return $this->belongsTo('App\User', 'id', 'codigo');
   }
 
 }

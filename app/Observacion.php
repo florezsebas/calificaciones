@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Observacion extends Model
 {
   protected $table="observaciones";
-  protected $filiable=['descripcion',
+  protected $fillable=['descripcion',
     'curso_id',
     'codigo_estudiante'
   ];

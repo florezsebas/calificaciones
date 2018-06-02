@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Periodo extends Model
 {
   protected $table="periodos";
-  protected $filiable=[
+  protected $fillable=[
     'nombre',
     'fecha_inicio',
     'fecha_fin',

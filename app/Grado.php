@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Grado extends Model
 {
   protected $table="grados";
-  protected $filiable=['nombres'];
+  protected $fillable=['nombre'];
 
   public function grupos() {
     return $this->hasMany('App\Grupo');
