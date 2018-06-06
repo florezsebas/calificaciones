@@ -28,4 +28,5 @@ class Grupo extends Model
   public function cursos() {
     return $this->hasMany('App\Curso');
   }
+  
 }
