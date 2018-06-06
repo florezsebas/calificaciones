@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<h2>Gestion de peridos</h2> <br>
+<h2>Gestion de periodos</h2> <br>
 <a href="" class="btn btn-primary" style="margin-bottom:1em">Nuevo periodo</a>
 
 <!-- Tabla que muestra las jornadas -->
@@ -16,16 +16,17 @@
     </tr>
   </thead>
   <tbody>
+    @foreach($periodos as $periodo)
       <tr>
-        <td>1</td>
-        <td>JT</td>
-        <td>7:00</td>
-        <td>12:00</td>
+        <td>{{ $periodo->id }}</td>
+        <td>{{ $periodo->Nombre }}</td>
+        <td>{{ $periodo->fecha_inicio }}</td>
+        <td>{{ $periodo->fecha_fin }}</td>
         <td>
             <a href="" class="btn btn-primary btn-xs pull-left">Editar</a>
             <a href="" class="btn btn-danger btn-xs pull-left">Eliminar</a></td>
         </td>
-        
+    @endforeach
       </tr>
   </tbody>
 </table>

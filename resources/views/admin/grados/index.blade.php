@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-<h2>Gestion de grupos</h2> <br>
-<a href="" class="btn btn-primary" style="margin-bottom:1em">Nuevo grupo</a>
+<h2>Gestion de grados</h2> <br>
+<a href="{{ route('grados.create') }}" class="btn btn-primary" style="margin-bottom:1em">Nuevo grado</a>
 
 <!-- Tabla que muestra las jornadas -->
 <table class="table table-sm">
@@ -14,14 +14,15 @@
     </tr>
   </thead>
   <tbody>
+    @foreach($grados as $grado)
       <tr>
-        <td></td>
-        <td></td>
+        <td>{{ $grado->id }}</td>
+        <td>{{ $grado->nombre }}</td>
         <td>
-            <a href="" class="btn btn-primary btn-xs pull-left">Editar</a>
-            <a href="" class="btn btn-danger btn-xs pull-left">Eliminar</a></td>
+            <a href="{{ route('grados.edit', $grado->id) }}" class="btn btn-primary btn-xs pull-left">Editar</a>
+            <a href="{{ route('grados.destroy', $grado->id) }}"  class="btn btn-danger btn-xs pull-left">Eliminar</a></td>
         </td>
-        
+    @endforeach
       </tr>
   </tbody>
 </table>
