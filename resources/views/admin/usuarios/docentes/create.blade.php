@@ -1,11 +1,12 @@
 @extends('layouts.admin')
 
 @section('content')
+
 <h2>Crear nuevo Docente</h2><br>
 {!! Form::open(['route'=>'docentes.store']) !!} 
     <div class="form-group">
         {!! Form::label('codigo', 'Documento de identidad') !!}
-        {!! Form::text('codigo', null, ['class' => 'form-control', 'placeholder' => 'Numero de documento', 'required']) !!}
+        {!! Form::number('codigo', null, ['class' => 'form-control', 'placeholder' => 'Numero de documento', 'required']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('nombres', 'Nombre') !!}
@@ -25,7 +26,7 @@
     </div>
     <div class='form-group'>
         {!! Form::submit('Agregar docente', ['class' => 'btn btn-primary']) !!}
-        <a href="" class="btn btn-primary">Cancelar</a>
+        <a href="{{ route('docentes.index') }}" class="btn btn-primary">Cancelar</a>
     </div>
 {!! Form::close() !!}    
 
