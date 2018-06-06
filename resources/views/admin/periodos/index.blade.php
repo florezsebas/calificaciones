@@ -2,9 +2,9 @@
 
 @section('content')
 <h2>Gestion de periodos</h2> <br>
-<a href="" class="btn btn-primary" style="margin-bottom:1em">Nuevo periodo</a>
+<a href="{{ route('periodos.create') }}" class="btn btn-primary" style="margin-bottom:1em">Nuevo periodo</a>
 
-<!-- Tabla que muestra las jornadas -->
+<!-- Tabla que muestra los periodos -->
 <table class="table table-sm">
   <thead>
     <tr>
@@ -23,8 +23,8 @@
         <td>{{ $periodo->fecha_inicio }}</td>
         <td>{{ $periodo->fecha_fin }}</td>
         <td>
-            <a href="" class="btn btn-primary btn-xs pull-left">Editar</a>
-            <a href="" class="btn btn-danger btn-xs pull-left">Eliminar</a></td>
+            <a href="{{ route('grupos.edit', $grupo->id) }}" class="btn btn-primary btn-xs pull-left">Editar</a>
+            <a href="{{ route('grupos.destroy', $grupo->id) }}" class="btn btn-danger btn-xs pull-left">Eliminar</a></td>
         </td>
     @endforeach
       </tr>
