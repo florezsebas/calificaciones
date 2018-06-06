@@ -63,4 +63,9 @@ Route::group(['prefix' => 'admin'], function(){
             'as'   => 'grupos.destroy'
    ]);
    
+   Route::resource('periodos', 'PeriodosController');
+   Route::get('periodos/{id}/destroy', [
+      'uses' => 'PeriodosController@destroy',
+      'as' => 'periodos.destroy'
+   ]);
 });
