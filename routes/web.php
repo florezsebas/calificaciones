@@ -21,6 +21,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin'], function(){
    
+   Route::get('/',function() {
+      return view('layouts.admin');
+   });
+   
    Route::resource('usuarios/docentes', 'DocentesController');
    Route::get('usuarios/docentes/{id}/destroy', [
             'uses' => 'DocentesController@destroy',
@@ -38,7 +42,7 @@ Route::group(['prefix' => 'admin'], function(){
             'uses' => 'EstudiantesController@destroy',
             'as' =>   'estudiantes.destroy'
    ]);
-   
+   // Ruta para selector dinamico
    
    Route::resource('jornadas', 'JornadasController');
    Route::get('jornadas/{id}/destroy', [
