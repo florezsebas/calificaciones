@@ -79,12 +79,12 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Gestor de notas
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
+                    <a href="{{ route('docentes.index') }}">Gestionar docentes</a>
+                    <a href="{{ route('jornadas.index') }}">Gestionar jornadas</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
