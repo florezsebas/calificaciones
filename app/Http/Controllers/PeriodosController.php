@@ -10,22 +10,24 @@ class PeriodosController extends Controller
 {
     public function index()
     {
-        $periodo = Periodo::all();
-        return view('admin.periodos.index')->with('periodo', $periodo);
+        $periodos = Periodo::all();
+        return view('admin.periodos.index')->with('periodos', $periodos);
     }
     
-    public function create()
-    {
+    public function create() {
+    
         return view('admin.periodos.create');
     }
     
     public function store(Request $request)
     {
-        //dd($request->all());
-        $grupo = new Grupo($request->all());
-        $grupo->save();
-        
-        return redirect()->route('grupos.index');
+        $periodo = new Periodo($request->all());
+        $periodo->save();
+        // dd($periodo->nombre);
+        // dd($periodo->fecha_inicio);
+        // dd($periodo);
+        Flash::success("Se ha registrado el periodo " . $periodo->nombre . " de forma exitosa!");
+        return redirect()->route('periodos.index');
     }
     
     
@@ -36,27 +38,23 @@ class PeriodosController extends Controller
     
     public function edit($id)
     {
-        $grupo = Grupo::find($id);
-        $jornadas = Jornada::all()->pluck('nombre', 'id');
-        $grados = Grado::all()->pluck('nombre', 'id');
-        
-        return view('admin.grupos.edit')->with('jornadas', $jornadas)
-                                        ->with('grados', $grados)
-                                        ->with('grupo', $grupo);
+        $periodo = Periodo::find($id);
+
+        return view('admin.periodos.edit')->with('periodo', $periodo);
     }
     
     
     public function update(Request $request, $id)
     {
-        $grupo = Grupo::find($id);
-        $grupo->nombre = $request->nombre;
-        $grupo->jornada_id = $request->jornada_id;
-        $grupo->grado_id = $request->grado_id;
-        $grupo->save();
+        $periodo = Periodo::find($id);
+        $periodo->nombre = $request->nombre;
+        $periodo->fecha_inicio = $request->fecha_inicio;
+        $periodo->fecha_fin = $request->fecha_fin;
+        $periodo->save();
         
-        Flash::success("Se ha editado el grupo " . $grupo->nombre . " de forma exitosa!");
+        Flash::success("Se ha editado el grupo " . $periodo->nombre . " de forma exitosa!");
          
-        return redirect()->route('grupos.index');
+        return redirect()->route('periodos.index');
     }
     
     public function destroy($id)
