@@ -19,12 +19,12 @@
     @foreach($periodos as $periodo)
       <tr>
         <td>{{ $periodo->id }}</td>
-        <td>{{ $periodo->Nombre }}</td>
+        <td>{{ $periodo->nombre }}</td>
         <td>{{ $periodo->fecha_inicio }}</td>
         <td>{{ $periodo->fecha_fin }}</td>
         <td>
-            <a href="{{ route('grupos.edit', $grupo->id) }}" class="btn btn-primary btn-xs pull-left">Editar</a>
-            <a href="{{ route('grupos.destroy', $grupo->id) }}" class="btn btn-danger btn-xs pull-left">Eliminar</a></td>
+            <a href="{{ route('periodos.edit', $periodo->id) }}" class="btn btn-primary btn-xs pull-left">Editar</a>
+            <a href="{{ route('periodos.destroy', $periodo->id) }}" class="btn btn-danger btn-xs pull-left">Eliminar</a></td>
         </td>
     @endforeach
       </tr>
