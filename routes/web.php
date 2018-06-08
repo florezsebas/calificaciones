@@ -56,7 +56,6 @@ Route::group(['prefix' => 'admin'], function(){
             'as'   => 'grados.destroy'
    ]);
    
-   
    Route::resource('grupos', 'GruposController');
    Route::get('grupos/{id}/destroy', [
             'uses' => 'GruposController@destroy',
@@ -68,4 +67,12 @@ Route::group(['prefix' => 'admin'], function(){
       'uses' => 'PeriodosController@destroy',
       'as' => 'periodos.destroy'
    ]);
+   
+   Route::resource('cursos', 'CursosController');
+   Route::get('cursos/{id}/destroy', [
+      'uses' => 'CursosController@destroy',
+      'as' => 'cursos.destroy'
+   ]);
+
+   Route::get('cursos', 'CursosController@getGroup');
 });
