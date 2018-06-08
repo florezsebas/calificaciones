@@ -19,7 +19,7 @@
   <tbody>
     @foreach($users as $user)    
       <tr>
-        <td>{{ $user->estudiante->codigo }}</td>
+        <td>{{ $user->codigo }}</td>
         <td>{{ $user->nombres }}</td>
         <td>{{ $user->apellidos }}</td>
         <td>{{ $user->email }}</td>

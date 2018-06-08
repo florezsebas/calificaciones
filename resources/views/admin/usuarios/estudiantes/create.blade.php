@@ -42,8 +42,8 @@
                 </div>
             </div>
             <div class="form-group">
-                {!! Form::label('codigo_acudiente', 'Acudiente') !!}
-                {!! Form::text('codigo_acudiente', null, ['class' => 'form-control', 'placeholder' => 'Numero de documento o nombre', 'required']) !!}
+                {!! Form::label('acudiente_id', 'Acudiente') !!}
+                {!! Form::select('acudiente', $acudientes, $selected=null, ['class' => 'form-control', 'placeholder' => 'Seleccione un acudiente']) !!}
             </div>
             <div class='form-group'>
                 {!! Form::submit('Agregar Estudiante', ['class' => 'btn btn-primary']) !!}

@@ -42,8 +42,8 @@
                 </div>
             </div>
             <div class="form-group">
-                {!! Form::label('codigo_acudiente', 'Acudiente') !!}
-                {!! Form::text('codigo_acudiente', $user->estudiante->acudiente->user->nombres ." ". $user->estudiante->acudiente->user->apellidos, ['class' => 'form-control', 'placeholder' => 'Numero de documento o nombre', 'required']) !!}
+                {!! Form::label('acudiente_id', 'Acudiente') !!}
+                {!! Form::text('acudiente_id', $user->estudiante->acudiente->user->nombres ." ". $user->estudiante->acudiente->user->apellidos, ['class' => 'form-control', 'placeholder' => 'Numero de documento o nombre', 'required']) !!}
             </div>
             <div class='form-group'>
                 {!! Form::submit('Agregar Estudiante', ['class' => 'btn btn-primary']) !!}

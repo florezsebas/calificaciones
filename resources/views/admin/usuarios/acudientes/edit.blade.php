@@ -5,7 +5,7 @@
 {!! Form::open(['route'=>['acudientes.update', $user], 'method'=>'put']) !!} 
     <div class="form-group">
         {!! Form::label('codigo', 'Documento de identidad') !!}
-        {!! Form::number('codigo', $user->acudiente->codigo, ['class' => 'form-control', 'placeholder' => 'Numero de documento', 'required']) !!}
+        {!! Form::number('codigo', $user->codigo, ['class' => 'form-control', 'placeholder' => 'Numero de documento', 'required']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('nombres', 'Nombre') !!}
