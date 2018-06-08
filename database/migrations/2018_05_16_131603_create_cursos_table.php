@@ -17,14 +17,14 @@ class CreateCursosTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->unsignedInteger('grupo_id');
-            $table->string('codigo_docente');
+            $table->unsignedInteger('docente_id');
                   
             $table->foreign('grupo_id')
                   ->references('id')->on('grupos')
                   ->onDelete('cascade');
                   
-            $table->foreign('codigo_docente')
-                  ->references('codigo')->on('docentes')
+            $table->foreign('docente_id')
+                  ->references('user_id')->on('docentes')
                   ->onDelete('cascade');
             
             $table->timestamps();

@@ -17,14 +17,14 @@ class CreateObservacionesTable extends Migration
             $table->increments('id');
             $table->string('descripcion');
             $table->unsignedInteger('curso_id');
-            $table->string('codigo_estudiante');
+            $table->unsignedInteger('estudiante_id');
             
             $table->foreign('curso_id')
                   ->references('id')->on('cursos')
                   ->onDelete('cascade');
             
-            $table->foreign('codigo_estudiante')
-                  ->references('codigo')->on('estudiantes')
+            $table->foreign('estudiante_id')
+                  ->references('user_id')->on('estudiantes')
                   ->onDelete('cascade');
             
             $table->timestamps();

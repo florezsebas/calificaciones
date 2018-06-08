@@ -14,8 +14,9 @@ class CreateDocentesTable extends Migration
     public function up()
     {
         Schema::create('docentes', function (Blueprint $table) {
-            $table->string('codigo')->primary();
-            $table->unsignedInteger('user_id');
+            //$table->string('codigo')->primary();
+            //$table->unsignedInteger('user_id');
+            $table->increments('user_id');
             $table->timestamps();
             
             $table->foreign('user_id')

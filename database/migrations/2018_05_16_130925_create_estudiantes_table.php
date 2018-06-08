@@ -14,10 +14,11 @@ class CreateEstudiantesTable extends Migration
     public function up()
     {
         Schema::create('estudiantes', function (Blueprint $table) {
-            $table->string('codigo')->primary();
-            $table->unsignedInteger('user_id');
+            //$table->increments('user_id');
+            //$table->unsignedInteger('user_id');
+            $table->increments('user_id');
             $table->unsignedInteger('grupo_id');
-            $table->string('codigo_acudiente')->default(null);
+            $table->unsignedInteger('acudiente_id');
             
             $table->foreign('user_id')
                   ->references('id')->on('users')
@@ -27,8 +28,8 @@ class CreateEstudiantesTable extends Migration
                   ->references('id')->on('grupos')
                   ->onDelete('cascade');
                   
-            $table->foreign('codigo_acudiente')
-                  ->references('codigo')->on('acudientes')
+            $table->foreign('acudiente_id')
+                  ->references('user_id')->on('acudientes')
                   ->onDelete('cascade');
                   
             $table->timestamps();

@@ -18,7 +18,7 @@ class CreateCalificacionesTable extends Migration
             $table->double('valor');
             $table->unsignedInteger('curso_id');
             $table->unsignedInteger('periodo_id');
-            $table->string('codigo_estudiante');
+            $table->unsignedInteger('estudiante_id');
             
             $table->foreign('curso_id')
                   ->references('id')->on('cursos')
@@ -28,8 +28,8 @@ class CreateCalificacionesTable extends Migration
                   ->references('id')->on('periodos')
                   ->onDelete('cascade');
             
-            $table->foreign('codigo_estudiante')
-                  ->references('codigo')->on('estudiantes')
+            $table->foreign('estudiante_id')
+                  ->references('user_id')->on('estudiantes')
                   ->onDelete('cascade');
             
             $table->timestamps();
