@@ -49,14 +49,13 @@ class DocentesController extends Controller
     public function store(UserRequest $request)
     {
         
-        $datos_user = $request->all();
+        $datos = $request->all();
         $user = new User($request->all());
         $user->tipo = "docente";
         $password = str_replace('/', '', $user->fecha_nacimiento); 
         $user->password = bcrypt($password);
         $user->save();
         $docente = new Docente();
-        $docente->codigo = $datos_user['codigo'];
         $user->docente()->save($docente);
         
         Flash::success("Se ha registado el usuario " . $user->nombres . " de forma exitosa!");
@@ -103,7 +102,6 @@ class DocentesController extends Controller
         $user = User::find($id);
         $docente = Docente::find($user->docente->codigo);
         $user->load('docente');
-        //dd($user);
         $user->nombres = $request->nombres;
         $user->apellidos = $request->apellidos;
         $user->fecha_nacimiento = $request->fecha_nacimiento;

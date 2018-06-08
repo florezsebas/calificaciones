@@ -62,9 +62,8 @@ class EstudiantesController extends Controller
         $user->password = bcrypt($password);
         $user->save();
         $estudiante = new Estudiante();
-        $estudiante->codigo = $datos['codigo'];
         $estudiante->grupo_id = $datos['grupo_id'];
-        $estudiante->codigo_acudiente = $datos['codigo_acudiente'];
+        $estudiante->acudiente_id = $datos['codigo_acudiente'];
         $user->estudiante()->save($estudiante);
     }
 
@@ -117,7 +116,7 @@ class EstudiantesController extends Controller
         $user->email = $request->email;
         $estudiante->codigo = $request->codigo;
         $estudiante->grupo_id = $request->grupo_id;
-        $estudiante->codigo_acudiente = $request->codigo_acudiente;
+        $estudiante->acudiente_id = $request->acudiente_id;
         $estudiante->save();
         $user->save();
         

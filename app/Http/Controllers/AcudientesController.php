@@ -18,15 +18,13 @@ class AcudientesController extends Controller
     
     public function index()
     {
-       $users = User::has('acudiente')->paginate(1);
+       $users = User::has('acudiente')->paginate(5);
        /*$users = User::orderBy('id', 'ASC')->paginate(5);
        $users->each(function($users) {
             $users->load('acudiente');
         });*/
         //$users = $this->paginate($acudientes, 5);
         return view('admin.usuarios.acudientes.index')->with('users',$users);
-        
-        //dd($users);
     }
 
     /**
@@ -47,16 +45,15 @@ class AcudientesController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $datos_user = $request->all();
+        $datos = $request->all();
         $user = new User($request->all());
         $user->tipo = "acudiente";
         $password = str_replace('/', '', $user->fecha_nacimiento); 
         $user->password = bcrypt($password);
         $user->save();
         $acudiente = new Acudiente();
-        $acudiente->codigo = $datos_user['codigo'];
         $user->acudiente()->save($acudiente);
-        //dd($request->all());
+    
         Flash::success("Se ha registado el usuario " . $user->nombres . " de forma exitosa!");
         
         return redirect()->route('acudientes.index');

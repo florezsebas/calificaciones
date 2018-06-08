@@ -30,7 +30,7 @@ class GruposController extends Controller
     {
         $jornadas = Jornada::all()->pluck('nombre', 'id');
         $grados = Grado::all()->pluck('nombre', 'id');
-        
+
         return view('admin.grupos.create')->with('jornadas', $jornadas)
                                           ->with('grados', $grados);
     }
@@ -43,7 +43,7 @@ class GruposController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
+        // dd($request->all());
         $grupo = new Grupo($request->all());
         $grupo->save();
         

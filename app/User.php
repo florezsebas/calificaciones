@@ -15,6 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'codigo',
         'nombres', 
         'apellidos',
         'fecha_nacimiento',
@@ -41,5 +42,9 @@ class User extends Authenticatable
     
     public function acudiente() {
         return $this->hasOne('App\Acudiente');
+    }
+
+    public function getFullNameAttribute() {
+        return $this->nombres . ' ' . $this->apellidos;
     }
 }

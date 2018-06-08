@@ -9,8 +9,7 @@ class Curso extends Model
   protected $table="cursos";
   protected $fillable=[
     'nombre',
-    'periodo_id',
-    'codigo_profesor',
+    'codigo_docente',
     'grupo_id'
   ];
 
@@ -18,8 +17,8 @@ class Curso extends Model
     return $this->belongsTo('App\Grupo');
   }
 
-  public function profesor() {
-    return $this->belongsTo('App\Profesor','codigo_profesor');
+  public function docente() {
+    return $this->belongsTo('App\Docente','codigo_docente');
   }
 
   public function actividades() {

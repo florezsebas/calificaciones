@@ -9,9 +9,8 @@ class Estudiante extends Model
   protected $primaryKey = 'codigo';
   protected $table="estudiantes";
   protected $fillable=[
-    'codigo',
     'grupo_id',
-    'codigo_acudiente',
+    'acudiente_id',
     'user_id',
   ];
 
