@@ -58,7 +58,7 @@
                             <a href="{{ url('admin/usuarios/acudientes') }}" type="button" class="list-group-item list-group-item-action">Gestionar usuarios</a>
                             <a href="{{ url('admin/grados') }}" type="button" class="list-group-item list-group-item-action">Gestionar grados</a>
                             <a href="{{ url('admin/grupos') }}" type="button" class="list-group-item list-group-item-action">Gestionar grupos</a>
-                            <a type="button" class="list-group-item list-group-item-action">Gestionar cursos</a>
+                            <a href="{{ url('admin/cursos') }}" type="button" class="list-group-item list-group-item-action">Gestionar cursos</a>
                         </ul>
                     </nav>
                 </div>
