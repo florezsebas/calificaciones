@@ -74,5 +74,5 @@ Route::group(['prefix' => 'admin'], function(){
       'as' => 'cursos.destroy'
    ]);
 
-   Route::get('cursos', 'CursosController@getGroup');
+   Route::get('empty', 'CursosController@getGroup');
 });
