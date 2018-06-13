@@ -74,5 +74,22 @@ Route::group(['prefix' => 'admin'], function(){
       'as' => 'cursos.destroy'
    ]);
 
-   Route::get('empty', 'CursosController@getGroup');
+   Route::get('cargarGrados','CursosController@loadGrados');
+   Route::get('cargarGrupos','GruposController@loadGroups');
+   Route::get('cargarGrupos2','CursosController@loadGroups');
+});
+
+
+Route::group(['prefix' => 'docentes'], function() {
+   
+   Route::get('/',function() {
+      return view('layouts.docentes');
+   });
+   
+   // Route::resource('grupos', 'Docentes/VerGruposController');
+   Route::get('grupos','VerGruposController@index');
+   
+   Route::get('cargarGrados','VerGruposController@loadGrados');
+   Route::get('cargarGrupos','VerGruposController@loadGroups');
+   Route::get('cargarCursos','VerGruposController@loadCourses');
 });
