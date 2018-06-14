@@ -16,7 +16,12 @@ class CreateGradosTable extends Migration
         Schema::create('grados', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
+            $table->unsignedInteger('jornada_id');
             $table->timestamps();
+            
+            $table->foreign('jornada_id')
+                  ->references('id')->on('jornadas')
+                  ->onDelete('cascade');
         });
     }
 

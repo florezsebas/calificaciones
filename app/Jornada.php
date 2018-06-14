@@ -14,8 +14,7 @@ class Jornada extends Model
     'hora_fin',
     ]; 
 
-  public function grupos() {
-    return $this->hasMany('App\Grupo');
+  public function grados() {
+    return $this->hasMany('App\Grado');
   }
-  
 }
