@@ -28,8 +28,4 @@ class Curso extends Model
   public function observaciones() {
     return $this->hasMany('App\Observacion');
   }
-
-  public function calificaciones() {
-    return $this->hasMany('App\Calificacion');
-  }
 }

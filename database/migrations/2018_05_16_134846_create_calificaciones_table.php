@@ -24,10 +24,6 @@ class CreateCalificacionesTable extends Migration
             $table->foreign('actividad_id')
                   ->references('id')->on('actividades')
                   ->onDelete('cascade');
-            
-            $table->foreign('curso_id')
-                  ->references('id')->on('cursos')
-                  ->onDelete('cascade');
                   
             $table->foreign('periodo_id')
                   ->references('id')->on('periodos')
