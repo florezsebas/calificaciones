@@ -7,7 +7,7 @@
         {!! Form::open(['route'=>'estudiantes.store']) !!} 
             <div class="form-group">
                 {!! Form::label('codigo', 'Documento de identidad') !!}
-                {!! Form::text('codigo', null, ['class' => 'form-control', 'placeholder' => 'Numero de documento', 'required']) !!}
+                {!! Form::text('codigo', null, ['class' => 'form-control', 'placeholder' => 'Numero de documento', 'required', 'pattern' => '^[0-9]+', 'min' => '0']) !!}
             </div>
             <div class=form-row>
                 <div class="form-group col-md-6">
@@ -30,26 +30,27 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     {!! Form::label('jornada_id', 'Jornada') !!}
-                    {!! Form::select('jornada_id', $jornadas, $selected=null, ['class' => 'form-control','placeholder' => 'Seleccione una jornada']) !!}
+                    {!! Form::select('jornada_id', $jornadas, $selected=null, ['class' => 'form-control','placeholder' => 'Seleccione una jornada', 'id' => 'jornada']) !!}
                 </div>
                 <div class="form-group col-md-4">
                     {!! Form::label('grado_id', 'Grado') !!}
-                    {!! Form::select('grado', $grados, $selected=null, ['class' => 'form-control','placeholder' => 'Seleccione un grado']) !!}
+                    {!! Form::select('grado', [], null, ['class' => 'form-control','placeholder' => 'Seleccione un grado', 'id' => 'grado']) !!}
                 </div>
                 <div class="form-group col-md-4">
                     {!! Form::label('grupo_id', 'Grupo') !!}
-                    {!! Form::select('grupo_id', $grupos, $selected=null, ['class' => 'form-control','placeholder' => 'Seleccione un grupo']) !!}
+                    {!! Form::select('grupo_id', [], null, ['class' => 'form-control','placeholder' => 'Seleccione un grupo', 'id' => 'grupo']) !!}
                 </div>
             </div>
             <div class="form-group">
                 {!! Form::label('acudiente_id', 'Acudiente') !!}
-                {!! Form::select('acudiente', $acudientes, $selected=null, ['class' => 'form-control', 'placeholder' => 'Seleccione un acudiente']) !!}
+                {!! Form::select('acudiente', $acudientes, null, ['class' => 'form-control', 'placeholder' => 'Seleccione un acudiente']) !!}
             </div>
             <div class='form-group'>
                 {!! Form::submit('Agregar Estudiante', ['class' => 'btn btn-primary']) !!}
                 <a href="" class="btn btn-primary">Cancelar</a>
             </div>
-        {!! Form::close() !!}  
+        {!! Form::close() !!}
     </div>
 </div>
+
 @endsection

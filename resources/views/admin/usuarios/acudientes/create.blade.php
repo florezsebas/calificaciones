@@ -2,21 +2,11 @@
 
 @section('content')
 
-@if(count($errors) > 0)
-    <div class="alert alert-danger" role="alert">
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach 
-        </ul>     
-    </div>
-@endif
-
 <h2>Crear nuevo Acudiente</h2><br>
 {!! Form::open(['route'=>'acudientes.store']) !!} 
     <div class="form-group">
         {!! Form::label('codigo', 'Documento de identidad') !!}
-        {!! Form::number('codigo', null, ['class' => 'form-control', 'placeholder' => 'Numero de documento', 'required']) !!}
+        {!! Form::number('codigo', null, ['class' => 'form-control', 'placeholder' => 'Numero de documento', 'required', 'pattern' => '^[0-9]+', 'min' => '0'] ) !!}
     </div>
     <div class="form-group">
         {!! Form::label('nombres', 'Nombre') !!}

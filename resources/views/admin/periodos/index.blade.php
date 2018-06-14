@@ -5,7 +5,8 @@
 <a href="{{ route('periodos.create') }}" class="btn btn-primary" style="margin-bottom:1em">Nuevo periodo</a>
 
 <!-- Tabla que muestra los periodos -->
-<table class="table table-sm">
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -23,12 +24,12 @@
         <td>{{ $periodo->fecha_inicio }}</td>
         <td>{{ $periodo->fecha_fin }}</td>
         <td>
-            <a href="{{ route('periodos.edit', $periodo->id) }}" class="btn btn-primary btn-xs pull-left">Editar</a>
-            <a href="{{ route('periodos.destroy', $periodo->id) }}" class="btn btn-danger btn-xs pull-left">Eliminar</a></td>
+            <a href="{{ route('periodos.edit', $periodo->id) }}" class="btn btn-primary btn-sm pull-left">Editar</a>
+            <a href="{{ route('periodos.destroy', $periodo->id) }}" class="btn btn-danger btn-sm pull-left">Eliminar</a></td>
         </td>
     @endforeach
       </tr>
   </tbody>
 </table>
-
+</div>
 @endsection

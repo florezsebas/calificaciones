@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 
-@if(count($errors) > 0)
-    <div class="alert alert-danger" role="alert">
+@if ($errors->any())
+    <div class="alert alert-danger">
         <ul>
-            @foreach($errors->all() as $error)
+            @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
-            @endforeach 
-        </ul>     
+            @endforeach
+        </ul>
     </div>
 @endif
 
@@ -15,7 +15,7 @@
 {!! Form::open(['route'=>['docentes.update', $user], 'method'=>'put']) !!} 
     <div class="form-group">
         {!! Form::label('codigo', 'Documento de identidad') !!}
-        {!! Form::number('codigo', $user->docente->codigo, ['class' => 'form-control', 'placeholder' => 'Numero de documento', 'required']) !!}
+        {!! Form::number('codigo', $user->docente->codigo, ['class' => 'form-control', 'placeholder' => 'Numero de documento', 'required', 'pattern' => '^[0-9]+', 'min' => '0']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('nombres', 'Nombre') !!}

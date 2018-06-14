@@ -7,7 +7,7 @@
         {!! Form::open(['route'=> ['estudiantes.update', $user], 'method' => 'put' ]) !!} 
             <div class="form-group">
                 {!! Form::label('codigo', 'Documento de identidad') !!}
-                {!! Form::text('codigo', $user->estudiante->codigo, ['class' => 'form-control', 'placeholder' => 'Numero de documento', 'required']) !!}
+                {!! Form::text('codigo', $user->estudiante->codigo, ['class' => 'form-control', 'placeholder' => 'Numero de documento', 'required', 'pattern' => '^[0-9]+', 'min' => '0']) !!}
             </div>
             <div class=form-row>
                 <div class="form-group col-md-6">

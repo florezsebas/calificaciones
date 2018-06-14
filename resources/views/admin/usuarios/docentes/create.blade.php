@@ -6,7 +6,7 @@
 {!! Form::open(['route'=>'docentes.store']) !!} 
     <div class="form-group">
         {!! Form::label('codigo', 'Documento de identidad') !!}
-        {!! Form::number('codigo', null, ['class' => 'form-control', 'placeholder' => 'Numero de documento', 'required']) !!}
+        {!! Form::number('codigo', null, ['class' => 'form-control', 'placeholder' => 'Numero de documento', 'required', 'pattern' => '^[0-9]+', 'min' => '0']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('nombres', 'Nombre') !!}

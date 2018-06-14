@@ -9,14 +9,14 @@
     </div>
     <div class="form-group">
         {!! Form::label('jornada_id', 'Jornada') !!}
-        {!! Form::select('jornada_id', $jornadas, $selected=null, ['class' => 'form-control','placeholder' => 'Seleccione una jornada', 'required']) !!}
+        {!! Form::select('jornada_id', $jornadas, $selected=null, ['class' => 'form-control', 'placeholder' => 'Seleccione jornada', 'required', 'id' => 'jornada']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('grado_id', 'Grado') !!}
-        {!! Form::select('grado_id', $grados, $selected=null, ['class' => 'form-control','placeholder' => 'Seleccione un grado', 'required']) !!}
+        {!! Form::select('grado_id', [], $selected=null, ['class' => 'form-control','placeholder' => 'Seleccione grado', 'required', 'id' => 'grado']) !!}
     </div>
     {!! Form::submit('Agregar grupo', ['class' => 'btn btn-primary']) !!}
     <a href="{{ route('grupos.index') }}" class="btn btn-primary">Cancelar</a>
 {!! Form::close() !!}
-
+{{ Html::script('js/adminGrupos/desplegarGrados.js'),array(),true }}
 @endsection
