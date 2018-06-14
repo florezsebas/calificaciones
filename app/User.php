@@ -45,6 +45,6 @@ class User extends Authenticatable
     }
 
     public function getFullNameAttribute() {
-        return $this->nombres . ' ' . $this->apellidos;
+        return $this->codigo . ': ' . $this->nombres . ' ' . $this->apellidos;
     }
 }
