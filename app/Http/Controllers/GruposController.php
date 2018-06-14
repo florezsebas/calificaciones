@@ -15,9 +15,17 @@ class GruposController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     
+    public function loadGroups(Request $request) {
+        if($request->ajax()) {
+            $grados = Grado::where("jornada_id",$request->jornada_id)->pluck('nombre','id');
+            return response()->json($grados);
+        }
+    }
+    
     public function index()
     {
-        $grupos = Grupo::all();
+        $grupos = Grupo::orderBy('id', 'ASC')->paginate(5);
         return view('admin.grupos.index')->with('grupos', $grupos);
     }
 
@@ -28,11 +36,10 @@ class GruposController extends Controller
      */
     public function create()
     {
-        $jornadas = Jornada::all()->pluck('nombre', 'id');
         $grados = Grado::all()->pluck('nombre', 'id');
-
-        return view('admin.grupos.create')->with('jornadas', $jornadas)
-                                          ->with('grados', $grados);
+        $jornadas = Jornada::all()->pluck('nombre','id');
+        return view('admin.grupos.create')->with('grados', $grados)
+                                          ->with('jornadas', $jornadas);
     }
 
     /**
@@ -41,12 +48,11 @@ class GruposController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GruposCreateRequest $request)
     {
-        // dd($request->all());
+        //dd($request->all());
         $grupo = new Grupo($request->all());
         $grupo->save();
-        
         return redirect()->route('grupos.index');
     }
 
@@ -89,7 +95,6 @@ class GruposController extends Controller
     {
         $grupo = Grupo::find($id);
         $grupo->nombre = $request->nombre;
-        $grupo->jornada_id = $request->jornada_id;
         $grupo->grado_id = $request->grado_id;
         $grupo->save();
         
