@@ -9,16 +9,11 @@ class Grupo extends Model
   protected $table="grupos";
   protected $fillable=[
     'nombre',
-    'jornada_id',
-    'grado_id'
+    'grado_id',
   ];
 
   public function grado() {
     return $this->belongsTo('App\Grado');
-  }
-
-  public function jornada() {
-    return $this->belongsTo('App\Jornada');
   }
 
   public function estudiantes() {
