@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Docente;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Jornada;
+use App\Curso;
 
 class ListarEstudiantesController extends Controller
 {
@@ -15,33 +16,14 @@ class ListarEstudiantesController extends Controller
         return view('docentes.listarestudiantes.index')->with('jornadas',$jornadas);
     }
 
-    public function create()
-    {
-        //
-    }
 
-    public function store(Request $request)
-    {
-        //
+    public function listingStudents(Request $request) {
+        $curso = Curso::where('id', $request->curso_id)->first();
+        $grupo = $curso->grupo;
+        $estudiantes = $grupo->estudiantes;
+        return view('docentes.listarestudiantes.list')->with('estudiantes',$estudiantes)
+                                                      ->with('grupo',$grupo)
+                                                      ->with('curso',$curso);
     }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
-    }
+    
 }
