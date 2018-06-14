@@ -1,10 +1,25 @@
 /*global $*/
+function formateo_por_jornada() {
+    $('#grado').empty(); $('#grupo').empty(); $('#curso').empty();
 
-function clear() {
-    $('#grupo').empty();
-    $('#curso').empty();
+    $('#grado').append('<option value="">Seleccione grado</option>');
+    $('#grupo').append('<option value="">Seleccione grupo</option>');
+    $('#curso').append('<option value="">Seleccione curso</option>');
 }
-    
+
+function formateo_por_grado() {
+    $('#grupo').empty(); $('#curso').empty();
+
+    $('#grupo').append('<option value="">Seleccione grupo</option>');
+    $('#curso').append('<option value="">Seleccione curso</option>');
+}
+
+function formateo_por_grupo() {
+    $('#curso').empty();
+
+    $('#curso').append('<option value="">Seleccione curso</option>');
+}
+
 $(document).ready(function() {
     
     $('#jornada').on('change', function() {
@@ -22,13 +37,8 @@ $(document).ready(function() {
                 },
 
                 success:function(data) {
-                    $('#grado').empty();
-                    $('#grupo').empty();
-                    $('#curso').empty();
-                    $('#grado').append('<option value="">Seleccione grado</option>');
-
+                    window.formateo_por_jornada();
                     $.each(data, function(key, value) {
-
                         $('#grado').append('<option value="'+ key +'">' + value + '</option>');
                     });
                 },
@@ -38,11 +48,8 @@ $(document).ready(function() {
                 }
             });
         } 
-        else{
-            $('#grado').empty();
-            $('#grupo').empty();
-            $('#curso').empty();
-        }
+        else
+            window.formateo_por_jornada();
     });
     
     $('#grado').on('change', function() {
@@ -60,13 +67,9 @@ $(document).ready(function() {
                 },
 
                 success:function(data) {
-                    $('#grupo').empty();
-                    $('#grupo').append('<option value="">Seleccione grupo</option>');
-
+                    window.formateo_por_grado();
                     $.each(data, function(key, value) {
-
                         $('#grupo').append('<option value="'+ key +'">' + value + '</option>');
-
                     });
                 },
 
@@ -75,9 +78,8 @@ $(document).ready(function() {
                 }
             });
         } 
-        else{
-            window.clear();
-        }
+        else
+            window.formateo_por_grado();
     });
 
     $('#grupo').on('change', function() {
@@ -95,13 +97,9 @@ $(document).ready(function() {
                 },
 
                 success:function(data) {
-                    $('#curso').empty();
-                    $('#curso').append('<option value="">Seleccione curso</option>');
-
+                    window.formateo_por_grupo();
                     $.each(data, function(key, value) {
-
                         $('#curso').append('<option value="'+ key +'">' + value + '</option>');
-
                     });
                 },
 
@@ -110,10 +108,8 @@ $(document).ready(function() {
                 }
             });
         }
-        else{
-            $('#curso').empty();
-
-        }
+        else
+            window.formateo_por_grupo();
     });
 
 });
