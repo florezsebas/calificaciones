@@ -9,8 +9,8 @@ class Curso extends Model
   protected $table="cursos";
   protected $fillable=[
     'nombre',
-    'codigo_docente',
-    'grupo_id'
+    'docente_id',
+    'grupo_id',
   ];
 
   public function grupo() {
@@ -18,7 +18,7 @@ class Curso extends Model
   }
 
   public function docente() {
-    return $this->belongsTo('App\Docente','codigo_docente');
+    return $this->belongsTo('App\Docente', 'docente_id');
   }
 
   public function actividades() {
