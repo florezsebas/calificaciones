@@ -86,9 +86,12 @@ Route::group(['prefix' => 'docentes'], function() {
       return view('layouts.docentes');
    });
    
-   Route::get('listar_estudiantes','Docente\AjaxController@index');
-   Route::get('actividades','Docente\AjaxController@index');
-   Route::get('calificaciones','Docente\AjaxController@index');
-   Route::get('observaciones','Docente\AjaxController@index');
+   Route::get('recursos/cargar_grados','Docente\AjaxController@loadGrados');
+   Route::get('recursos/cargar_grupos','Docente\AjaxController@loadGroups');
+   Route::get('recursos/cargar_cursos','Docente\AjaxController@loadCourses');
+   Route::get('listar_estudiantes','Docente\ListarEstudiantesController@index');
+   Route::get('actividades','Docente\ActividadesController@index');
+   Route::get('calificaciones','Docente\CalificacionesController@index');
+   Route::get('observaciones','Docente\ObservacionesController@index');
 
 });
