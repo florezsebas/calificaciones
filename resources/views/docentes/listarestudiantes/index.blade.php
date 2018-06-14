@@ -1,9 +1,8 @@
 @extends('layouts.docentes')
 
 @section('content')
-<h2>Grupos</h2> <br>
-<!--<a href="{{ route('cursos.create') }}" class="btn btn-primary" style="margin-bottom:1em">Nuevo curso</a>-->
-{!! Form::open(['route' => 'cursos.store']) !!}
+<h2>Listar estudiantes</h2> <br>
+{!! Form::open(['route' => 'listar_estudiantes.list']) !!}
   <div class="form-row">
     <div class="form-group col-md-3">
       {!! Form::label('jornada_id', 'Jornada') !!}
@@ -23,7 +22,6 @@
     </div>
   </div>
 {!! Form::submit('Aceptar', ['class' => 'btn btn-primary']) !!}
-<a href="{{ url('docentes/') }}" class="btn btn-primary ">Cancelar</a>
 {!! Form::close() !!}
 {{ Html::script('js/docente/recursos.js'),array(),true }}
 @endsection
