@@ -9,7 +9,8 @@ class Calificacion extends Model
     protected $table="calificaciones";
     protected $fillable=['valor',
       'curso_id',
-      'codigo_estudiante'
+      'codigo_estudiante',
+      'actividad_id',
     ];
 
     public function estudiantes() {
@@ -22,5 +23,9 @@ class Calificacion extends Model
     
     public function periodo() {
       return $this->hasMany('App\Periodo')
+    }
+    
+    public function actividad() {
+      return $this->belongsTo('App\Actividad');
     }
 }

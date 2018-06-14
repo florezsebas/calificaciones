@@ -19,6 +19,11 @@ class CreateCalificacionesTable extends Migration
             $table->unsignedInteger('curso_id');
             $table->unsignedInteger('periodo_id');
             $table->unsignedInteger('estudiante_id');
+            $table->unsignedInteger('actividad_id');
+            
+            $table->foreign('actividad_id')
+                  ->references('id')->on('actividades')
+                  ->onDelete('cascade');
             
             $table->foreign('curso_id')
                   ->references('id')->on('cursos')

@@ -10,7 +10,7 @@ class Actividad extends Model
   protected $fillable=[
     'nombre',
     'porcentaje',
-    'curso_id'
+    'curso_id',
   ];
 
   public function subactividades() {
@@ -19,5 +19,9 @@ class Actividad extends Model
 
   public function curso() {
     return $this->belongsTo('App\Curso');
+  }
+  
+  public function calificacion() {
+    return $this->hasOne('App\Calificacion');
   }
 }
