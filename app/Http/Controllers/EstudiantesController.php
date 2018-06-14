@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use App\Http\Requests\UserCreateRequest;
 use App\User;
 use App\Grupo;
 use App\Grado;
@@ -41,10 +42,12 @@ class EstudiantesController extends Controller
         $jornadas = Jornada::all()->pluck('nombre', 'id');
         $grados = Grado::all()->pluck('nombre', 'id');
         $grupos = Grupo::all()->pluck('nombre', 'id');
+        $acudientes = User::has('acudiente')->get()->pluck('full_name', 'id');
         //dd($jornadas);
         return view('admin.usuarios.estudiantes.create')->with('jornadas', $jornadas)
                                                         ->with('grados', $grados)
-                                                        ->with('grupos', $grupos);
+                                                        ->with('grupos', $grupos)
+                                                        ->with('acudientes', $acudientes);
     }
 
     /**
@@ -53,7 +56,7 @@ class EstudiantesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserCreateRequest $request)
     {
         $datos = $request->all();
         $user = new User($request->all());
