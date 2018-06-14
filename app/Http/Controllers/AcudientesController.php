@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Acudiente;
 use Laracasts\Flash\Flash;
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserCreateRequest;
 
 class AcudientesController extends Controller
 {
@@ -43,7 +43,7 @@ class AcudientesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+    public function store(UserCreateRequest $request)
     {
         $datos = $request->all();
         $user = new User($request->all());
