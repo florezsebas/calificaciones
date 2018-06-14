@@ -33,7 +33,7 @@ class Estudiante extends Model
   }
   
   public function user() {
-    return $this->belongsTo('App\User', 'id', 'codigo');
+    return $this->belongsTo('App\User');
   }
 
 }
