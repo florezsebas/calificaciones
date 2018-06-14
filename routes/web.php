@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin'], function(){
    
    Route::get('/',function() {
-      return view('layouts.admin');
+      return view('admin.dashboard');
    });
    
    Route::resource('usuarios/docentes', 'DocentesController');
@@ -86,10 +86,9 @@ Route::group(['prefix' => 'docentes'], function() {
       return view('layouts.docentes');
    });
    
-   // Route::resource('grupos', 'Docentes/VerGruposController');
-   Route::get('grupos','VerGruposController@index');
-   
-   Route::get('cargarGrados','VerGruposController@loadGrados');
-   Route::get('cargarGrupos','VerGruposController@loadGroups');
-   Route::get('cargarCursos','VerGruposController@loadCourses');
+   Route::get('listar_estudiantes','Docente\AjaxController@index');
+   Route::get('actividades','Docente\AjaxController@index');
+   Route::get('calificaciones','Docente\AjaxController@index');
+   Route::get('observaciones','Docente\AjaxController@index');
+
 });
