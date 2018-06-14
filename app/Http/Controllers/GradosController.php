@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Grado;
+use App\Jornada;
 use Laracasts\Flash\Flash;
 
 class GradosController extends Controller
@@ -26,7 +27,10 @@ class GradosController extends Controller
      */
     public function create()
     {
-        return view('admin.grados.create');
+        $jornadas = Jornada::all()->pluck('nombre', 'id');
+        //dd($jornadas);
+        return view('admin.grados.create')->with('jornadas', $jornadas);
+        
     }
 
     /**
@@ -66,7 +70,6 @@ class GradosController extends Controller
     public function edit($id)
     {
         $grado = Grado::find($id);
-        
         return view('admin.grados.edit')->with('grado', $grado);
     }
 
