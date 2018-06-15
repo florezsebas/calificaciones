@@ -16,7 +16,7 @@ class GradosController extends Controller
      */
     public function index()
     {
-        $grados = Grado::all();
+        $grados = Grado::orderBy('id', 'ASC')->paginate(6);
         return view('admin.grados.index')->with('grados', $grados);
     }
 
@@ -70,7 +70,9 @@ class GradosController extends Controller
     public function edit($id)
     {
         $grado = Grado::find($id);
-        return view('admin.grados.edit')->with('grado', $grado);
+        $jornadas = Jornada::all()->pluck('nombre', 'id');
+        return view('admin.grados.edit')->with('grado', $grado)
+                                        ->with('jornadas', $jornadas);
     }
 
     /**
