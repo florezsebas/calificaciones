@@ -1,26 +1,18 @@
-@extends('layouts.admin')
+@extends('layouts.docentes')
 
 @section('content')
-<h2>Editar curso</h2> <br>
-{!! Form::open(['route' => ['cursos.update', $curso], 'method' => 'put']) !!}
-    <div class="form-group">
-        {!! Form::label('nombre', 'Nombre') !!}
-        {!! Form::text('nombre', $curso->nombre, ['class' => 'form-control', 'placeholder' => 'Nombre del curso', 'required']) !!}
+<h2>Editar actividad</h2> <br>
+{!! Form::open(['route' => ['actividades.update', $actividad], 'method' => 'put']) !!}
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      {!! Form::label('nombre', 'Nombre') !!}
+      {!! Form::text('nombre' , $actividad->nombre, ['class' => 'form-control','placeholder' => 'Nombre de la actividad', 'required']) !!}
     </div>
-    <div class="form-group">
-        {!! Form::label('docente_id', 'Docente') !!}
-        {!! Form::select('docente_id', $docentes, $curso->docente_id, ['class' => 'form-control','placeholder' => 'Profesor a cargo', 'required']) !!}
+    <div class="form-group col-md-3">
+      {!! Form::label('porcentaje', 'Porcentaje') !!}
+      {!! Form::number('porcentaje', $actividad->porcentaje, ['class' => 'form-control','placeholder' => 'Porcentaje', 'required']) !!}
     </div>
-    <div class="form-group">
-        {!! Form::label('grado_id', 'Grado') !!}
-        {!! Form::select('grado_id', $grados, $curso->grupo->grado_id, ['class' => 'form-control','placeholder' => 'Grado', 'required', 'id' => 'grado']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('grupo_id', 'Grupo') !!}
-        {!! Form::select('grupo_id', [], $curso->grupo->id, ['class' => 'form-control','placeholder' => 'Seleccione el grupo', 'required', 'id' => 'grupo']) !!}
-    </div>
-    {!! Form::submit('Editar curso', ['class' => 'btn btn-primary']) !!}
-    <a href="{{ route('cursos.index') }}" class="btn btn-primary">Cancelar</a>
+  </div>
+{!! Form::submit('Editar actividad', ['class' => 'btn btn-primary']) !!}
 {!! Form::close() !!}
-{{ Html::script('js/cursos/desplegarGrupos.js'),array(),true }}
 @endsection
