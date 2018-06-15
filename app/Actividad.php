@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Actividad extends Model
 {
   protected $table="actividades";
-  protected $fillable=[
+  protected $fillable = [
     'nombre',
     'porcentaje',
     'curso_id',
