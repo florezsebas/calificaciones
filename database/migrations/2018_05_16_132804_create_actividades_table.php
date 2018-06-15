@@ -16,7 +16,7 @@ class CreateActividadesTable extends Migration
         Schema::create('actividades', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->double('procentaje');
+            $table->double('porcentaje');
             $table->unsignedInteger('curso_id');
             
             $table->foreign('curso_id')
