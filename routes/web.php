@@ -11,13 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('/', 'Auth\LoginController@login');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+Route::auth();
 
 Route::group(['prefix' => 'admin'], function(){
    
@@ -38,7 +35,7 @@ Route::group(['prefix' => 'admin'], function(){
    ]);
    
    Route::resource('usuarios/estudiantes', 'EstudiantesController');
-   Route::get('usuarios/Estudiantes/{id}/destroy', [
+   Route::get('usuarios/estudiantes/{id}/destroy', [
             'uses' => 'EstudiantesController@destroy',
             'as' =>   'estudiantes.destroy'
    ]);
@@ -86,12 +83,44 @@ Route::group(['prefix' => 'docentes'], function() {
       return view('layouts.docentes');
    });
    
+   Route::get('estudiantes', 'Docentes\ListarEstudiantesController@index')->name('estudiantes.index');
+   
+   Route::get('estudiantes/list/{id}', [
+      'uses' => 'Docente\ListarEstudiantesController@listingStudents',
+      'as' => 'estudiantes.list'
+   ]);
+   
+   Route::get('actividades','Docente\ActividadesController@index')->name('actividades.index');
+   Route::get('actividades/list/{id}', [
+      'uses' => 'Docente\ActividadesController@listingActivities',
+      'as' => 'actividades.list'
+   ]);
+   Route::get('actividades/create/{curso_id}', [
+      'uses' => 'Docente\ActividadesController@create',
+      'as' => 'actividades.create'
+   ]);
+   Route::post('actividades/store/{curso_id}', [
+      'uses' => 'Docente\ActividadesController@store',
+      'as' => 'actividades.store'
+   ]);
+   Route::get('actividades/edit/{curso_id}', [
+      'uses' => 'Docente\ActividadesController@edit',
+      'as' => 'actividades.edit'
+   ]);
+   Route::put('actividades/update/{curso_id}', [
+      'uses' => 'Docente\ActividadesController@update',
+      'as' => 'actividades.update'
+   ]);
+   Route::get('actividades/{id}/destroy', [
+      'uses' => 'Docente\ActividadesController@destroy',
+      'as' => 'actividades.destroy'
+   ]);
+
+   Route::resource('calificaciones','Docente\CalificacionesController');
+   Route::resource('observaciones','Docente\ObservacionesController');
+   
    Route::get('recursos/cargar_grados','Docente\AjaxController@loadGrados');
    Route::get('recursos/cargar_grupos','Docente\AjaxController@loadGroups');
    Route::get('recursos/cargar_cursos','Docente\AjaxController@loadCourses');
-   Route::get('listar_estudiantes','Docente\ListarEstudiantesController@index');
-   Route::get('actividades','Docente\ActividadesController@index');
-   Route::get('calificaciones','Docente\CalificacionesController@index');
-   Route::get('observaciones','Docente\ObservacionesController@index');
 
 });
