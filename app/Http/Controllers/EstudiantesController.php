@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\UserCreateRequest;
+use Laracasts\Flash\Flash;
 use App\User;
 use App\Grupo;
 use App\Grado;
@@ -90,16 +91,18 @@ class EstudiantesController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        $user->load('estudiante');
+        //$acudiente = $user->estudiante->grupo->grado->jornada_id;
         
         $jornadas = Jornada::all()->pluck('nombre','id');
         $grados = Grado::all()->pluck('nombre','id');
         $grupos = Grupo::all()->pluck('nombre','id');
-        
+        $acudientes = User::has('acudiente')->get()->pluck('full_name', 'id');
+        //dd($acudientes);
         return view('admin.usuarios.estudiantes.edit')->with('user',$user)
                                                       ->with('jornadas',$jornadas)
                                                       ->with('grados',$grados)
-                                                      ->with('grupos',$grupos);
+                                                      ->with('grupos',$grupos)
+                                                      ->with('acudientes', $acudientes);
     }
 
     /**
@@ -112,16 +115,19 @@ class EstudiantesController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
-        $estudiante = Estudiante::find($user->estudiante->codigo);
+        $user->codigo = $request->codigo;
         $user->nombres = $request->nombres;
         $user->apellidos = $request->apellidos;
         $user->fecha_nacimiento = $request->fecha_nacimiento;
         $user->email = $request->email;
-        $estudiante->codigo = $request->codigo;
+        
+        $estudiante = Estudiante::find($user->id);
         $estudiante->grupo_id = $request->grupo_id;
         $estudiante->acudiente_id = $request->acudiente_id;
         $estudiante->save();
         $user->save();
+        
+        Flash::success("Se ha editado el estudiante " . $user->nombres . " de forma exitosa!");
         
         return redirect()->route('estudiantes.index');
         
@@ -135,6 +141,7 @@ class EstudiantesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
     }
 }

@@ -25,7 +25,7 @@
           <td>{{ $grupo->grado->jornada->nombre  }}</td>
           <td>
               <a href="{{ route('grupos.edit', $grupo->id) }}" class="btn btn-primary btn-sm pull-left">Editar</a>
-              <a href="{{ route('grupos.destroy', $grupo->id) }}" class="btn btn-danger btn-sm pull-left">Eliminar</a></td>
+              <a href="{{ route('grupos.destroy', $grupo->id) }}" onClick="return confirm('¿Esta seguro que desea eliminar este registro?')" class="btn btn-danger btn-sm pull-left">Eliminar</a></td>
           </td>
       @endforeach
         </tr>

@@ -9,11 +9,11 @@
     </div>
     <div class="form-group">
         {!! Form::label('hora_inicio', 'Hora de inicio') !!}
-        {!! Form::text('hora_inicio', null, ['class' => 'form-control', 'placeholder' => 'HH:MM:SS']) !!}
+        {!! Form::time('hora_inicio', null, ['class' => 'form-control']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('hora_fin', 'Hora de finalizacion')!!}
-        {!! Form::text('hora_fin', null, ['class' => 'form-control', 'placeholder' => 'HH:MM:SS']) !!}
+        {!! Form::label('hora_fin', 'Hora de inicio') !!}
+        {!! Form::time('hora_fin', null, ['class' => 'form-control']) !!}
     </div>
     {!! Form::submit('Agregar jornada', ['class' => 'btn btn-primary']) !!}
     <a href="{{ route('jornadas.index') }}" class="btn btn-primary">Cancelar</a>

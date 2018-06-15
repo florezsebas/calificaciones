@@ -59,11 +59,11 @@ class PeriodosController extends Controller
     
     public function destroy($id)
     {
-        $grupo = Grupo::find($id);
-        $grupo->delete();
+        $periodo = Periodo::find($id);
+        $periodo->delete();
         
-        Flash::warning("El grupo " . $grupo->grado->nombre ." ". $grupo->nombre . " se ha eliminado de forma exitosa");
+        Flash::warning("El Periodo " . $periodo->nombre  . " se ha eliminado de forma exitosa");
         
-        return redirect()->route('grupos.index');
+        return redirect()->route('periodos.index');
     }
 }

@@ -43,11 +43,11 @@
             </div>
             <div class="form-group">
                 {!! Form::label('acudiente_id', 'Acudiente') !!}
-                {!! Form::select('acudiente', $acudientes, null, ['class' => 'form-control', 'placeholder' => 'Seleccione un acudiente']) !!}
+                {!! Form::select('acudiente_id', $acudientes, null, ['class' => 'form-control', 'placeholder' => 'Seleccione un acudiente']) !!}
             </div>
             <div class='form-group'>
                 {!! Form::submit('Agregar Estudiante', ['class' => 'btn btn-primary']) !!}
-                <a href="" class="btn btn-primary">Cancelar</a>
+                <a href="{{ route('estudiantes.index') }}" class="btn btn-primary">Cancelar</a>
             </div>
         {!! Form::close() !!}
     </div>

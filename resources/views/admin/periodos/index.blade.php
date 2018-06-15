@@ -25,7 +25,7 @@
         <td>{{ $periodo->fecha_fin }}</td>
         <td>
             <a href="{{ route('periodos.edit', $periodo->id) }}" class="btn btn-primary btn-sm pull-left">Editar</a>
-            <a href="{{ route('periodos.destroy', $periodo->id) }}" class="btn btn-danger btn-sm pull-left">Eliminar</a></td>
+            <a href="{{ route('periodos.destroy', $periodo->id) }}" onClick="return confirm('¿Esta seguro que desea eliminar este registro?')" class="btn btn-danger btn-sm pull-left">Eliminar</a></td>
         </td>
     @endforeach
       </tr>

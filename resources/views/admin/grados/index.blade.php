@@ -23,11 +23,12 @@
           <td>{{ $grado->jornada->nombre}}</td>
           <td>
               <a href="{{ route('grados.edit', $grado->id) }}" class="btn btn-primary btn-sm pull-left">Editar</a>
-              <a href="{{ route('grados.destroy', $grado->id) }}"  class="btn btn-danger btn-sm pull-left">Eliminar</a></td>
+              <a href="{{ route('grados.destroy', $grado->id) }}" onClick="return confirm('¿Esta seguro que desea eliminar este registro?')"  class="btn btn-danger btn-sm pull-left">Eliminar</a></td>
           </td>
       @endforeach
         </tr>
     </tbody>
+     {!! $grados->render() !!}
 </table>
 </div>
 

@@ -21,12 +21,6 @@ class DocentesController extends Controller
     {
 
         $users = User::has('docente')->paginate(5);
-        //$docentes = User::orderBy('id', 'ASC');
-        /*$users->each(function($users) {
-            $users->load('docente');
-        });*/
-        //$users = $this->paginate($docentes, 2);
-        // dd($users);
         return view('admin.usuarios.docentes.index')->with('users',$users);
     }
 
@@ -84,7 +78,7 @@ class DocentesController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        $user->load('docente');
+        $user->docente;
         //dd($user->id);
         return view('admin.usuarios.docentes.edit')->with('user', $user);
     }
@@ -100,13 +94,12 @@ class DocentesController extends Controller
     {
         
         $user = User::find($id);
-        $docente = Docente::find($user->docente->codigo);
-        $user->load('docente');
         $user->nombres = $request->nombres;
         $user->apellidos = $request->apellidos;
         $user->fecha_nacimiento = $request->fecha_nacimiento;
         $user->email = $request->email;
-        $docente->codigo = $request->codigo;
+        $user->codigo = $request->codigo;
+        $docente = Docente::find($user->id);
         $docente->save();
         $user->save();
         

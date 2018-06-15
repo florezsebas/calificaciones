@@ -7,7 +7,7 @@
         {!! Form::open(['route'=> ['estudiantes.update', $user], 'method' => 'put' ]) !!} 
             <div class="form-group">
                 {!! Form::label('codigo', 'Documento de identidad') !!}
-                {!! Form::text('codigo', $user->estudiante->codigo, ['class' => 'form-control', 'placeholder' => 'Numero de documento', 'required', 'pattern' => '^[0-9]+', 'min' => '0']) !!}
+                {!! Form::text('codigo', $user->codigo, ['class' => 'form-control', 'placeholder' => 'Numero de documento', 'required', 'pattern' => '^[0-9]+', 'min' => '0']) !!}
             </div>
             <div class=form-row>
                 <div class="form-group col-md-6">
@@ -30,20 +30,20 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     {!! Form::label('jornada_id', 'Jornada') !!}
-                    {!! Form::select('jornada_id', $jornadas, $selected=$user->estudiante->grupo->jornada_id, ['class' => 'form-control','placeholder' => 'Seleccione una jornada']) !!}
+                    {!! Form::select('jornada_id', $jornadas, $user->estudiante->grupo->grado->jornada_id, ['class' => 'form-control','placeholder' => 'Seleccione una jornada']) !!}
                 </div>
                 <div class="form-group col-md-4">
                     {!! Form::label('grado_id', 'Grado') !!}
-                    {!! Form::select('grado', $grados, $selected=$user->estudiante->grupo->grado_id, ['class' => 'form-control','placeholder' => 'Seleccione un grado']) !!}
+                    {!! Form::select('grado', $grados, $user->estudiante->grupo->grado_id, ['class' => 'form-control','placeholder' => 'Seleccione un grado']) !!}
                 </div>
                 <div class="form-group col-md-4">
                     {!! Form::label('grupo_id', 'Grupo') !!}
-                    {!! Form::select('grupo_id', $grupos, $selected=$user->estudiante->grupo_id, ['class' => 'form-control','placeholder' => 'Seleccione un grupo']) !!}
+                    {!! Form::select('grupo_id', $grupos, $user->estudiante->grupo_id, ['class' => 'form-control','placeholder' => 'Seleccione un grupo']) !!}
                 </div>
             </div>
             <div class="form-group">
                 {!! Form::label('acudiente_id', 'Acudiente') !!}
-                {!! Form::text('acudiente_id', $user->estudiante->acudiente->user->nombres ." ". $user->estudiante->acudiente->user->apellidos, ['class' => 'form-control', 'placeholder' => 'Numero de documento o nombre', 'required']) !!}
+                {!! Form::select('acudiente_id', $acudientes, $user->estudiante->acudiente_id, ['class' => 'form-control', 'placeholder' => 'Seleccione un acudiente']) !!}
             </div>
             <div class='form-group'>
                 {!! Form::submit('Agregar Estudiante', ['class' => 'btn btn-primary']) !!}

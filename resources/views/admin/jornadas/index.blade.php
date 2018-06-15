@@ -21,8 +21,8 @@
         <tr>
           <td>{{ $jornada->id}}</td>
           <td>{{ $jornada->nombre}}</td>
-          <td>{{ $jornada->fecha_inicio}}</td>
-          <td>{{ $jornada->fecha_fin}}</td>
+          <td>{{ $jornada->hora_inicio }}</td>
+          <td>{{ $jornada->hora_fin }}</td>
           <td>
               <a href="{{ route('jornadas.edit', $jornada->id) }}" class="btn btn-primary btn-sm pull-left">Editar</a>
               <a href="{{ route('jornadas.destroy', $jornada->id) }}" onClick="return confirm('¿Esta seguro que desea eliminar este registro?')" class="btn btn-danger btn-sm pull-left">Eliminar</a></td>
