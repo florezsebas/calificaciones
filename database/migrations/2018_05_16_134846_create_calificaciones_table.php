@@ -16,7 +16,6 @@ class CreateCalificacionesTable extends Migration
         Schema::create('calificaciones', function (Blueprint $table) {
             $table->increments('id');
             $table->double('valor');
-            $table->unsignedInteger('curso_id');
             $table->unsignedInteger('periodo_id');
             $table->unsignedInteger('estudiante_id');
             $table->unsignedInteger('actividad_id');
