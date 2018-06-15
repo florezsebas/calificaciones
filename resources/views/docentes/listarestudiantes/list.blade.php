@@ -1,7 +1,7 @@
 @extends('layouts.docentes')
 
 @section('content')
-<h4>Estudiantes del curso de {{$curso->nombre}} del grado {{ $grupo->grado->nombre }} grupo {{$grupo->nombre}} </h4>
+<h4>Estudiantes del curso </h4>
 <div class="table-responsive">
     <table class="table table-striped table-sm">
         <thead>

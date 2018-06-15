@@ -12,17 +12,14 @@ class ListarEstudiantesController extends Controller
 
     public function index()
     {
-        $jornadas = Jornada::all()->pluck('nombre','id');
-        return view('docentes.listarestudiantes.index')->with('jornadas',$jornadas);
+        $cursos = Curso::all();
+        return view('docentes.listarestudiantes.index')->with('cursos', $cursos);
     }
 
-
-    public function listingStudents(Request $request) {
-        $curso = Curso::where('id', $request->curso_id)->first();
-        $grupo = $curso->grupo;
-        $estudiantes = $grupo->estudiantes;
+    public function listingStudents($id) {
+        $curso = Curso::find($id);
+        $estudiantes = $curso->grupo->estudiantes;
         return view('docentes.listarestudiantes.list')->with('estudiantes',$estudiantes)
-                                                      ->with('grupo',$grupo)
                                                       ->with('curso',$curso);
     }
     

@@ -50,7 +50,7 @@
                             </li>
                             
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('docentes/listar_estudiantes') }}">
+                                <a class="nav-link" href="{{ url('docentes/estudiantes') }}">
                                     <span data-feather="users"></span>
                                     Listar estudiantes
                                 </a>
