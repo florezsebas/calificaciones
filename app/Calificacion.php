@@ -7,17 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Calificacion extends Model
 {
     protected $table="calificaciones";
-    protected $fillable=['valor',
-      'codigo_estudiante',
+    protected $fillable = [
+      'valor',
+      'estudiante_id',
       'actividad_id',
     ];
 
-    public function estudiantes() {
-      return $this->belongsTo('App\Estudiante','codigo_estudiante');
+    public function estudiante() {
+      return $this->belongsTo('App\Estudiante');
     }
     
     public function periodo() {
-      return $this->hasMany('App\Periodo')
+      return $this->belongsTo('App\Periodo');
     }
     
     public function actividad() {

@@ -24,6 +24,10 @@ class Curso extends Model
   public function actividades() {
     return $this->hasMany('App\Actividad');
   }
+  
+  public function calificaciones() {
+    return $this->hasMany('App\Calificacion');
+  }
 
   public function observaciones() {
     return $this->hasMany('App\Observacion');
