@@ -33,15 +33,15 @@ class User extends Authenticatable
     ];
     
     public function docente() {
-        return $this->hasOne('App\Docente');
+        return $this->hasOne('App\Docente', 'user_id');
     }
     
     public function estudiante() {
-        return $this->hasOne('App\Estudiante');
+        return $this->hasOne('App\Estudiante', 'user_id');
     }
     
     public function acudiente() {
-        return $this->hasOne('App\Acudiente');
+        return $this->hasOne('App\Acudiente', 'user_id');
     }
 
     public function getFullNameAttribute() {
