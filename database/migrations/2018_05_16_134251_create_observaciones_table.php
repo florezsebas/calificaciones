@@ -15,12 +15,18 @@ class CreateObservacionesTable extends Migration
     {
         Schema::create('observaciones', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('titulo');
             $table->string('descripcion');
+            $table->unsignedInteger('periodo_id');
             $table->unsignedInteger('curso_id');
             $table->unsignedInteger('estudiante_id');
             
             $table->foreign('curso_id')
                   ->references('id')->on('cursos')
+                  ->onDelete('cascade');
+                  
+            $table->foreign('periodo_id')
+                  ->references('id')->on('periodos')
                   ->onDelete('cascade');
             
             $table->foreign('estudiante_id')
