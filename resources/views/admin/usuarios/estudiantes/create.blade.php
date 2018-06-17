@@ -38,7 +38,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     {!! Form::label('grupo_id', 'Grupo') !!}
-                    {!! Form::select('grupo_id', [], null, ['class' => 'form-control','placeholder' => 'Seleccione un grupo', 'id' => 'grupo']) !!}
+                    {!! Form::select('grupo_id', $grupos, null, ['class' => 'form-control','placeholder' => 'Seleccione un grupo', 'id' => 'grupo']) !!}
                 </div>
             </div>
             <div class="form-group">
@@ -52,5 +52,4 @@
         {!! Form::close() !!}
     </div>
 </div>
-
 @endsection
