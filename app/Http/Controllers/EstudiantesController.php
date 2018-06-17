@@ -67,8 +67,10 @@ class EstudiantesController extends Controller
         $user->save();
         $estudiante = new Estudiante();
         $estudiante->grupo_id = $datos['grupo_id'];
-        $estudiante->acudiente_id = $datos['codigo_acudiente'];
+        $estudiante->acudiente_id = $request->acudiente_id;
         $user->estudiante()->save($estudiante);
+        
+        return redirect()->route('estudiantes.index');
     }
 
     /**
