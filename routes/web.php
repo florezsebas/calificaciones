@@ -122,11 +122,11 @@ Route::group(['prefix' => 'docentes'], function() {
       'uses' => 'Docente\CalificacionesController@listingActivities',
       'as' => 'calificaciones.actividades.list'
    ]);
-   Route::get('calificaciones/estudiantes/{curso_id}', [
+   Route::get('calificaciones/estudiantes/{curso_id}/{act_id}', [
       'uses' => 'Docente\CalificacionesController@listingStudents',
       'as' => 'calificaciones.estudiantes.list'
    ]);
-   Route::post('calificaciones/store/{curso_id}', [
+   Route::post('calificaciones/store/{curso_id}/{act_id}', [
       'uses' => 'Docente\CalificacionesController@store',
       'as' => 'calificaciones.store'
    ]);
