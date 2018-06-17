@@ -10,7 +10,7 @@
     </div>
     <div class="form-group col-md-3">
       {!! Form::label('porcentaje', 'Porcentaje') !!}
-      {!! Form::number('porcentaje', $actividad->porcentaje, ['class' => 'form-control','placeholder' => 'Porcentaje', 'required']) !!}
+      {!! Form::number('porcentaje', $actividad->porcentaje, ['class' => 'form-control', 'step' => "0.01",'placeholder' => 'Porcentaje','min'=>'0', 'max'=>$porcentaje_disp, 'required']) !!}
     </div>
   </div>
 {!! Form::submit('Editar actividad', ['class' => 'btn btn-primary']) !!}
