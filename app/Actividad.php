@@ -20,4 +20,8 @@ class Actividad extends Model
   public function curso() {
     return $this->belongsTo('App\Curso');
   }
+  
+  public function calificacion() {
+    return $this->hasOne('App\Calificacion');
+  }
 }
