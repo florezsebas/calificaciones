@@ -23,14 +23,19 @@ class ActividadesController extends Controller
         
         $curso = Curso::where('id',$id)->first();
         $actividades = $curso->actividades;
-        //dd($actividades);
         return view('docentes.actividades.list')->with('actividades',$actividades)
                                                 ->with('curso', $curso);
     }
 
     public function create(Request $request, $curso_id) {
         $curso = Curso::find($curso_id);
-        return view('docentes.actividades.create')->with('curso',$curso);
+        $actividades = $curso->actividades;
+        $porcentaje_usado = 0.0;
+        foreach($actividades as $actividad)
+            $porcentaje_usado += $actividad->porcentaje;
+        $porcentaje_disp = 100 - $porcentaje_usado;
+        return view('docentes.actividades.create')->with('curso',$curso)
+                                                  ->with('porcentaje_disp',$porcentaje_disp);
     }
 
     public function store(Request $request,$curso_id)
@@ -41,15 +46,20 @@ class ActividadesController extends Controller
         $actividad->curso_id = $curso_id;
         $actividad->save();
         Flash::success("Se ha creado la actividad ". $actividad->nombre  ." exitosamente!");
-        return view('docentes.actividades.list')->with('curso',$curso)
-                                                ->with('actividades',$actividades);
+        return redirect()->route('actividades.list', $curso->id);
     }
 
     public function edit(Request $request,$actividad_id)
     {
         $actividad = Actividad::find($actividad_id);
-        
-        return view('docentes.actividades.edit')->with('actividad',$actividad);
+        $curso = Curso::find($actividad->curso_id);
+        $actividades = $curso->actividades;
+        $porcentaje_usado = 0.0;
+        foreach($actividades as $act)
+            $porcentaje_usado += $act->porcentaje;
+        $porcentaje_disp = 100 - $porcentaje_usado + $actividad->porcentaje;
+        return view('docentes.actividades.edit')->with('actividad',$actividad)
+                                                ->with('porcentaje_disp',$porcentaje_disp);
     }
 
     public function update(Request $request,$actividad_id) {
@@ -60,8 +70,7 @@ class ActividadesController extends Controller
         $curso = Curso::find($actividad->curso_id);
         $actividades = $curso->actividades;
         Flash::success("Se ha editado la actividad " . $actividad->nombre . " exitosamente");
-        return view('docentes.actividades.list')->with('curso', $curso)
-                                                ->with('actividades', $actividades);
+        return redirect()->route('actividades.list', $curso->id);
     }
     
     public function destroy(Request $request,$actividad_id) {
@@ -70,7 +79,7 @@ class ActividadesController extends Controller
         Flash::warning("La actividad ".$actividad->nombre." se ha eliminado correctamente");
         $curso = Curso::find($actividad->curso_id);
         $actividades = $curso->actividades;
-        return view('docentes.actividades.list')->with('curso', $curso)
-                                                ->with('actividades', $actividades);
+        return redirect()->route('actividades.list', $curso->id);
     }
+    
 }
