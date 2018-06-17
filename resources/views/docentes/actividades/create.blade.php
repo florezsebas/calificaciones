@@ -6,11 +6,11 @@
   <div class="form-row">
     <div class="form-group col-md-3">
       {!! Form::label('nombre', 'Nombre') !!}
-      {!! Form::text('nombre', null, $selected=null, ['class' => 'form-control','placeholder' => 'Nombre de la actividad', 'required']) !!}
+      {!! Form::text('nombre', null, ['class' => 'form-control','placeholder' => 'Nombre de la actividad', 'required']) !!}
     </div>
     <div class="form-group col-md-3">
       {!! Form::label('porcentaje', 'Porcentaje') !!}
-      {!! Form::number('porcentaje', null, $selected=null, ['class' => 'form-control','placeholder' => 'Porcentaje', 'required']) !!}
+      {!! Form::number('porcentaje', null, ['class' => 'form-control', 'step' => "0.01",'placeholder' => 'Porcentaje', 'min'=>'0', 'max'=>$porcentaje_disp, 'required' ]) !!}
     </div>
   </div>
 {!! Form::submit('Agregar actividad', ['class' => 'btn btn-primary']) !!}
