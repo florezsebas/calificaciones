@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Estudiante extends Model
 {
   protected $primaryKey = 'user_id';
-  protected $table="estudiantes";
-  protected $fillable=[
+  protected $table = "estudiantes";
+  protected $fillable = [
     'grupo_id',
     'acudiente_id',
     'user_id',
@@ -25,11 +25,11 @@ class Estudiante extends Model
   }
   
   public function observaciones() {
-    return $this->hasMany('App\Observacion','codigo_estudiante','codigo');
+    return $this->hasMany('App\Observacion', 'estudiante_id');
   }
 
   public function calificaciones() {
-    return $this->hasMany('App\Calificacion','codigo_estudiante','codigo');
+    return $this->hasMany('App\Calificacion');
   }
   
   public function user() {
