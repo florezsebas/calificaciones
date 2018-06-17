@@ -103,15 +103,15 @@ Route::group(['prefix' => 'docentes'], function() {
       'uses' => 'Docente\ActividadesController@store',
       'as' => 'actividades.store'
    ]);
-   Route::get('actividades/edit/{curso_id}', [
+   Route::get('actividades/edit/{act_id}', [
       'uses' => 'Docente\ActividadesController@edit',
       'as' => 'actividades.edit'
    ]);
-   Route::put('actividades/update/{curso_id}', [
+   Route::put('actividades/update/{act_id}', [
       'uses' => 'Docente\ActividadesController@update',
       'as' => 'actividades.update'
    ]);
-   Route::get('actividades/{id}/destroy', [
+   Route::get('actividades/destroy/{act_id}', [
       'uses' => 'Docente\ActividadesController@destroy',
       'as' => 'actividades.destroy'
    ]);
