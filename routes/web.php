@@ -84,7 +84,7 @@ Route::group(['prefix' => 'docentes'], function() {
    });
   
    //Route::resource('listar','Docente\ListarEstudiantesController');
-   Route::get('estudiantes','Docente\ListarEstudiantesController@index')->name('estudiantes.index');
+   Route::get('estudiantes','Docente\ListarEstudiantesController@index')->name('listar.estudiantes.index');
    Route::get('estudiantes/list/{id}', [
       'uses' => 'Docente\ListarEstudiantesController@listingStudents',
       'as' => 'estudiantes.list'
@@ -122,11 +122,43 @@ Route::group(['prefix' => 'docentes'], function() {
       'uses' => 'Docente\CalificacionesController@listingActivities',
       'as' => 'calificaciones.actividades.list'
    ]);
+   Route::get('calificaciones/estudiantes/{curso_id}', [
+      'uses' => 'Docente\CalificacionesController@listingStudents',
+      'as' => 'calificaciones.estudiantes.list'
+   ]);
+   Route::post('calificaciones/store/{curso_id}', [
+      'uses' => 'Docente\CalificacionesController@store',
+      'as' => 'calificaciones.store'
+   ]);
    
-   Route::resource('observaciones','Docente\ObservacionesController');
-   
-   Route::get('recursos/cargar_grados','Docente\AjaxController@loadGrados');
-   Route::get('recursos/cargar_grupos','Docente\AjaxController@loadGroups');
-   Route::get('recursos/cargar_cursos','Docente\AjaxController@loadCourses');
+   Route::get('observaciones','Docente\ObservacionesController@index')->name('observaciones.index');
+   Route::get('observaciones/estudiantes/{curso_id}', [
+      'uses' => 'Docente\ObservacionesController@listingStudents',
+      'as' => 'observaciones.estudiantes'
+   ]);
+   Route::get('observaciones/listar/{curso_id}/{user_id}', [
+      'uses' => 'Docente\ObservacionesController@observationStudents',
+      'as' => 'observaciones.listar'
+   ]);
+   Route::get('observaciones/crear/{curso_id}/{user_id}', [
+      'uses' => 'Docente\ObservacionesController@crear',
+      'as' => 'observaciones.crear'
+   ]);
+   Route::post('observaciones/almacenar/{curso_id}/{user_id}', [
+      'uses' => 'Docente\ObservacionesController@almacenar',
+      'as' => 'observaciones.almacenar'
+   ]);
+   Route::get('observaciones/editar/{observacion}', [
+      'uses' => 'Docente\ObservacionesController@editar',
+      'as' => 'observaciones.editar'
+   ]);
+   Route::get('observaciones/destruir/{obs_id}', [
+      'uses' => 'Docente\ObservacionesController@destruir',
+      'as' => 'observaciones.destruir'
+   ]);
+   Route::put('observaciones/actualizar/{obs_id}', [
+      'uses' => 'Docente\ObservacionesController@actualizar',
+      'as' => 'observaciones.actualizar'
+   ]);
 
 });
