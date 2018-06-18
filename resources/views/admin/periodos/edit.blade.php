@@ -15,7 +15,7 @@
         {!! Form::label('fecha_fin', 'Hora de finalización')!!}
         {!! Form::date('fecha_fin', $periodo->fecha_fin, ['class' => 'form-control', 'placeholder' => 'HH:MM:SS', 'required']) !!}
     </div>
-    {!! Form::submit('Editar periodo', ['class' => 'btn btn-primary']) !!}
+    {!! Form::submit('Guardar cambios', ['class' => 'btn btn-primary']) !!}
     <a href="{{ route('periodos.index') }}" class="btn btn-primary">Cancelar</a>
 {!! Form::close() !!}
 @endsection
