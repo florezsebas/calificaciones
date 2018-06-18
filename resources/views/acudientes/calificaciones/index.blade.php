@@ -2,8 +2,8 @@
 
 @section('content')
 <h2>Calificaciones</h2>
-<h2>Estudiantes a cargo</h2>
 <br>
+<h4>Estudiantes a cargo</h4>
 
 <!-- Tabla que muestra los estudiantes asociados al acudiente -->
 <div class="table-responsive">
