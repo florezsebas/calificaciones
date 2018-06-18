@@ -18,7 +18,7 @@ Route::get('/', 'Auth\LoginController@showLoginForm');
 Route::post('login', 'Auth\LoginController@login')->name('login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin','guest']], function(){
+Route::group(['prefix' => 'admin'], function(){
    
    Route::get('/',function() {
       return view('admin.dashboard');
@@ -196,7 +196,7 @@ Route::group(['prefix' => 'acudientes'], function() {
       'uses' => 'Acudiente\ListarObservacionesController@listingObservations',
       'as' => 'observaciones.list'
    ]);
-   Route::get('observaciones/descripcion/{course_id}/{obs_id}', [
+   Route::get('observaciones/descripcion/{obs_id}', [
       'uses' => 'Acudiente\ListarObservacionesController@mostrarObservation',
       'as' => 'observaciones.descripcion'
    ]);
