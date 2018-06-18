@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<h2>Crear nuevo grupo</h2> <br>
+<h2>Nuevo grupo</h2> <br>
 {!! Form::open(['route' => 'grupos.store']) !!}
     <div class="form-group">
         {!! Form::label('nombre', 'Nombre') !!}
@@ -15,7 +15,7 @@
         {!! Form::label('grado_id', 'Grado') !!}
         {!! Form::select('grado_id', [], $selected=null, ['class' => 'form-control','placeholder' => 'Seleccione grado', 'required', 'id' => 'grado']) !!}
     </div>
-    {!! Form::submit('Agregar grupo', ['class' => 'btn btn-primary']) !!}
+    {!! Form::submit('Crear grupo', ['class' => 'btn btn-primary']) !!}
     <a href="{{ route('grupos.index') }}" class="btn btn-primary">Cancelar</a>
 {!! Form::close() !!}
 {{ Html::script('js/admin/grupos/recursos.js'),array(),true }}
