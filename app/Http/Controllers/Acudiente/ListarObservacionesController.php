@@ -37,7 +37,7 @@ class ListarObservacionesController extends Controller
                                         ->with('observaciones',$observaciones);
     }
     
-    public function mostrarObservation(Request $request,$curso_id,$obs_id)
+    public function mostrarObservation(Request $request,$obs_id)
     {
         $observacion = Observacion::find($obs_id);
         return view('acudientes.observaciones.descripcion')->with('observacion',$observacion);
