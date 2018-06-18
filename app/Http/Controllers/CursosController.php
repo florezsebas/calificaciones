@@ -13,19 +13,6 @@ use App\Jornada;
 
 class CursosController extends Controller
 {
-    public function loadGrados(Request $request) {
-        if($request->ajax()){
-            $grados = Grado::where("jornada_id",$request->jornada_id)->pluck('nombre','id');
-            return response()->json($grados);
-        }
-    }
-    
-    public function loadGroups(Request $request) {
-        if($request->ajax()){
-            $grupos = Grupo::where("grado_id",$request->grado_id)->pluck('nombre','id');
-            return response()->json($grupos);
-        }
-     }
 
     public function index()
     {
