@@ -31,7 +31,7 @@
     </div>
     <div class="form-group">
         {!! Form::label('email', 'Correo') !!}
-        {!! Form::email('email', $user->email, ['class' => 'form-control', 'placeholder' => 'ejemplo@correo.com', 'required']) !!}
+        {!! Form::email('email', $user->email, ['class' => 'form-control', 'placeholder' => 'ejemplo@dominio.com', 'required']) !!}
     </div>
     <div class='form-group'>
         {!! Form::submit('Guardar cambios', ['class' => 'btn btn-primary']) !!}
