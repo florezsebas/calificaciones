@@ -1,11 +1,11 @@
 @extends('layouts.docentes')
 
 @section('content')
-<h2>Nueva observacion</h2> <br>
+<h2>Nueva observación</h2> <br>
 {!! Form::open(['route' => ['observaciones.almacenar', $curso, $estudiante], 'method' => 'post']) !!}
   <div class="form-row">
     <div class="form-group col-md-3">
-      {!! Form::label('titulo', 'Titulo') !!}
+      {!! Form::label('titulo', 'Título') !!}
       {!! Form::text('titulo', null, ['class' => 'form-control','placeholder' => 'Titulo', 'required']) !!}
     </div>
     <div class="form-group col-md-3">
@@ -14,12 +14,12 @@
     </div>
   </div>
   <div>
-    {!! Form::label('descripcion', 'Descripcion') !!}
+    {!! Form::label('descripcion', 'Descripción') !!}
   </div>
   <div class="form-group">
-    {!! Form::textarea('descripcion', null, $selected=null, ['class' => 'form-control','placeholder' => 'Descripcion', 'required']) !!}
+    {!! Form::textarea('descripcion', null, $selected=null, ['class' => 'form-control', 'required']) !!}
   </div>
-{!! Form::submit('Agregar observacion', ['class' => 'btn btn-primary']) !!}
+{!! Form::submit('Agregar observación', ['class' => 'btn btn-primary']) !!}
 <a href="{{ route('observaciones.listar', [$curso->id, $estudiante->user_id]) }}" class="btn btn-primary">Cancelar</a>
 {!! Form::close() !!}
 @endsection
