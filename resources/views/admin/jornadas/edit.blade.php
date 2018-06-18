@@ -13,7 +13,7 @@
         {!! Form::text('hora_inicio', $jornada->hora_inicio, ['class' => 'form-control', 'placeholder' => 'HH:MM:SS', 'required']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('hora_fin', 'Hora de finalizacion')!!}
+        {!! Form::label('hora_fin', 'Hora de finalización')!!}
         {!! Form::text('hora_fin', $jornada->hora_fin, ['class' => 'form-control', 'placeholder' => 'HH:MM:SS', 'required']) !!}
     </div>
     {!! Form::submit('Guardar cambios', ['class' => 'btn btn-primary']) !!}
