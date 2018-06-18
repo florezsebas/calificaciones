@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<h2>Gestion de periodos</h2> <br>
+<h2>Gestión de periodos</h2> <br>
 <a href="{{ route('periodos.create') }}" class="btn btn-primary" style="margin-bottom:1em">Nuevo periodo</a>
 
 <!-- Tabla que muestra los periodos -->
