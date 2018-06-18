@@ -15,13 +15,6 @@ class GruposController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     
-    public function loadGroups(Request $request) {
-        if($request->ajax()) {
-            $grados = Grado::where("jornada_id",$request->jornada_id)->pluck('nombre','id');
-            return response()->json($grados);
-        }
-    }
     
     public function index()
     {
