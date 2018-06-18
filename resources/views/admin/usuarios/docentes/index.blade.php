@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<h2>Gestion de docentes</h2> <br>
+<h2>Gestión de cuentas tipo docente</h2> <br>
 <a href="{{ route('docentes.create') }}" class="btn btn-primary" style="margin-bottom:1em">Nuevo docente</a>
 
 <!-- Tabla que muestra los docentes-->
@@ -9,12 +9,12 @@
   <table class="table table-striped table-sm">
     <thead>
       <tr>
-        <th scope="col">Codigo</th>
+        <th scope="col">Código</th>
         <th scope="col">Nombres</th>
         <th scope="col">Apellidos</th>
         <th scope="col">Correo</th>
         <th scope="col">Tipo</th>
-        <th scope="col">Accion</th>
+        <th scope="col">Acción</th>
       </tr>
     </thead>
     <tbody>
@@ -27,7 +27,7 @@
           <td>{{ $user->tipo }}</td>
           <td>
               <a href="{{ route('docentes.edit', $user->id) }}" class="btn btn-primary btn-sm pull-left">Editar</a>
-              <a href="{{ route('docentes.destroy', $user->id) }}" onClick="return confirm('¿Esta seguro que desea eliminar este registro?')" class="btn btn-danger btn-sm pull-left">Eliminar</a></td>
+              <a href="{{ route('docentes.destroy', $user->id) }}" onClick="return confirm('¿Esta seguro que desea eliminar la cuenta docente de {{ $user->nombres }}?')" class="btn btn-danger btn-sm pull-left">Eliminar</a></td>
           </td>
       @endforeach    
         </tr>
