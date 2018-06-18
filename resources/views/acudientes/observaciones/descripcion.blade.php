@@ -6,7 +6,7 @@
   <table class="table table-striped table-sm">
     <thead>
       <tr>
-        <th scope="col">Observacion</th>
+        <th scope="col">Observación</th>
       </tr>
     </thead>
     <tbody>
