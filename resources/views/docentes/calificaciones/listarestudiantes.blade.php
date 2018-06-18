@@ -1,8 +1,10 @@
 @extends('layouts.docentes')
 
 @section('content')
-<h2>Estudiantes del curso {{ $curso->nombre  }} del grado {{$curso->grupo->grado->nombre }} {{$curso->grupo->nombre}} Jornada {{$curso->grupo->grado->jornada->nombre}} </h2> <br>
-<!-- Tabla que muestra los estudiantes -->
+<h2>Estudiantes del curso {{ $curso->nombre  }} del grado {{$curso->grupo->grado->nombre }} {{$curso->grupo->nombre}} Jornada {{$curso->grupo->grado->jornada->nombre}} </h2>
+<br>
+<h4>Actividad: {{ $actividad->nombre }}</h4>
+<br>
 {!! Form::open(['route' => ['calificaciones.store', $curso, $actividad], 'method' => 'post']) !!}
 @if(count($calificaciones) == 0)
   <div class="form-group col-md-3">
@@ -16,6 +18,7 @@
   </div>
 @endif
 
+<!-- Tabla que muestra los estudiantes -->
 <div class="table-responsive">
   <table class="table table-striped table-sm">
     <thead>
