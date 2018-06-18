@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<h2>Crear nuevo grado</h2> <br>
+<h2>Nuevo grado</h2> <br>
 {!! Form::open(['route' => 'grados.store']) !!}
     <div class="form-group">
         {!! Form::label('nombre', 'Nombre') !!}
@@ -11,7 +11,7 @@
         {!! Form::label('jornada_id', 'Jornada') !!}
         {!! Form::select('jornada_id', $jornadas, $selected=null, ['class' => 'form-control','placeholder' => 'Seleccione una jornada', 'required']) !!}
     </div>
-    {!! Form::submit('Agregar grado', ['class' => 'btn btn-primary']) !!}
+    {!! Form::submit('Crear grado', ['class' => 'btn btn-primary']) !!}
     <a href="{{ route('grados.index') }}" class="btn btn-primary">Cancelar</a>
 {!! Form::close() !!}
 @endsection
