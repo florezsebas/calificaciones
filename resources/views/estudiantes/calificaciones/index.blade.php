@@ -25,7 +25,7 @@
               $nota = $actividad->obtenerCalificacion(); 
               $porcentaje = $actividad->porcentaje;
               $promedio += $nota * ($porcentaje/100);
-              $promedio = number_format((float)$promedio, 2, '.', '');
+              $promedio = number_format((float)$promedio, 1, '.', '');
             ?>
             <td>{{ $porcentaje }}</td>
             <td>{{ $nota }}</td>
