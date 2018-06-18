@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<h2>Gestion de jornadas</h2> <br>
+<h2>Gestión de jornadas</h2> <br>
 <a href="{{ route('jornadas.create') }}" class="btn btn-primary" style="margin-bottom:1em">Nueva jornada</a>
 
 <!-- Tabla que muestra las jornadas -->
@@ -9,23 +9,21 @@
   <table class="table table-striped table-sm">
     <thead>
       <tr>
-        <th scope="col">#</th>
         <th scope="col">Nombre</th>
         <th scope="col">Hora de inicio</th>
-        <th scope="col">Hora de finalizacion</th>
-        <th scope="col">Accion</th>
+        <th scope="col">Hora de finalización</th>
+        <th scope="col">Acción</th>
       </tr>
     </thead>
     <tbody>
       @foreach($jornadas as $jornada)
         <tr>
-          <td>{{ $jornada->id}}</td>
           <td>{{ $jornada->nombre}}</td>
           <td>{{ $jornada->hora_inicio }}</td>
           <td>{{ $jornada->hora_fin }}</td>
           <td>
               <a href="{{ route('jornadas.edit', $jornada->id) }}" class="btn btn-primary btn-sm pull-left">Editar</a>
-              <a href="{{ route('jornadas.destroy', $jornada->id) }}" onClick="return confirm('¿Esta seguro que desea eliminar este registro?')" class="btn btn-danger btn-sm pull-left">Eliminar</a></td>
+              <a href="{{ route('jornadas.destroy', $jornada->id) }}" onClick="return confirm('¿Esta seguro que desea eliminar la jornada {{ $jornada->nombre }}?')" class="btn btn-danger btn-sm pull-left">Eliminar</a></td>
           </td>
       @endforeach
         </tr>
