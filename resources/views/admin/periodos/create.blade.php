@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<h2>Crear nuevo periodo</h2> <br>
+<h2>Nuevo periodo</h2> <br>
 {!! Form::open(['route' => 'periodos.store']) !!}
     <div class="form-group">
         {!! Form::label('nombre', 'Nombre') !!}
