@@ -7,7 +7,7 @@
 <!-- Tabla que muestra los cursos con sus actividades y calificaciones -->
 @foreach($cursos as $curso)
   <div class="table-responsive">
-    <h5>Curso {{ $curso->nombre }}</h5>
+    <h5>Curso: {{ $curso->nombre }}</h5>
     <table class="table table-striped table-sm">
       <thead>
         <tr>
