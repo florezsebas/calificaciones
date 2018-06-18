@@ -9,11 +9,11 @@
     </div>
     <div class="form-group">
         {!! Form::label('jornada_id', 'Jornada') !!}
-        {!! Form::select('jornada_id', $jornadas, $selected=null, ['class' => 'form-control', 'placeholder' => 'Seleccione jornada', 'required', 'id' => 'jornada']) !!}
+        {!! Form::select('jornada_id', $jornadas, $grupo->grado->jornada_id, ['class' => 'form-control', 'placeholder' => 'Seleccione jornada', 'required', 'id' => 'jornada']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('grado_id', 'Grado') !!}
-        {!! Form::select('grado_id', [], $selected=null, ['class' => 'form-control','placeholder' => 'Seleccione grado', 'required', 'id' => 'grado']) !!}
+        {!! Form::select('grado_id', $grados, $grupo->grado_id, ['class' => 'form-control','placeholder' => 'Seleccione grado', 'required', 'id' => 'grado']) !!}
     </div>
     {!! Form::submit('Guardar cambios', ['class' => 'btn btn-primary']) !!}
     <a href="{{ route('grupos.index') }}" class="btn btn-primary">Cancelar</a>
