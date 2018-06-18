@@ -3,7 +3,7 @@
 @section('content')
 <h2>Cursos</h2> <br>
 
-<!-- Tabla que muestra las actividades -->
+<!-- Tabla que muestra los cursos que dicta docente -->
 <div class="table-responsive">
   <table class="table table-striped table-sm">
     <thead>
@@ -11,7 +11,7 @@
         <th scope="col">Jornada</th>
         <th scope="col">Grado:grupo</th>
         <th scope="col">Curso</th>
-        <th scope="col">Accion</th>
+        <th scope="col">Acción</th>
       </tr>
     </thead>
     <tbody>
