@@ -1,16 +1,16 @@
 @extends('layouts.acudientes')
 
 @section('content')
-<h2>Cursos del estudiante {{ $estudiante->nombres }} {{ $estudiante->apellidos }}</h2>
+<h2>Cursos del estudiante {{ $estudiante->user->nombres }} {{ $estudiante->user->apellidos }}</h2>
 <br>
 
-<!-- Tabla que muestra los estudiantes asociados al acudiente -->
+<!-- Tabla que muestra los cursos del estudiante seleccionado por el acudiente -->
 <div class="table-responsive">
   <table class="table table-striped table-sm">
     <thead>
       <tr>
-        <th scope="col">Nombre</th>
-        <th scope="col">Accion</th>
+        <th scope="col">Nombre del curso</th>
+        <th scope="col">Acción</th>
       </tr>
     </thead>
     <tbody>
