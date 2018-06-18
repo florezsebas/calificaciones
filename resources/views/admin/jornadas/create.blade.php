@@ -15,7 +15,7 @@
         {!! Form::label('hora_fin', 'Hora de finalización') !!}
         {!! Form::time('hora_fin', null, ['class' => 'form-control']) !!}
     </div>
-    {!! Form::submit('Agregar jornada', ['class' => 'btn btn-primary']) !!}
+    {!! Form::submit('Crear jornada', ['class' => 'btn btn-primary']) !!}
     <a href="{{ route('jornadas.index') }}" class="btn btn-primary">Cancelar</a>
 {!! Form::close() !!}
 @endsection
