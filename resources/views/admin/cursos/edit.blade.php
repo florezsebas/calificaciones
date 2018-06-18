@@ -8,7 +8,7 @@
         {!! Form::text('nombre', $curso->nombre, ['class' => 'form-control', 'placeholder' => 'Nombre del curso', 'required']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('docente_id', 'Docente') !!}
+        {!! Form::label('docente_id', 'Docente a cargo') !!}
         {!! Form::select('docente_id', $docentes, $curso->docente_id, ['class' => 'form-control','placeholder' => 'Docente a cargo', 'required']) !!}
     </div>
     <div class="form-group">
@@ -23,7 +23,7 @@
         {!! Form::label('grupo_id', 'Grupo') !!}
         {!! Form::select('grupo_id', $grupos, $curso->grupo->id, ['class' => 'form-control','placeholder' => 'Seleccione grupo', 'required', 'id' => 'grupo']) !!}
     </div>
-    {!! Form::submit('Editar curso', ['class' => 'btn btn-primary']) !!}
+    {!! Form::submit('Guardar cambios', ['class' => 'btn btn-primary']) !!}
     <a href="{{ route('cursos.index') }}" class="btn btn-primary">Cancelar</a>
 {!! Form::close() !!}
 {{ Html::script('js/admin/cursos/recursos.js'),array(),true }}
