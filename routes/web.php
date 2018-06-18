@@ -11,12 +11,14 @@
 |
 */
 
-Route::get('/', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('/', 'Auth\LoginController@login');
-Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
 Route::auth();
 
-Route::group(['prefix' => 'admin'], function(){
+Route::get('/', 'Auth\LoginController@showLoginForm');
+Route::post('login', 'Auth\LoginController@login')->name('login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin','guest']], function(){
    
    Route::get('/',function() {
       return view('admin.dashboard');
@@ -81,9 +83,8 @@ Route::group(['prefix' => 'docentes'], function() {
    
    Route::get('/',function() {
       return view('layouts.docentes');
-   });
+   })->name('portal.docente');
   
-   //Route::resource('listar','Docente\ListarEstudiantesController');
    Route::get('estudiantes','Docente\ListarEstudiantesController@index')->name('listar.estudiantes.index');
    Route::get('estudiantes/list/{id}', [
       'uses' => 'Docente\ListarEstudiantesController@listingStudents',
@@ -116,7 +117,7 @@ Route::group(['prefix' => 'docentes'], function() {
       'as' => 'actividades.destroy'
    ]);
 
-   //Route::resource('calificaciones','Docente\CalificacionesController');
+
    Route::get('calificaciones','Docente\CalificacionesController@index')->name('calificaciones.index');
    Route::get('calificaciones/actividades/{curso_id}', [
       'uses' => 'Docente\CalificacionesController@listingActivities',
@@ -130,7 +131,8 @@ Route::group(['prefix' => 'docentes'], function() {
       'uses' => 'Docente\CalificacionesController@store',
       'as' => 'calificaciones.store'
    ]);
-   
+
+
    Route::get('observaciones','Docente\ObservacionesController@index')->name('observaciones.index');
    Route::get('observaciones/estudiantes/{curso_id}', [
       'uses' => 'Docente\ObservacionesController@listingStudents',
@@ -161,4 +163,42 @@ Route::group(['prefix' => 'docentes'], function() {
       'as' => 'observaciones.actualizar'
    ]);
 
+});
+
+Route::group(['prefix' => 'estudiantes'], function() {
+
+   Route::get('/',function() {
+      return view('layouts.estudiantes');
+   });
+   
+   Route::get('calificaciones','Estudiante\ListarCalificacionesController@index')->name('calificaciones.index');
+   
+});
+
+Route::group(['prefix' => 'acudientes'], function() {
+
+   Route::get('/',function() {
+      return view('layouts.acudientes');
+   });
+   
+   Route::get('calificaciones','Acudiente\ListarCalificacionesController@index');
+   Route::get('calificaciones/list/{user_id}', [
+      'uses' => 'Acudiente\ListarCalificacionesController@listingGrades',
+      'as' => 'calificaciones.list'
+   ]);
+   
+   Route::get('observaciones','Acudiente\ListarObservacionesController@index');
+   Route::get('observaciones/cursos/{user_id}', [
+      'uses' => 'Acudiente\ListarObservacionesController@listingCourses',
+      'as' => 'observaciones.cursos'
+   ]);
+   Route::get('observaciones/list/{course_id}/{user_id}', [
+      'uses' => 'Acudiente\ListarObservacionesController@listingObservations',
+      'as' => 'observaciones.list'
+   ]);
+   Route::get('observaciones/descripcion/{course_id}/{obs_id}', [
+      'uses' => 'Acudiente\ListarObservacionesController@mostrarObservation',
+      'as' => 'observaciones.descripcion'
+   ]);
+   
 });
