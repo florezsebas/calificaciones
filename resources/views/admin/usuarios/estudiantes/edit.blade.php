@@ -25,31 +25,32 @@
             </div>
             <div class="form-group">
                 {!! Form::label('email', 'Correo') !!}
-                {!! Form::email('email', $user->email, ['class' => 'form-control', 'placeholder' => 'ejemplo@correo.com', 'required']) !!}
+                {!! Form::email('email', $user->email, ['class' => 'form-control', 'placeholder' => 'ejemplo@dominio.com', 'required']) !!}
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
                     {!! Form::label('jornada_id', 'Jornada') !!}
-                    {!! Form::select('jornada_id', $jornadas, $user->estudiante->grupo->grado->jornada_id, ['class' => 'form-control','placeholder' => 'Seleccione una jornada']) !!}
+                    {!! Form::select('jornada_id', $jornadas, $user->estudiante->grupo->grado->jornada_id, ['class' => 'form-control','placeholder' => 'Seleccione jornada', 'id' => 'jornada']) !!}
                 </div>
                 <div class="form-group col-md-4">
                     {!! Form::label('grado_id', 'Grado') !!}
-                    {!! Form::select('grado', $grados, $user->estudiante->grupo->grado_id, ['class' => 'form-control','placeholder' => 'Seleccione un grado']) !!}
+                    {!! Form::select('grado_id', $grados, $user->estudiante->grupo->grado_id, ['class' => 'form-control','placeholder' => 'Seleccione grado', 'id' => 'grado']) !!}
                 </div>
                 <div class="form-group col-md-4">
                     {!! Form::label('grupo_id', 'Grupo') !!}
-                    {!! Form::select('grupo_id', $grupos, $user->estudiante->grupo_id, ['class' => 'form-control','placeholder' => 'Seleccione un grupo']) !!}
+                    {!! Form::select('grupo_id', $grupos, $user->estudiante->grupo_id, ['class' => 'form-control','placeholder' => 'Seleccione grupo', 'id' => 'grupo']) !!}
                 </div>
             </div>
             <div class="form-group">
-                {!! Form::label('acudiente_id', 'Acudiente') !!}
+                {!! Form::label('acudiente_id', 'Acudiente a cargo') !!}
                 {!! Form::select('acudiente_id', $acudientes, $user->estudiante->acudiente_id, ['class' => 'form-control', 'placeholder' => 'Seleccione un acudiente']) !!}
             </div>
             <div class='form-group'>
-                {!! Form::submit('Agregar Estudiante', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Guardar cambios', ['class' => 'btn btn-primary']) !!}
                 <a href="{{ route('estudiantes.index') }}" class="btn btn-primary">Cancelar</a>
             </div>
-        {!! Form::close() !!}  
+        {!! Form::close() !!} 
+        {{ Html::script('js/admin/estudiante/recursos.js'),array(),true }}
     </div>
 </div>
 @endsection
