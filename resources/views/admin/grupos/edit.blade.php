@@ -15,7 +15,7 @@
         {!! Form::label('grado_id', 'Grado') !!}
         {!! Form::select('grado_id', [], $selected=null, ['class' => 'form-control','placeholder' => 'Seleccione grado', 'required', 'id' => 'grado']) !!}
     </div>
-    {!! Form::submit('Agregar grupo', ['class' => 'btn btn-primary']) !!}
+    {!! Form::submit('Guardar cambios', ['class' => 'btn btn-primary']) !!}
     <a href="{{ route('grupos.index') }}" class="btn btn-primary">Cancelar</a>
 {!! Form::close() !!}
 
