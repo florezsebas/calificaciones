@@ -7,7 +7,6 @@
   <table class="table table-striped table-sm">
     <thead>
       <tr>
-        <th scope="col">#</th>
         <th scope="col">Nombre</th>
         <th scope="col">Porcentaje</th>
         <th scope="col">Acciones</th>
@@ -16,7 +15,6 @@
     <tbody>
       @foreach($actividades as $actividad)
         <tr>
-          <td>{{ $actividad->id }}</td>
           <td>{{ $actividad->nombre }}</td>
           <td>{{ $actividad->porcentaje }}</td>
           <td>
