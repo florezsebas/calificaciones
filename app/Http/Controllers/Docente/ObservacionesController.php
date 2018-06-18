@@ -32,7 +32,7 @@ class ObservacionesController extends Controller
         $curso = Curso::find($curso_id);
         $estudiante = Estudiante::find($user_id);
         $observaciones = $estudiante->observaciones;
-        return view('docentes.observaciones.listarobservaciones')->with('observaciones',$observaciones)
+        return view('docentes.observaciones.list')->with('observaciones',$observaciones)
                                                                 ->with('curso',$curso)
                                                                 ->with('estudiante',$estudiante);
     }
