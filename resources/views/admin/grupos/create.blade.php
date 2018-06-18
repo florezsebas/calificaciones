@@ -18,5 +18,5 @@
     {!! Form::submit('Agregar grupo', ['class' => 'btn btn-primary']) !!}
     <a href="{{ route('grupos.index') }}" class="btn btn-primary">Cancelar</a>
 {!! Form::close() !!}
-{{ Html::script('js/adminGrupos/desplegarGrados.js'),array(),true }}
+{{ Html::script('js/admin/grupos/recursos.js'),array(),true }}
 @endsection
