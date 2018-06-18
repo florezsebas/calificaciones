@@ -11,7 +11,7 @@
         <th scope="col">Jornada</th>
         <th scope="col">Nombre</th>
         <th scope="col">Docente a cargo</th>
-        <th scope="col">Grado:Grupo</th>
+        <th scope="col">Grado : Grupo</th>
         <th scope="col">Acción</th>
       </tr>
     </thead>
