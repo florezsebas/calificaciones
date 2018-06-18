@@ -22,7 +22,7 @@ class CalificacionesController extends Controller
     public function listingActivities(Request $request,$curso_id) {
         $curso = Curso::find($curso_id);
         $actividades = $curso->actividades;
-        return view('docentes.calificaciones.list')->with('curso',$curso)
+        return view('docentes.calificaciones.listarcursos')->with('curso',$curso)
                                                    ->with('actividades',$actividades);
     }
 
