@@ -26,5 +26,5 @@
     {!! Form::submit('Agregar curso', ['class' => 'btn btn-primary']) !!}
     <a href="{{ route('cursos.index') }}" class="btn btn-primary">Cancelar</a>
 {!! Form::close() !!}
-{{ Html::script('js/adminCursos/desplegarGrupos.js'),array(),true }}
+{{ Html::script('js/admin/cursos/recursos.js'),array(),true }}
 @endsection
