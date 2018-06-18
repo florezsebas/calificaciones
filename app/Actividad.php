@@ -21,7 +21,15 @@ class Actividad extends Model
     return $this->belongsTo('App\Curso');
   }
   
-  public function calificacion() {
-    return $this->hasOne('App\Calificacion');
+  public function calificaciones() {
+    return $this->hasMany('App\Calificacion');
+  }
+  
+  public function obtenerCalificacion() {
+    $calificacion = Calificacion::where('actividad_id', $this->id)->first();
+    if($calificacion == null)
+      return 0;
+    else
+      return $calificacion->valor;
   }
 }
