@@ -2,7 +2,8 @@
 
 @section('content')
 
-<h2>Crear nuevo Docente</h2><br>
+<h2>Nuevo Docente</h2>
+<br>
 {!! Form::open(['route'=>'docentes.store']) !!} 
     <div class="form-group">
         {!! Form::label('codigo', 'Documento de identidad') !!}
@@ -22,10 +23,10 @@
     </div>
     <div class="form-group">
         {!! Form::label('email', 'Correo') !!}
-        {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'ejemplo@correo.com', 'required']) !!}
+        {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'ejemplo@dominio.com', 'required']) !!}
     </div>
     <div class='form-group'>
-        {!! Form::submit('Agregar docente', ['class' => 'btn btn-primary']) !!}
+        {!! Form::submit('Crear cuenta', ['class' => 'btn btn-primary']) !!}
         <a href="{{ route('docentes.index') }}" class="btn btn-primary">Cancelar</a>
     </div>
 {!! Form::close() !!}    
