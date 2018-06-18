@@ -27,7 +27,7 @@
           <td>{{ $user->tipo }}</td>
           <td>
               <a href="{{ route('docentes.edit', $user->id) }}" class="btn btn-primary btn-sm pull-left">Editar</a>
-              <a href="{{ route('docentes.destroy', $user->id) }}" onClick="return confirm('¿Esta seguro que desea eliminar la cuenta docente de {{ $user->nombres }}?')" class="btn btn-danger btn-sm pull-left">Eliminar</a></td>
+              <a href="{{ route('docentes.destroy', $user->id) }}" onClick="return confirm('¿Está seguro que desea eliminar la cuenta docente de {{ $user->nombres }}?')" class="btn btn-danger btn-sm pull-left">Eliminar</a></td>
           </td>
       @endforeach    
         </tr>
