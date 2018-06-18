@@ -73,9 +73,11 @@ Route::group(['prefix' => 'admin'], function(){
       'as' => 'cursos.destroy'
    ]);
 
-   Route::get('cargarGrados','CursosController@loadGrados');
-   Route::get('cargarGrupos','GruposController@loadGroups');
-   Route::get('cargarGrupos2','CursosController@loadGroups');
+   Route::get('gradosparacursos','AjaxController@loadGradosForCourse');
+   Route::get('gruposparagrupos','AjaxController@loadGroupsForGroup');
+   Route::get('gruposparacursos','AjaxController@loadGroupsForCourse');
+   Route::get('gradosparaestudiante','AjaxController@loadGradosForStudent');
+   Route::get('gruposparaestudiante','AjaxController@loadGroupsForStudent');
 });
 
 
@@ -150,7 +152,7 @@ Route::group(['prefix' => 'docentes'], function() {
       'uses' => 'Docente\ObservacionesController@almacenar',
       'as' => 'observaciones.almacenar'
    ]);
-   Route::get('observaciones/editar/{observacion}', [
+   Route::get('observaciones/editar/{obs_id}', [
       'uses' => 'Docente\ObservacionesController@editar',
       'as' => 'observaciones.editar'
    ]);
