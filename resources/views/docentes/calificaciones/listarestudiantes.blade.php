@@ -23,7 +23,7 @@
   <table class="table table-striped table-sm">
     <thead>
       <tr>
-        <th scope="col">Codigo</th>
+        <th scope="col">Código</th>
         <th scope="col">Nombres y apellidos</th>
         <th scope="col">Nota</th>
       </tr>
