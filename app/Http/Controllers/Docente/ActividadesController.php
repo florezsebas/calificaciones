@@ -15,7 +15,6 @@ class ActividadesController extends Controller
     public function index()
     {
         $cursos = Curso::all();
-        // $jornadas = Jornada::all()->pluck('nombre','id');
         return view('docentes.actividades.index')->with('cursos',$cursos);
     }
 
