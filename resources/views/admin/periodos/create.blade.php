@@ -12,10 +12,10 @@
         {!! Form::date('fecha_inicio', null, ['class' => 'form-control', 'placeholder' => 'HH:MM:SS', 'required']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('fecha_fin', 'fecha de finalizacion')!!}
+        {!! Form::label('fecha_fin', 'fecha de finalización')!!}
         {!! Form::date('fecha_fin', null, ['class' => 'form-control', 'placeholder' => 'HH:MM:SS', 'required']) !!}
     </div>
-    {!! Form::submit('Agregar periodo', ['class' => 'btn btn-primary']) !!}
+    {!! Form::submit('Crear periodo', ['class' => 'btn btn-primary']) !!}
     <a href="{{ route('periodos.index') }}" class="btn btn-primary">Cancelar</a>
 {!! Form::close() !!}
 @endsection
