@@ -13,7 +13,7 @@ class Docente extends Model
   public $incrementing = false;
   
   public function cursos() {
-    return $this->hasMany('App\Curso');
+    return $this->hasMany('App\Curso','docente_id');
   }
   
   public function user() {

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Estudiante;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Estudiante;
 
@@ -11,7 +11,8 @@ class ListarCalificacionesController extends Controller
 {
     public function index(Request $request)
     {
-        $estudiante = Estudiante::find(7);
+        $usuario = Auth::user();
+        $estudiante = $usuario->estudiante;
         $grupo = $estudiante->grupo;
         $cursos = $grupo->cursos;
         return view('estudiantes.calificaciones.index')->with('cursos',$cursos)

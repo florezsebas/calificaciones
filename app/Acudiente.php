@@ -11,7 +11,7 @@ class Acudiente extends Model
   protected $fillable = [ 'user_id',];
 
   public function estudiantes() {
-    return $this->hasMany('App\Estudiante');
+    return $this->hasMany('App\Estudiante', 'acudiente_id');
   }
   
   public function user() {

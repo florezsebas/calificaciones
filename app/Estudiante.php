@@ -17,7 +17,7 @@ class Estudiante extends Model
   public $incrementing = false;
   
   public function acudiente() {
-    return $this->belongsTo('App\Acudiente','acudiente_id');
+    return $this->belongsTo('App\Acudiente');
   }
 
   public function grupo() {
