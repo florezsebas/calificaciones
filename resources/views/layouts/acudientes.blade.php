@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
     
-    <title>{{ config('app.name', 'Portal Docentes') }}</title>
+    <title>{{ config('app.name', 'Portal Acudiente') }}</title>
     
     <!-- Libreria JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -24,12 +24,11 @@
     <!--Barra de navegacion superior-->
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Acciones acudientes</a>
-        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
                 <form method="POST" action="{{ route('logout') }}">
                     {{ csrf_field() }}
-                    <button class="btn btn-danger">Cerrar sesión</button>
+                    <button class="btn btn-danger btn-sm">Cerrar sesión</button>
                 </form>
             </li>
         </ul>
@@ -46,7 +45,7 @@
                         <ul class="nav flex-column">
                             
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="/acudientes">
                                     <span data-feather="home"></span>
                                     Panel acudientes
                                 </a>
@@ -73,9 +72,6 @@
             </div>
                 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Panel de acciones</h1>
-                </div>
                 <!---<h2>Section title</h2>-->
                 @include('flash::message')
                 @include('template.partials.errors')
