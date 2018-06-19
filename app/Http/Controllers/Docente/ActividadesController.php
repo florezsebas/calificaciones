@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Docente;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Jornada;
 use App\Curso;
@@ -14,7 +15,8 @@ class ActividadesController extends Controller
     
     public function index()
     {
-        $cursos = Curso::all();
+        $usuario = Auth::user();
+        $cursos = $usuario->docente->cursos;
         return view('docentes.actividades.index')->with('cursos',$cursos);
     }
 
