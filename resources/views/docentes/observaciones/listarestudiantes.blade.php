@@ -1,14 +1,18 @@
 @extends('layouts.docentes')
 
 @section('content')
-<h2>Estudiantes del curso {{ $curso->nombre  }} del grado {{$curso->grupo->grado->nombre }} {{$curso->grupo->nombre}} Jornada {{$curso->grupo->grado->jornada->nombre}} </h2> <br>
+<h2>Estudiantes del curso {{ $curso->nombre  }} del grado {{$curso->grupo->grado->nombre }} {{$curso->grupo->nombre}} Jornada {{$curso->grupo->grado->jornada->nombre}} </h2>
+<br>
+<a href="{{ route('observaciones.index') }}" class="btn btn-primary btn-bg pull-left">Atrás</a>
+<br>
+<br>
 <!-- Tabla que muestra los estudiantes -->
 <div class="table-responsive">
   <table class="table table-striped table-sm">
     <thead>
       <tr>
         <th scope="col">Código</th>
-        <th scope="col">Apellidos:Nombres</th>
+        <th scope="col">Apellidos : Nombres</th>
         <th scope="col">Acción</th>
       </tr>
     </thead>
