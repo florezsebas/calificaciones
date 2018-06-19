@@ -3,7 +3,9 @@
 @section('content')
 <h2>Calificaciones estudiante {{ $estudiante->user->nombres }} {{ $estudiante->user->apellidos }}</h2>
 <br>
-
+<a href="{{ route('calificaciones.acudientes.index') }}" class="btn btn-primary btn-bg pull-left">Atrás</a>
+<br>
+<br>
 <!-- Tabla que muestra los cursos con sus actividades y calificaciones -->
 @foreach($cursos as $curso)
   <div class="table-responsive">
