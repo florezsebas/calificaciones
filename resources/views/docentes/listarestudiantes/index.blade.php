@@ -9,7 +9,7 @@
     <thead>
       <tr>
         <th scope="col">Jornada</th>
-        <th scope="col">Grado:grupo</th>
+        <th scope="col">Grado : grupo</th>
         <th scope="col">Curso</th>
         <th scope="col">Acción</th>
       </tr>
