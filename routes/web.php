@@ -177,7 +177,7 @@ Route::group(['prefix' => 'estudiantes', 'middleware' => ['auth', 'student']], f
    
 });
 
-Route::group(['prefix' => 'acudientes', 'middleware' => ['auth', 'student']], function() {
+Route::group(['prefix' => 'acudientes', 'middleware' => ['auth', 'attendant']], function() {
 
    Route::get('/',function() {
       return view('layouts.acudientes');
