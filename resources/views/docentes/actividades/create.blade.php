@@ -1,7 +1,8 @@
 @extends('layouts.docentes')
 
 @section('content')
-<h2>Nueva actividad</h2> <br>
+<h2>Nueva actividad para el curso {{ $curso->nombre  }} del grado {{$curso->grupo->grado->nombre }} {{$curso->grupo->nombre}} Jornada {{$curso->grupo->grado->jornada->nombre}} </h2>
+<br>
 {!! Form::open(['route' => ['actividades.store', $curso], 'method' => 'post']) !!}
   <div class="form-row">
     <div class="form-group col-md-3">
@@ -14,5 +15,6 @@
     </div>
   </div>
 {!! Form::submit('Agregar actividad', ['class' => 'btn btn-primary']) !!}
+<a href="{{ route('actividades.list',$curso->id) }}" class="btn btn-primary">Cancelar</a>
 {!! Form::close() !!}
 @endsection
