@@ -3,6 +3,8 @@
 @section('content')
 <h2>Estudiante {{ $estudiante->user->apellidos }} {{ $estudiante->user->nombres }}</h2>
 <h2>Observaciones curso {{ $curso->nombre }} grado {{ $curso->grupo->grado->nombre }} grupo {{ $curso->grupo->nombre }} </h2>
+<a href="{{ route('observaciones.cursos', $estudiante->user_id) }}" class="btn btn-primary btn-bg pull-left">Atrás</a>
+<br>
 <br>
 
 <!-- Tabla que muestra las observaciones de un estudiante asociados a un curso -->
@@ -19,7 +21,7 @@
       <tr>
         <td>{{ $observacion->titulo }}</td>
         <td>
-          <a href="{{ route('observaciones.descripcion', $observacion->id) }}" class="btn btn-primary btn-sm pull-left">Ver</a>
+          <a href="{{ route('observaciones.descripcion', [$observacion->id, $curso->id, $estudiante->user_id]) }}" class="btn btn-primary btn-sm pull-left">Ver</a>
         </td>
       </tr>
       @endforeach
