@@ -12,9 +12,9 @@
       <tr>
         <th scope="col">Apellidos</th>
         <th scope="col">Nombre</th>
-        <th scope="col">Codigo</th>
+        <th scope="col">Código</th>
         <th scope="col">Correo</th>
-        <th scope="col">Accion</th>
+        <th scope="col">Acción</th>
       </tr>
     </thead>
     <tbody>
