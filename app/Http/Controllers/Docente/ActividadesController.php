@@ -59,7 +59,8 @@ class ActividadesController extends Controller
         foreach($actividades as $act)
             $porcentaje_usado += $act->porcentaje;
         $porcentaje_disp = 100 - $porcentaje_usado + $actividad->porcentaje;
-        return view('docentes.actividades.edit')->with('actividad',$actividad)
+        return view('docentes.actividades.edit')->with('curso',$curso)
+                                                ->with('actividad',$actividad)
                                                 ->with('porcentaje_disp',$porcentaje_disp);
     }
 
