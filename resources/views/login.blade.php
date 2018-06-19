@@ -21,14 +21,13 @@
 </head>
 <body>
     <div class="container-fluid">
-        <hr>
         @if(session()->has('flash'))
             <div class="alert alert-info">{{ sesion('flash') }}</div>
         @endif
   		<div class="row">
   			<div class="col-sm-4 offset-sm-4">
   				<div class="card">
-  					<h4 class="card-header text-center">Inicio de sesión</h4>
+  					<h5 class="card-header text-center">Inicio de sesión</h5>
   					<div class="card-body">
 						<div class="text-center">
 							<img src="{{ asset('logo.png') }}" class="rounded" height="100" width="80" alt="image not found">
@@ -45,11 +44,29 @@
 	  							<input class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" type="password" name="password" placeholder="Ingresa tu contraseña">
 	  							<div class="invalid-feedback">{!! $errors->first('password', '<span class="help-block">:message</span>') !!}</div>
 	  						</div>
+	  						<a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('¿Olvidaste la contraseña?') }}
+                             </a>
 	  						<button class="btn btn-success btn-block">Acceder</button>
 	  					</form>
   					</div>
   				</div>
   			</div>
+  		</div>
+  		<div class="row">
+  		    <div class="col-sm-4 offset-sm-4">
+  		        <div class"infomacion">
+  		           <div class"card" id="info">
+  		            <h5 class="card-header text-center">Informacion sobre inicio de sesion y contraseña</h5>
+  		            <div class="card-body">
+  		                <p>
+  		                    Si es la primera vez que ingresa, la clave es su fecha de nacimiento sin "/", por ejemplo (yyyymmdd)
+  		                    <br>Si desea cambiar su contraseña puede hacerlo a traves del enlace ¿Olvide la contraseña?
+  		                </p>
+  		            </div>
+  		            </div> 
+  		        </div>
+  		    </div>
   		</div>
   	</div>
 </body>
