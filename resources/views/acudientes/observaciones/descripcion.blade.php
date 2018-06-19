@@ -1,6 +1,9 @@
 @extends('layouts.acudientes')
 
 @section('content')
+<a href="{{ route('observaciones.list', [$curso->id, $estudiante->user_id]) }}" class="btn btn-primary btn-bg pull-left">Atrás</a>
+<br>
+<br>
 <!-- Tabla que muestra la descripcion de una observacion -->
 <div class="table-responsive">
   <table class="table table-striped table-sm">
