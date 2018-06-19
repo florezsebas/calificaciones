@@ -120,7 +120,7 @@ Route::group(['prefix' => 'docentes', 'middleware' => ['auth', 'teacher']], func
    ]);
 
 
-   Route::get('calificaciones','Docente\CalificacionesController@index')->name('calificaciones.index');
+   Route::get('calificaciones','Docente\CalificacionesController@index')->name('calificaciones.docentes.index');
    Route::get('calificaciones/actividades/{curso_id}', [
       'uses' => 'Docente\CalificacionesController@listingActivities',
       'as' => 'calificaciones.actividades.list'
