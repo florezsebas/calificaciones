@@ -28,7 +28,7 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)) {
            Auth::user();
         }
-        return back()->withErrors(['email' => 'Este correo no se encuentra registrado'])
+        return back()->withErrors(['email' => 'Verificar el correo y contraseña'])
                      ->withInput(request(['email']));
     }
     
