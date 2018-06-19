@@ -55,6 +55,7 @@
     @endif
   </table>
 {!! Form::submit('Calificar', ['class' => 'btn btn-primary']) !!}
+<a href="{{ route('calificaciones.actividades.list', $curso->id) }}" class="btn btn-primary btn-bg pull-left">Cancelar</a>
 {!! Form::close() !!}
 </div>
 @endsection
