@@ -47,4 +47,20 @@ class User extends Authenticatable
     public function getFullNameAttribute() {
         return $this->codigo . ': ' . $this->nombres . ' ' . $this->apellidos;
     }
+    
+    public function isAdmin(){
+        return $this->tipo === 'admin';
+    }
+    
+    public function isStudent(){
+        return $this->tipo === 'estudiante';
+    }
+    
+    public function isAttendant(){
+        return $this->tipo === 'acudiente';
+    }
+    
+    public function isTeacher(){
+        return $this->tipo === 'docente';
+    }
 }

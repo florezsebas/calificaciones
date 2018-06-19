@@ -1,0 +1,14 @@
+html,
+
+.container-fluid {
+	background-color: #86d69d;
+	width: auto;
+	padding: 1rem;
+}
+.card {
+	margin: 1rem;
+	padding: 1rem;
+	box-shadow: 3px 3px 35px 5px #3d3d3d;
+}
+
+

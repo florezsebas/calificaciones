@@ -12,13 +12,13 @@
 */
 
 
-Route::auth();
+//Route::auth();
 
 Route::get('/', 'Auth\LoginController@showLoginForm');
 Route::post('login', 'Auth\LoginController@login')->name('login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(){
    
    Route::get('/',function() {
       return view('admin.dashboard');
@@ -81,7 +81,7 @@ Route::group(['prefix' => 'admin'], function(){
 });
 
 
-Route::group(['prefix' => 'docentes'], function() {
+Route::group(['prefix' => 'docentes', 'middleware' => ['auth', 'teacher']], function() {
    
    Route::get('/',function() {
       return view('layouts.docentes');
@@ -167,7 +167,7 @@ Route::group(['prefix' => 'docentes'], function() {
 
 });
 
-Route::group(['prefix' => 'estudiantes'], function() {
+Route::group(['prefix' => 'estudiantes', 'middleware' => ['auth', 'student']], function() {
 
    Route::get('/',function() {
       return view('layouts.estudiantes');
@@ -177,7 +177,7 @@ Route::group(['prefix' => 'estudiantes'], function() {
    
 });
 
-Route::group(['prefix' => 'acudientes'], function() {
+Route::group(['prefix' => 'acudientes', 'middleware' => ['auth', 'student']], function() {
 
    Route::get('/',function() {
       return view('layouts.acudientes');
