@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Docente;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Laracasts\Flash\Flash;
 use App\Curso;
@@ -15,7 +16,8 @@ class ObservacionesController extends Controller
 
     public function index()
     {
-        $cursos = Curso::all();
+        $usuario = Auth::user();
+        $cursos = $usuario->docente->cursos;
         return view('docentes.observaciones.index')->with('cursos',$cursos);
     }
 
@@ -68,7 +70,6 @@ class ObservacionesController extends Controller
 
     public function editar(Request $request,$obs_id)
     {
-        //dd($obs_id);
         $observacion = Observacion::find($obs_id);
         $curso = Curso::find($observacion->curso_id);
         $estudiante = Estudiante::find($observacion->estudiante_id);
