@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Docente;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Calificacion;
 use App\Curso;
@@ -15,7 +16,8 @@ class CalificacionesController extends Controller
 {
     public function index()
     {
-        $cursos = Curso::all();
+        $usuario = Auth::user();
+        $cursos = $usuario->docente->cursos;
         return view('docentes.calificaciones.index')->with('cursos',$cursos);
     }
 
