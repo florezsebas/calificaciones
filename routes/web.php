@@ -189,7 +189,7 @@ Route::group(['prefix' => 'acudientes', 'middleware' => ['auth', 'attendant']], 
       'as' => 'calificaciones.list'
    ]);
    
-   Route::get('observaciones','Acudiente\ListarObservacionesController@index');
+   Route::get('observaciones','Acudiente\ListarObservacionesController@index')->name('observaciones.acudientes.index');
    Route::get('observaciones/cursos/{user_id}', [
       'uses' => 'Acudiente\ListarObservacionesController@listingCourses',
       'as' => 'observaciones.cursos'
@@ -198,7 +198,7 @@ Route::group(['prefix' => 'acudientes', 'middleware' => ['auth', 'attendant']], 
       'uses' => 'Acudiente\ListarObservacionesController@listingObservations',
       'as' => 'observaciones.list'
    ]);
-   Route::get('observaciones/descripcion/{obs_id}', [
+   Route::get('observaciones/descripcion/{obs_id}/{course_id}/{user_id}', [
       'uses' => 'Acudiente\ListarObservacionesController@mostrarObservation',
       'as' => 'observaciones.descripcion'
    ]);
