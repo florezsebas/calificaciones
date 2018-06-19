@@ -23,6 +23,9 @@ Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
+Route::get('/cambiar_contraseña','ChangePassword@showChangePasswordForm');
+Route::post('/changePassword','ChangePassword@changePassword')->name('changePassword');
+
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(){
    
    Route::get('/',function() {

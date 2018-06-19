@@ -78,6 +78,13 @@
                                     Observaciones
                                 </a>
                             </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('cambiar_contraseña') }}">
+                                  <span data-feather="lock"></span>
+                                  Cambiar contraseña
+                                </a>
+                            </li>
                         </ul>
                 
                     </div>
