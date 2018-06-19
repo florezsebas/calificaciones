@@ -1,9 +1,11 @@
 @extends('layouts.acudientes')
 
 @section('content')
+<h2>Observaciones cursos</h2>
 <h2>Cursos del estudiante {{ $estudiante->user->nombres }} {{ $estudiante->user->apellidos }}</h2>
+<a href="{{ route('observaciones.acudientes.index') }}" class="btn btn-primary btn-bg pull-left">Atrás</a>
 <br>
-
+<br>
 <!-- Tabla que muestra los cursos del estudiante seleccionado por el acudiente -->
 <div class="table-responsive">
   <table class="table table-striped table-sm">
