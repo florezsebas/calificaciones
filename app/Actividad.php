@@ -11,6 +11,7 @@ class Actividad extends Model
     'nombre',
     'porcentaje',
     'curso_id',
+    'periodo_id',
   ];
 
   public function subactividades() {
@@ -19,6 +20,10 @@ class Actividad extends Model
 
   public function curso() {
     return $this->belongsTo('App\Curso');
+  }
+  
+  public function periodo() {
+    return $this->belongsTo('App\Periodo');
   }
   
   public function calificaciones() {

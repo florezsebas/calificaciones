@@ -20,4 +20,9 @@ class Periodo extends Model
   public function observaciones() {
     return $this->hasMany('App\Periodo');
   }
+  
+  public function actividades() {
+    return $this->hasMany('App\Actividad');
+  }
+  
 }

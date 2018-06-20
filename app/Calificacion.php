@@ -10,15 +10,12 @@ class Calificacion extends Model
     protected $fillable = [
       'valor',
       'estudiante_id',
+      'curso_id',
       'actividad_id',
     ];
 
     public function estudiante() {
       return $this->belongsTo('App\Estudiante');
-    }
-    
-    public function periodo() {
-      return $this->belongsTo('App\Periodo');
     }
     
     public function actividad() {

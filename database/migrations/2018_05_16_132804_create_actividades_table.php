@@ -18,6 +18,11 @@ class CreateActividadesTable extends Migration
             $table->string('nombre');
             $table->double('porcentaje');
             $table->unsignedInteger('curso_id');
+            $table->unsignedInteger('periodo_id');
+            
+            $table->foreign('periodo_id')
+                  ->references('id')->on('periodos')
+                  ->onDelete('cascade');
             
             $table->foreign('curso_id')
                   ->references('id')->on('cursos')
