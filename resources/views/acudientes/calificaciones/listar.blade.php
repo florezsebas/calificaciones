@@ -24,7 +24,7 @@
           <tr>
             <td>{{ $actividad->nombre }}</td>
             <?php
-              $nota = $actividad->obtenerCalificacion();
+              $nota = $actividad->obtenerCalificacion($estudiante->user_id);
               $porcentaje = $actividad->porcentaje;
               $promedio += $nota * ($porcentaje/100);
               $promedio = number_format((float)$promedio, 1, '.', '');
