@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Jornada;
 use App\Curso;
 use App\Actividad;
+use App\Calificacion;
+use App\Periodo;
 use Laracasts\Flash\Flash;
 
 class ActividadesController extends Controller
@@ -32,10 +34,12 @@ class ActividadesController extends Controller
         $curso = Curso::find($curso_id);
         $actividades = $curso->actividades;
         $porcentaje_usado = 0.0;
+        $periodos = Periodo::all()->pluck('nombre','id');
         foreach($actividades as $actividad)
             $porcentaje_usado += $actividad->porcentaje;
         $porcentaje_disp = 100 - $porcentaje_usado;
         return view('docentes.actividades.create')->with('curso',$curso)
+                                                  ->with('periodos',$periodos)
                                                   ->with('porcentaje_disp',$porcentaje_disp);
     }
 
@@ -46,6 +50,18 @@ class ActividadesController extends Controller
         $actividades = $curso->actividades;
         $actividad->curso_id = $curso_id;
         $actividad->save();
+        $estudiantes = $curso->grupo->estudiantes;
+        
+        // Una vez creado la actividad la calificamos con notas ficticias
+        foreach($estudiantes as $estudiante) {
+            $calificacion = new Calificacion();
+            $calificacion->valor = 0;
+            $calificacion->estudiante_id = $estudiante->user_id;
+            $calificacion->curso_id = $curso_id;
+            $calificacion->actividad_id = $actividad->id;
+            $calificacion->save();
+        }
+        
         Flash::success("Se ha creado la actividad ". $actividad->nombre  ." exitosamente!");
         return redirect()->route('actividades.list', $curso->id);
     }
