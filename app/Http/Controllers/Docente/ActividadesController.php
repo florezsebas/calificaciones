@@ -46,24 +46,11 @@ class ActividadesController extends Controller
     public function store(Request $request,$curso_id)
     {
         $actividad = new Actividad($request->all());
-        $curso = Curso::find($curso_id);
-        $actividades = $curso->actividades;
         $actividad->curso_id = $curso_id;
         $actividad->save();
-        $estudiantes = $curso->grupo->estudiantes;
-        
-        // Una vez creado la actividad la calificamos con notas ficticias
-        foreach($estudiantes as $estudiante) {
-            $calificacion = new Calificacion();
-            $calificacion->valor = 0;
-            $calificacion->estudiante_id = $estudiante->user_id;
-            $calificacion->curso_id = $curso_id;
-            $calificacion->actividad_id = $actividad->id;
-            $calificacion->save();
-        }
         
         Flash::success("Se ha creado la actividad ". $actividad->nombre  ." exitosamente!");
-        return redirect()->route('actividades.list', $curso->id);
+        return redirect()->route('actividades.list', $curso_id);
     }
 
     public function edit(Request $request,$actividad_id)
@@ -72,11 +59,13 @@ class ActividadesController extends Controller
         $curso = Curso::find($actividad->curso_id);
         $actividades = $curso->actividades;
         $porcentaje_usado = 0.0;
+        $periodos = Periodo::all()->pluck('nombre','id');
         foreach($actividades as $act)
             $porcentaje_usado += $act->porcentaje;
         $porcentaje_disp = 100 - $porcentaje_usado + $actividad->porcentaje;
         return view('docentes.actividades.edit')->with('curso',$curso)
                                                 ->with('actividad',$actividad)
+                                                ->with('periodos',$periodos)
                                                 ->with('porcentaje_disp',$porcentaje_disp);
     }
 
@@ -84,6 +73,7 @@ class ActividadesController extends Controller
         $actividad = Actividad::find($actividad_id);
         $actividad->nombre = $request->nombre;
         $actividad->porcentaje = $request->porcentaje;
+        $actividad->periodo_id = $request->periodo_id;
         $actividad->save();
         $curso = Curso::find($actividad->curso_id);
         $actividades = $curso->actividades;
