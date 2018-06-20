@@ -137,7 +137,11 @@ Route::group(['prefix' => 'docentes', 'middleware' => ['auth', 'teacher']], func
       'uses' => 'Docente\CalificacionesController@listingStudents',
       'as' => 'calificaciones.estudiantes.list'
    ]);
-   Route::post('calificaciones/store/{curso_id}/{act_id}', [
+   Route::get('calificaciones/create/{curso_id}/{act_id}/{user_id}', [
+      'uses' => 'Docente\CalificacionesController@create',
+      'as' => 'calificaciones.create'
+   ]);
+   Route::post('calificaciones/store/{curso_id}/{act_id}/{user_id}', [
       'uses' => 'Docente\CalificacionesController@store',
       'as' => 'calificaciones.store'
    ]);
