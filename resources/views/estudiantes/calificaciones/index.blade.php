@@ -11,9 +11,9 @@
     <table class="table table-striped table-sm">
       <thead>
         <tr>
-          <th scope="col">Actividad</th>
-          <th scope="col">Porcentaje</th>
-          <th scope="col">Nota</th>
+          <th class="col-8" >Actividad</th>
+          <th class="col-2" >Porcentaje</th>
+          <th class="col-2" >Nota</th>
         </tr>
       </thead>
       <tbody>
