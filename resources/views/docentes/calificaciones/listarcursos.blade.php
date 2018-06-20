@@ -22,7 +22,7 @@
           <td>{{ $actividad->nombre }}</td>
           <td>{{ $actividad->porcentaje }}</td>
           <td>
-              <a href="{{ route('calificaciones.estudiantes.list', [$curso->id, $actividad->id]) }}" class="btn btn-primary btn-sm pull-left">Calificar</a>
+              <a href="{{ route('calificaciones.estudiantes.list', [$curso->id, $actividad->id]) }}" class="btn btn-primary btn-sm pull-left">Listar estudiantes</a>
           </td>
         </tr>
       @endforeach
