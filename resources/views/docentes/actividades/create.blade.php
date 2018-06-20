@@ -6,6 +6,12 @@
 {!! Form::open(['route' => ['actividades.store', $curso], 'method' => 'post']) !!}
   <div class="form-row">
     <div class="form-group col-md-3">
+        {!! Form::label('periodo_id', 'Periodos') !!}
+        {!! Form::select('periodo_id', $periodos,null ,['class' => 'form-control','placeholder' => 'Seleccione periodo', 'required' ]) !!}
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
       {!! Form::label('nombre', 'Nombre') !!}
       {!! Form::text('nombre', null, ['class' => 'form-control','placeholder' => 'Nombre de la actividad', 'required']) !!}
     </div>
