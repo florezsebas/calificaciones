@@ -25,8 +25,8 @@ class Actividad extends Model
     return $this->hasMany('App\Calificacion');
   }
   
-  public function obtenerCalificacion() {
-    $calificacion = Calificacion::where('actividad_id', $this->id)->first();
+  public function obtenerCalificacion($user_id) {
+    $calificacion = Calificacion::where('actividad_id', $this->id)->where('estudiante_id',$user_id)->first();
     if($calificacion == null)
       return 0;
     else
