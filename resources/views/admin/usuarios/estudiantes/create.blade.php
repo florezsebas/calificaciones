@@ -46,7 +46,7 @@
                 {!! Form::select('acudiente_id', $acudientes, null, ['class' => 'form-control', 'placeholder' => 'Seleccione un acudiente']) !!}
             </div>
             <div class='form-group'>
-                {!! Form::submit('Crear cuenta', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Crear estudiante', ['class' => 'btn btn-primary']) !!}
                 <a href="{{ route('estudiantes.index') }}" class="btn btn-primary">Cancelar</a>
             </div>
         {!! Form::close() !!}
