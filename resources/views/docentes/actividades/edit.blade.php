@@ -6,6 +6,13 @@
 {!! Form::open(['route' => ['actividades.update', $actividad], 'method' => 'put']) !!}
   <div class="form-row">
     <div class="form-group col-md-3">
+        {!! Form::label('periodo_id', 'Periodos') !!}
+        {!! Form::select('periodo_id', $periodos, $actividad->periodo_id ,['class' => 'form-control','placeholder' => 'Seleccione periodo', 'required' ]) !!}
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-3">
       {!! Form::label('nombre', 'Nombre') !!}
       {!! Form::text('nombre' , $actividad->nombre, ['class' => 'form-control','placeholder' => 'Nombre de la actividad', 'required']) !!}
     </div>
