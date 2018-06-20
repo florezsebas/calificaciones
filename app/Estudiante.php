@@ -35,5 +35,14 @@ class Estudiante extends Model
   public function user() {
     return $this->belongsTo('App\User');
   }
+  
+  public function obtCalificacion($act_id,$curso_id){
+    $calificacion = Calificacion::where('actividad_id',$act_id)->where('estudiante_id', $this->user_id)->first();
+    if(count($calificacion)== 0)
+      return "NA";
+    else 
+      return $calificacion->valor;
+  }
 
 }
+
