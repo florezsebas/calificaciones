@@ -25,7 +25,7 @@
         {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'ejemplo@dominio.com', 'required']) !!}
     </div>
     <div class='form-group'>
-        {!! Form::submit('Crear cuenta', ['class' => 'btn btn-primary']) !!}
+        {!! Form::submit('Crear acudiente', ['class' => 'btn btn-primary']) !!}
         <a href="{{ route('acudientes.index') }}" class="btn btn-primary">Cancelar</a>
     </div>
 {!! Form::close() !!}    
