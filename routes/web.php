@@ -92,7 +92,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
 Route::group(['prefix' => 'docentes', 'middleware' => ['auth', 'teacher']], function() {
    
    Route::get('/',function() {
-      return view('layouts.docentes');
+      return view('docentes.dashboard');
    })->name('portal.docente');
   
    Route::get('estudiantes','Docente\ListarEstudiantesController@index')->name('listar.estudiantes.index');
@@ -178,7 +178,7 @@ Route::group(['prefix' => 'docentes', 'middleware' => ['auth', 'teacher']], func
 Route::group(['prefix' => 'estudiantes', 'middleware' => ['auth', 'student']], function() {
 
    Route::get('/',function() {
-      return view('layouts.estudiantes');
+      return view('estudiantes.dashboard');
    });
    
    Route::get('calificaciones','Estudiante\ListarCalificacionesController@index')->name('calificaciones.index');
@@ -188,7 +188,7 @@ Route::group(['prefix' => 'estudiantes', 'middleware' => ['auth', 'student']], f
 Route::group(['prefix' => 'acudientes', 'middleware' => ['auth', 'attendant']], function() {
 
    Route::get('/',function() {
-      return view('layouts.acudientes');
+      return view('acudientes.dashboard');
    });
    
    Route::get('calificaciones','Acudiente\ListarCalificacionesController@index')->name('calificaciones.acudientes.index');
