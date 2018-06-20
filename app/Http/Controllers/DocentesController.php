@@ -46,7 +46,7 @@ class DocentesController extends Controller
         $datos = $request->all();
         $user = new User($request->all());
         $user->tipo = "docente";
-        $password = str_replace('/', '', $user->fecha_nacimiento); 
+        $password = str_replace('-', '', $user->fecha_nacimiento); 
         $user->password = bcrypt($password);
         $user->save();
         $docente = new Docente();
