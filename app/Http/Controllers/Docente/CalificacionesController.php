@@ -8,8 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Calificacion;
 use App\Curso;
 use App\Grupo;
-use App\Periodo;
 use App\Actividad;
+use App\Estudiante;
 use Laracasts\Flash\Flash;
 
 class CalificacionesController extends Controller
@@ -30,47 +30,34 @@ class CalificacionesController extends Controller
 
     public function listingStudents(Request $request, $curso_id, $act_id) {
         $curso = Curso::find($curso_id);
-        $actividad = Actividad::find($act_id);
         $estudiantes = $curso->grupo->estudiantes;
-        $periodos = Periodo::all()->pluck('nombre','id');
-        $calificaciones = Calificacion::where('actividad_id',$act_id)->get();
+        $actividad = Actividad::find($act_id);
         return view('docentes.calificaciones.listarestudiantes')->with('curso',$curso)
                                                                 ->with('estudiantes',$estudiantes)
-                                                                ->with('periodos',$periodos)
-                                                                ->with('actividad',$actividad)
-                                                                ->with('calificaciones',$calificaciones);
+                                                                ->with('actividad',$actividad);
+    }
+    
+    public function create(Request $request, $curso_id, $act_id, $user_id)
+    {
+        $curso = Curso::find($curso_id);
+        $estudiante = Estudiante::find($user_id);
+        $calificacion = $estudiante->obtCalificacion($act_id,$curso_id);
+        return view('docentes.calificaciones.create')->with('curso',$curso)
+                                                     ->with('estudiante',$estudiante)
+                                                     ->with('act_id',$act_id)
+                                                     ->with('calificacion',$calificacion);
     }
 
-    public function store(Request $request, $curso_id, $act_id)
+    public function store(Request $request, $curso_id, $act_id, $user_id)
     {
-        $calificaciones = Calificacion::where('actividad_id',$act_id)->get();
-        if(count($calificaciones) == 0) {
-            /* Seccion para crear la calificacion */
-            for($i=0; $i < count($request->calificaciones); $i++) {
-                $calificacion = new Calificacion();
-                $calificacion->valor = $request->calificaciones[$i];
-                $calificacion->estudiante_id = $request->codigos[$i];
-                $calificacion->curso_id = $curso_id;
-                $calificacion->periodo_id = $request->periodo;
-                $calificacion->actividad_id = $act_id;
-                $calificacion->save();
-            }
-        }
-        else { 
-            /* Seccion de actualizacion de calificacion */
-            $i=0;
-            foreach($calificaciones as $calificacion) {
-                $calificacion->valor = $request->calificaciones[$i];
-                //$calificacion->estudiante_id = $request->codigos[$i];
-                //$calificacion->curso_id = $curso_id;
-                $calificacion->periodo_id = $request->periodo;
-                //$calificacion->actividad_id = $act_id;
-                $calificacion->save();
-                $i++;
-            }
-        }
-        Flash::success("Se ha registrado las calificaciones exitosamente!");
-        return redirect()->route('calificaciones.actividades.list',$curso_id);
+        $calificacion = new Calificacion($request->all());
+        $calificacion->estudiante_id = $user_id;
+        $calificacion->curso_id = $curso_id;
+        $calificacion->actividad_id = $act_id;
+        $calificacion->save();
+
+        Flash::success("Se ha registrado la calificacion exitosamente!");
+        return redirect()->route('calificaciones.estudiantes.list',[$curso_id,$act_id]);
     }
 
 }
