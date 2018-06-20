@@ -75,7 +75,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('docentes/observaciones') }}">
                                     <span data-feather="clipboard"></span>
-                                    Observaciones
+                                    Observaciones estudiantes
                                 </a>
                             </li>
                             
