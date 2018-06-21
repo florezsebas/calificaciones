@@ -1,28 +1,30 @@
 @extends('layouts.docentes')
 
 @section('content')
-<h2>Actividades del curso {{ $curso->nombre  }} del grado {{$curso->grupo->grado->nombre }} {{$curso->grupo->nombre}} Jornada {{$curso->grupo->grado->jornada->nombre}} </h2>
+<h2>Cursos </h2>
+<h4>Periodo: {{ $periodo->nombre }}</h4>
 <br>
-<a href="{{ route('calificaciones.docentes.index') }}" class="btn btn-primary btn-bg pull-left">Atrás</a>
+<a href="{{ route('calificaciones.index') }}" class="btn btn-primary" style="margin-bottom:1em">Atrás</a>
 <br>
-<br>
-<!-- Tabla que muestra las actividades -->
+<!-- Tabla que muestra los cursos que imparte un docente -->
 <div class="table-responsive">
   <table class="table table-striped table-sm">
     <thead>
       <tr>
+        <th scope="col">Jornada</th>
         <th scope="col">Nombre</th>
-        <th scope="col">Porcentaje</th>
-        <th scope="col">Acciones</th>
+        <th scope="col">Grado : Grupo</th>
+        <th scope="col">Acción</th>
       </tr>
     </thead>
     <tbody>
-      @foreach($actividades as $actividad)
+      @foreach($cursos as $curso)
         <tr>
-          <td>{{ $actividad->nombre }}</td>
-          <td>{{ $actividad->porcentaje }}</td>
+          <td>{{ $curso->grupo->grado->jornada->nombre }}</td>
+          <td>{{ $curso->nombre }}</td>
+          <td>{{ $curso->grupo->grado->nombre . " : "  . $curso->grupo->nombre }}</td>
           <td>
-              <a href="{{ route('calificaciones.estudiantes.list', [$curso->id, $actividad->id]) }}" class="btn btn-primary btn-sm pull-left">Listar estudiantes</a>
+              <a href="{{ route('calificaciones.actividades.list', $curso->id) }}" class="btn btn-primary btn-sm pull-left">Actividades</a>
           </td>
         </tr>
       @endforeach
