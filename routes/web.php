@@ -75,10 +75,31 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
       'as' => 'periodos.destroy'
    ]);
    
-   Route::resource('cursos', 'CursosController');
-   Route::get('cursos/{id}/destroy', [
+   //Route::resource('cursos', 'CursosController');
+   Route::get('cursos','CursosController@index')->name('cursos.index');
+   Route::get('cursos/create/{periodo_id}', [
+      'uses' => 'CursosController@create',
+      'as' => 'cursos.create'
+   ]);
+   Route::post('cursos/store/{periodo_id}', [
+      'uses' => 'CursosController@store',
+      'as' => 'cursos.store'
+   ]);
+   Route::get('cursos/edit/{periodo_id}/{curso_id}', [
+      'uses' => 'CursosController@edit',
+      'as' => 'cursos.edit'
+   ]);
+   Route::put('cursos/update/{periodo_id}/{curso_id}', [
+      'uses' => 'CursosController@update',
+      'as' => 'cursos.update'
+   ]);
+   Route::get('cursos/destroy/{periodo_id}/{curso_id}', [
       'uses' => 'CursosController@destroy',
       'as' => 'cursos.destroy'
+   ]);
+   Route::get('cursos/list/{periodo_id}', [
+      'uses' => 'CursosController@listarCursos',
+      'as' => 'cursos.list'
    ]);
 
    Route::get('gradosparacursos','AjaxController@loadGradosForCourse');
