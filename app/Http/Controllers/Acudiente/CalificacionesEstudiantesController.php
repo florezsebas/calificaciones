@@ -9,7 +9,7 @@ use App\Acudiente;
 use App\Estudiante;
 use App\Periodo;
 
-class ListarCalificacionesController extends Controller
+class CalificacionesEstudiantesController extends Controller
 {
     public function index(Request $request)
     {

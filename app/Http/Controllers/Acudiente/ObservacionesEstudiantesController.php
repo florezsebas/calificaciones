@@ -10,7 +10,7 @@ use App\Estudiante;
 use App\Curso;
 use App\Observacion;
 
-class ListarObservacionesController extends Controller
+class ObservacionesEstudiantesController extends Controller
 {
     public function index(Request $request)
     {
