@@ -2,10 +2,10 @@
 
 @section('content')
 <h2>Calificaciones estudiante {{ $estudiante->user->nombres }} {{ $estudiante->user->apellidos }}</h2>
+<h4>Periodo: {{ $periodo->nombre }}</h4>
 <br>
 <a href="{{ route('calificaciones.acudientes.index') }}" class="btn btn-primary btn-bg pull-left">Atrás</a>
-<br>
-<br>
+<br> <br>
 <!-- Tabla que muestra los cursos con sus actividades y calificaciones -->
 @foreach($cursos as $curso)
   <div class="table-responsive">
@@ -19,8 +19,14 @@
         </tr>
       </thead>
       <tbody>
-        <?php $promedio = 0.0; ?>
-        @foreach($curso->actividades as $actividad)
+        <?php
+          $actividades_del_periodo = array();
+          foreach($curso->actividades as $actividad)
+            if($actividad->periodo_id == $periodo->id)
+              $actividades_del_periodo[$actividad->id] = $actividad;
+          $promedio = 0.0;
+        ?>
+        @foreach($actividades_del_periodo as $actividad)
           <tr>
             <td>{{ $actividad->nombre }}</td>
             <?php
