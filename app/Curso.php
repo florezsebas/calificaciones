@@ -40,7 +40,7 @@ class Curso extends Model
     return $this->belongsTo('App\Periodo');
   }
   
-  public function scopePeriodo($query, $periodo_id){
+  public function scopePeriodos($query, $periodo_id){
     return $query->where('periodo_id', $periodo_id);
   }
     

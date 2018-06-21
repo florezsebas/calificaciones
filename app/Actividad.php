@@ -10,7 +10,7 @@ class Actividad extends Model
   protected $fillable = [
     'nombre',
     'porcentaje',
-    'curso_id',,
+    'curso_id',
   ];
 
   public function curso() {

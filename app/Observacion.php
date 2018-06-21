@@ -23,8 +23,4 @@ class Observacion extends Model
   public function curso() {
     return $this->belongsTo('App\Curso');
   }
-  
-  public function periodo() {
- 
-  
 }
