@@ -189,7 +189,7 @@ Route::group(['prefix' => 'estudiantes', 'middleware' => ['auth', 'student']], f
       return view('estudiantes.dashboard');
    });
    
-   Route::get('calificaciones','Estudiante\ListarCalificacionesController@index')->name('calificaciones.index');
+   Route::get('calificaciones','Estudiante\CalificacionesController@index')->name('calificaciones.index');
    
 });
 
