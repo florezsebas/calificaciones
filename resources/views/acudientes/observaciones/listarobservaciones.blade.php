@@ -13,6 +13,7 @@
     <thead>
       <tr>
         <th scope="col">Título</th>
+        <th scope="col">Fecha digitación</th>
         <th scope="col">Acción</th>
       </tr>
     </thead>
@@ -20,6 +21,7 @@
       @foreach($observaciones as $observacion)
       <tr>
         <td>{{ $observacion->titulo }}</td>
+        <td>{{ $observacion->fecha_digitacion }}</td>
         <td>
           <a href="{{ route('observaciones.descripcion', [$observacion->id, $curso->id, $estudiante->user_id]) }}" class="btn btn-primary btn-sm pull-left">Ver</a>
         </td>
