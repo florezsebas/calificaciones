@@ -123,15 +123,15 @@ Route::group(['prefix' => 'docentes', 'middleware' => ['auth', 'teacher']], func
    ]);
    
    Route::get('actividades','Docente\ActividadesController@index')->name('actividades.index');
-   Route::get('actividades/list/{id}', [
+   Route::get('actividades/list/{periodo_id}/{curso_id}', [
       'uses' => 'Docente\ActividadesController@listingActivities',
       'as' => 'actividades.list'
    ]);
-   Route::get('actividades/create/{curso_id}', [
+   Route::get('actividades/create/{periodo_id}/{curso_id}', [
       'uses' => 'Docente\ActividadesController@create',
       'as' => 'actividades.create'
    ]);
-   Route::post('actividades/store/{curso_id}', [
+   Route::post('actividades/store/{periodo_id}/{curso_id}', [
       'uses' => 'Docente\ActividadesController@store',
       'as' => 'actividades.store'
    ]);
@@ -146,6 +146,10 @@ Route::group(['prefix' => 'docentes', 'middleware' => ['auth', 'teacher']], func
    Route::get('actividades/destroy/{act_id}', [
       'uses' => 'Docente\ActividadesController@destroy',
       'as' => 'actividades.destroy'
+   ]);
+   Route::get('actividades/cursos/{periodo_id}', [
+      'uses' => 'Docente\ActividadesController@listarCursos',
+      'as' => 'actividades.cursos'
    ]);
 
 
