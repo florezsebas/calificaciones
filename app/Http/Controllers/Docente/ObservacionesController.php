@@ -39,7 +39,7 @@ class ObservacionesController extends Controller
                                                                 ->with('estudiante',$estudiante);
     }
 
-    public function crear(Request $request, $curso_id, $user_id)
+    public function create(Request $request, $curso_id, $user_id)
     {
         $curso = Curso::find($curso_id);
         $estudiante = Estudiante::find($user_id);
@@ -49,26 +49,27 @@ class ObservacionesController extends Controller
                                                     ->with('periodos', $periodos);
     }
 
-    public function almacenar(Request $request, $curso_id, $user_id)
+    public function store(Request $request, $curso_id, $user_id)
     {
-        $observacion = new Observacion();
-        $curso = Curso::find($curso_id);
-        $observacion->titulo = $request->titulo;
-        $observacion->descripcion = $request->descripcion;
+        $observacion = new Observacion($request->all());
         $observacion->curso_id = $curso_id;
         $observacion->estudiante_id = $user_id;
-        $observacion->periodo_id = $request->periodo;
         $observacion->save();
         Flash::success("Se ha creado la observacion ". $observacion->titulo ." exitosamente!");
         return redirect()->route('observaciones.listar', [$curso_id, $user_id]);
     }
 
-    public function show($id)
+    public function show($curso_id,$user_id,$obs_id)
     {
-        //
+        $curso = Curso::find($curso_id);
+        $estudiante = Estudiante::find($user_id);
+        $observacion = Observacion::find($obs_id);
+        return view('docentes.observaciones.show')->with('observacion',$observacion)
+                                                  ->with('estudiante',$estudiante)
+                                                  ->with('curso',$curso);
     }
 
-    public function editar(Request $request,$obs_id)
+    public function edit(Request $request,$obs_id)
     {
         $observacion = Observacion::find($obs_id);
         $curso = Curso::find($observacion->curso_id);
@@ -81,12 +82,13 @@ class ObservacionesController extends Controller
                                                     ->with('observacion',$observacion);
     }
 
-    public function actualizar(Request $request, $obs_id)
+    public function update(Request $request, $obs_id)
     {
         $observacion = Observacion::find($obs_id);
         $observacion->titulo = $request->titulo;
+        $observacion->fecha_digitacion = $request->fecha_digitacion;
         $observacion->descripcion = $request->descripcion;
-        $observacion->periodo_id = $request->periodo;
+        $observacion->periodo_id = $request->periodo_id;
         $observacion->save();
         $curso_id = $observacion->curso_id;
         $user_id = $observacion->estudiante_id;
@@ -94,7 +96,7 @@ class ObservacionesController extends Controller
         return redirect()->route('observaciones.listar', [$curso_id, $user_id]);
     }
 
-    public function destruir(Request $request, $obs_id)
+    public function destroy(Request $request, $obs_id)
     {
         $observacion = Observacion::find($obs_id);
         $observacion->delete();
