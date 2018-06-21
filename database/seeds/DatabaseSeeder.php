@@ -14,12 +14,13 @@ class DatabaseSeeder extends Seeder
         Eloquent::unguard();
         $this->call('DocentesTableSeeder');
         $this->call('AcudientesTableSeeder');
+        $this->call('PeriodosTableSeeder');
         $this->call('JornadasTableSeeder');
         $this->call('GradosTableSeeder');
         $this->call('GruposTableSeeder');
         $this->call('EstudiantesTableSeeder');
-        $this->call('PeriodosTableSeeder');
         $this->call('CursosTableSeeder');
+        $this->call('AdminTableSeeder');
     }
 
 }
