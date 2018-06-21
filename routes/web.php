@@ -199,23 +199,23 @@ Route::group(['prefix' => 'acudientes', 'middleware' => ['auth', 'attendant']], 
       return view('acudientes.dashboard');
    });
    
-   Route::get('calificaciones','Acudiente\ListarCalificacionesController@index')->name('calificaciones.acudientes.index');
+   Route::get('calificaciones','Acudiente\CalificacionesEstudiantesController@index')->name('calificaciones.acudientes.index');
    Route::post('calificaciones/list', [
-      'uses' => 'Acudiente\ListarCalificacionesController@listingGrades',
+      'uses' => 'Acudiente\CalificacionesEstudiantesController@listingGrades',
       'as' => 'calificaciones.list'
    ]);
    
-   Route::get('observaciones','Acudiente\ListarObservacionesController@index')->name('observaciones.acudientes.index');
+   Route::get('observaciones','Acudiente\ObservacionesEstudiantesController@index')->name('observaciones.acudientes.index');
    Route::get('observaciones/cursos/{user_id}', [
-      'uses' => 'Acudiente\ListarObservacionesController@listingCourses',
+      'uses' => 'Acudiente\ObservacionesEstudiantesController@listingCourses',
       'as' => 'observaciones.cursos'
    ]);
    Route::get('observaciones/list/{course_id}/{user_id}', [
-      'uses' => 'Acudiente\ListarObservacionesController@listingObservations',
+      'uses' => 'Acudiente\ObservacionesEstudiantesController@listingObservations',
       'as' => 'observaciones.list'
    ]);
    Route::get('observaciones/descripcion/{obs_id}/{course_id}/{user_id}', [
-      'uses' => 'Acudiente\ListarObservacionesController@mostrarObservation',
+      'uses' => 'Acudiente\ObservacionesEstudiantesController@mostrarObservation',
       'as' => 'observaciones.descripcion'
    ]);
    
