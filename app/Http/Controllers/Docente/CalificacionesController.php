@@ -10,21 +10,30 @@ use App\Curso;
 use App\Grupo;
 use App\Actividad;
 use App\Estudiante;
+use App\Periodo;
 use Laracasts\Flash\Flash;
 
 class CalificacionesController extends Controller
 {
     public function index()
     {
+        $periodos = Periodo::all();
+        return view('docentes.calificaciones.index')->with('periodos',$periodos);
+    }
+
+    public function listingCourses(Request $request,$periodo_id)
+    {
         $usuario = Auth::user();
-        $cursos = $usuario->docente->cursos;
-        return view('docentes.calificaciones.index')->with('cursos',$cursos);
+        $cursos = Curso::where('periodo_id',$periodo_id)->where('docente_id', $usuario->id)->get();
+        $periodo = Periodo::find($periodo_id);
+        return view('docentes.calificaciones.listarcursos')->with('periodo',$periodo)
+                                        ->with('cursos',$cursos);
     }
 
     public function listingActivities(Request $request,$curso_id) {
         $curso = Curso::find($curso_id);
         $actividades = $curso->actividades;
-        return view('docentes.calificaciones.listarcursos')->with('curso',$curso)
+        return view('docentes.calificaciones.listaractividades')->with('curso',$curso)
                                                    ->with('actividades',$actividades);
     }
 
