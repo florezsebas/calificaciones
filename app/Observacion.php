@@ -10,6 +10,7 @@ class Observacion extends Model
   protected $fillable = [
     'titulo',
     'descripcion',
+    'fecha_digitacion',
     'curso_id',
     'periodo_id',
     'estudiante_id',
