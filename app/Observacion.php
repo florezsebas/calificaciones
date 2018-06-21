@@ -12,7 +12,6 @@ class Observacion extends Model
     'descripcion',
     'fecha_digitacion',
     'curso_id',
-    'periodo_id',
     'estudiante_id',
     
   ];
@@ -26,7 +25,6 @@ class Observacion extends Model
   }
   
   public function periodo() {
-    return $this->belongsTo('App\Periodo');
-  }
+ 
   
 }

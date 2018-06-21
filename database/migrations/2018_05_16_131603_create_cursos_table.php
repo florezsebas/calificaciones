@@ -18,6 +18,11 @@ class CreateCursosTable extends Migration
             $table->string('nombre');
             $table->unsignedInteger('grupo_id');
             $table->unsignedInteger('docente_id');
+            $table->unsignedInteger('periodo_id');
+            
+            $table->foreign('periodo_id')
+                  ->references('id')->on('periodos')
+                  ->onDelete('cascade');
                   
             $table->foreign('grupo_id')
                   ->references('id')->on('grupos')

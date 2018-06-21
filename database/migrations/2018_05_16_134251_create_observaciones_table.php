@@ -18,7 +18,6 @@ class CreateObservacionesTable extends Migration
             $table->string('titulo');
             $table->string('descripcion');
             $table->date('fecha_digitacion');
-            $table->unsignedInteger('periodo_id');
             $table->unsignedInteger('curso_id');
             $table->unsignedInteger('estudiante_id');
             
@@ -26,10 +25,6 @@ class CreateObservacionesTable extends Migration
                   ->references('id')->on('cursos')
                   ->onDelete('cascade');
                   
-            $table->foreign('periodo_id')
-                  ->references('id')->on('periodos')
-                  ->onDelete('cascade');
-            
             $table->foreign('estudiante_id')
                   ->references('user_id')->on('estudiantes')
                   ->onDelete('cascade');

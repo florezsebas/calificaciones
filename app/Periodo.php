@@ -13,16 +13,12 @@ class Periodo extends Model
     'fecha_fin',
   ];
   
-  public function calificaciones() {
-    return $this->hasMany('App\Calificacion');
-  }
-  
   public function observaciones() {
     return $this->hasMany('App\Periodo');
   }
   
-  public function actividades() {
-    return $this->hasMany('App\Actividad');
+  public function cursos() {
+    return $this->hasMany('App\Curso');
   }
   
 }

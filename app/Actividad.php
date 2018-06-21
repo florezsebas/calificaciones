@@ -10,20 +10,11 @@ class Actividad extends Model
   protected $fillable = [
     'nombre',
     'porcentaje',
-    'curso_id',
-    'periodo_id',
+    'curso_id',,
   ];
-
-  public function subactividades() {
-    return $this->hasMany('App\Subactividad');
-  }
 
   public function curso() {
     return $this->belongsTo('App\Curso');
-  }
-  
-  public function periodo() {
-    return $this->belongsTo('App\Periodo');
   }
   
   public function calificaciones() {
