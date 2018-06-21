@@ -21,6 +21,7 @@
         <tr>
           <td>{{ $observacion->titulo }}</td>
           <td>
+              <a href="{{ route('observaciones.show', [$curso->id, $estudiante->user_id, $observacion->id]) }}" class="btn btn-primary btn-sm pull-left">Ver</a>
               <a href="{{ route('observaciones.editar', $observacion->id) }}" class="btn btn-primary btn-sm pull-left">Editar</a>
               <a href="{{ route('observaciones.destruir', $observacion->id) }}" onClick="return confirm('¿Está seguro que desea eliminar la observacion {{ $observacion->titulo }}?')" class="btn btn-danger btn-sm pull-left">Eliminar</a>
           </td>
