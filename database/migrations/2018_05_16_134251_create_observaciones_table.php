@@ -17,6 +17,7 @@ class CreateObservacionesTable extends Migration
             $table->increments('id');
             $table->string('titulo');
             $table->string('descripcion');
+            $table->date('fecha_digitacion');
             $table->unsignedInteger('periodo_id');
             $table->unsignedInteger('curso_id');
             $table->unsignedInteger('estudiante_id');
