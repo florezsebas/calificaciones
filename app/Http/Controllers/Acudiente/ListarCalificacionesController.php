@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Acudiente;
 use App\Estudiante;
+use App\Periodo;
 
 class ListarCalificacionesController extends Controller
 {
@@ -14,16 +15,23 @@ class ListarCalificacionesController extends Controller
     {
         $usuario = Auth::user();
         $acudiente = $usuario->acudiente;
-        $estudiantes = $acudiente->estudiantes;
-        return view('acudientes.calificaciones.index')->with('estudiantes',$estudiantes);
+        $estudiantes_a_cargo = $acudiente->estudiantes;
+        $estudiantes = array();
+        foreach($estudiantes_a_cargo as $estudiante)
+            $estudiantes[$estudiante->user_id] = $estudiante->user->nombres;
+        $periodos = Periodo::all()->pluck('nombre','id');
+        return view('acudientes.calificaciones.index')->with('periodos',$periodos)
+                                                      ->with('estudiantes',$estudiantes);
     }
     
-    public function listingGrades(Request $request, $user_id)
+    public function listingGrades(Request $request)
     {
-        $estudiante = Estudiante::find($user_id);
+        $estudiante = Estudiante::find($request->user_id);
+        $periodo = Periodo::find($request->periodo_id);
         $grupo = $estudiante->grupo;
         $cursos = $grupo->cursos;
-        return view('acudientes.calificaciones.listar')->with('cursos',$cursos)
-                                        ->with('estudiante',$estudiante);
+        return view('acudientes.calificaciones.listar')->with('periodo',$periodo)
+                                                       ->with('cursos',$cursos)
+                                                       ->with('estudiante',$estudiante);
     }
 }
