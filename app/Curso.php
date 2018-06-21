@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
+
 
 class Curso extends Model
 {
@@ -11,6 +13,7 @@ class Curso extends Model
     'nombre',
     'docente_id',
     'grupo_id',
+    'periodo_id'
   ];
 
   public function grupo() {
@@ -32,4 +35,13 @@ class Curso extends Model
   public function observaciones() {
     return $this->hasMany('App\Observacion');
   }
+  
+  public function periodo() {
+    return $this->belongsTo('App\Periodo');
+  }
+  
+  public function scopePeriodo($query, $periodo_id){
+    return $query->where('periodo_id', $periodo_id);
+  }
+    
 }
