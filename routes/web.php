@@ -168,6 +168,10 @@ Route::group(['prefix' => 'docentes', 'middleware' => ['auth', 'teacher']], func
       'uses' => 'Docente\ObservacionesController@editar',
       'as' => 'observaciones.editar'
    ]);
+   Route::get('observaciones/show/{curso_id}/{user_id}/{obs_id}', [
+      'uses' => 'Docente\ObservacionesController@show',
+      'as' => 'observaciones.show'
+   ]);
    Route::get('observaciones/destruir/{obs_id}', [
       'uses' => 'Docente\ObservacionesController@destruir',
       'as' => 'observaciones.destruir'
