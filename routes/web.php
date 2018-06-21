@@ -156,29 +156,29 @@ Route::group(['prefix' => 'docentes', 'middleware' => ['auth', 'teacher']], func
       'uses' => 'Docente\ObservacionesController@observationStudents',
       'as' => 'observaciones.listar'
    ]);
-   Route::get('observaciones/crear/{curso_id}/{user_id}', [
-      'uses' => 'Docente\ObservacionesController@crear',
-      'as' => 'observaciones.crear'
+   Route::get('observaciones/create/{curso_id}/{user_id}', [
+      'uses' => 'Docente\ObservacionesController@create',
+      'as' => 'observaciones.create'
    ]);
-   Route::post('observaciones/almacenar/{curso_id}/{user_id}', [
-      'uses' => 'Docente\ObservacionesController@almacenar',
-      'as' => 'observaciones.almacenar'
+   Route::post('observaciones/store/{curso_id}/{user_id}', [
+      'uses' => 'Docente\ObservacionesController@store',
+      'as' => 'observaciones.store'
    ]);
-   Route::get('observaciones/editar/{obs_id}', [
-      'uses' => 'Docente\ObservacionesController@editar',
-      'as' => 'observaciones.editar'
+   Route::get('observaciones/edit/{obs_id}', [
+      'uses' => 'Docente\ObservacionesController@edit',
+      'as' => 'observaciones.edit'
    ]);
    Route::get('observaciones/show/{curso_id}/{user_id}/{obs_id}', [
       'uses' => 'Docente\ObservacionesController@show',
       'as' => 'observaciones.show'
    ]);
-   Route::get('observaciones/destruir/{obs_id}', [
-      'uses' => 'Docente\ObservacionesController@destruir',
-      'as' => 'observaciones.destruir'
+   Route::get('observaciones/destroy/{obs_id}', [
+      'uses' => 'Docente\ObservacionesController@destroy',
+      'as' => 'observaciones.destroy'
    ]);
-   Route::put('observaciones/actualizar/{obs_id}', [
-      'uses' => 'Docente\ObservacionesController@actualizar',
-      'as' => 'observaciones.actualizar'
+   Route::put('observaciones/update/{obs_id}', [
+      'uses' => 'Docente\ObservacionesController@update',
+      'as' => 'observaciones.update'
    ]);
 
 });
