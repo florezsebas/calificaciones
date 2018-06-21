@@ -2,7 +2,7 @@
 
 @section('content')
 <h2>Editar curso</h2> <br>
-{!! Form::open(['route' => ['cursos.update', $curso], 'method' => 'put']) !!}
+{!! Form::open(['route' => ['cursos.update', $periodo_id, $curso], 'method' => 'put']) !!}
     <div class="form-group">
         {!! Form::label('nombre', 'Nombre') !!}
         {!! Form::text('nombre', $curso->nombre, ['class' => 'form-control', 'placeholder' => 'Nombre del curso', 'required']) !!}
@@ -24,7 +24,7 @@
         {!! Form::select('grupo_id', $grupos, $curso->grupo->id, ['class' => 'form-control','placeholder' => 'Seleccione grupo', 'required', 'id' => 'grupo']) !!}
     </div>
     {!! Form::submit('Guardar cambios', ['class' => 'btn btn-primary']) !!}
-    <a href="{{ route('cursos.index') }}" class="btn btn-primary">Cancelar</a>
+    <a href="{{ route('cursos.list',$periodo_id) }}" class="btn btn-primary">Cancelar</a>
 {!! Form::close() !!}
 {{ Html::script('js/admin/cursos/recursos.js'),array(),true }}
 @endsection
