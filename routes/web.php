@@ -200,7 +200,7 @@ Route::group(['prefix' => 'acudientes', 'middleware' => ['auth', 'attendant']], 
    });
    
    Route::get('calificaciones','Acudiente\ListarCalificacionesController@index')->name('calificaciones.acudientes.index');
-   Route::get('calificaciones/list/{user_id}', [
+   Route::post('calificaciones/list', [
       'uses' => 'Acudiente\ListarCalificacionesController@listingGrades',
       'as' => 'calificaciones.list'
    ]);
