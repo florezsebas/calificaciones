@@ -2,6 +2,11 @@
 
 @section('content')
 <h2>Gestión de cuentas tipo acudiente</h2> <br>
+<p style="color:red; font-size:15px;" >
+  Recuerde que la contraseña de cada nuevo usuario que cree, inicialmente será la
+  fecha de nacimiento que usted digite. <br>
+  Tener en cuenta el formato yyyymmdd a la hora de ingresar la contraseña
+</p>
 <a href="{{ route('acudientes.create') }}" class="btn btn-primary" style="margin-bottom:1em">Nuevo acudiente</a>
 
 <!-- Tabla que muestra los acudientes -->
@@ -29,7 +34,7 @@
           <td>{{ $user->tipo }}</td>
           <td>
               <a href="{{ route('acudientes.edit', $user->id) }}" class="btn btn-primary btn-sm pull-left">Editar</a>
-              <a href="{{ route('acudientes.destroy', $user->id) }}" onClick="return confirm('¿Está seguro que desea eliminar la cuenta acudiente de {{ $user->nombres }}?')" class="btn btn-danger btn-sm pull-left">Eliminar</a></td>
+              <a href="{{ route('acudientes.destroy', $user->id) }}" onClick="return confirm('¿Está seguro que desea eliminar la cuenta acudiente de {{ $user->nombres }}?, esto podría implicar la eliminación en cascada de otros elementos que dependan de este registro (Ejemplo: estudiantes asociados al acudiente)')" class="btn btn-danger btn-sm pull-left">Eliminar</a></td>
           </td>
       @endforeach    
         </tr>

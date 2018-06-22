@@ -27,7 +27,7 @@
           <td>{{ $curso->grupo->grado->nombre ." ". $curso->grupo->nombre}}</td>
           <td>
               <a href="{{ route('cursos.edit', [$periodo->id,$curso->id]) }}" class="btn btn-primary btn-sm pull-left">Editar</a>
-              <a href="{{ route('cursos.destroy',[$periodo->id,$curso->id]) }}" onClick="return confirm('¿Está seguro que desea eliminar el curso {{ $curso->nombre }}?')" class="btn btn-danger btn-sm pull-left">Eliminar</a>
+              <a href="{{ route('cursos.destroy',[$periodo->id,$curso->id]) }}" onClick="return confirm('¿Está seguro que desea eliminar el curso {{ $curso->nombre }}?, esto podría implicar la eliminación en cascada de otros elementos que dependan de este registro (Ejemplo: Calificaciones y observaciones de estudiantes asociados al curso)')" class="btn btn-danger btn-sm pull-left">Eliminar</a>
           </td>
         </tr>
       @endforeach

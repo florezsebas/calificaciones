@@ -23,7 +23,7 @@
           <td>{{ $jornada->hora_fin }}</td>
           <td>
               <a href="{{ route('jornadas.edit', $jornada->id) }}" class="btn btn-primary btn-sm pull-left">Editar</a>
-              <a href="{{ route('jornadas.destroy', $jornada->id) }}" onClick="return confirm('¿Esta seguro que desea eliminar la jornada {{ $jornada->nombre }}?')" class="btn btn-danger btn-sm pull-left">Eliminar</a></td>
+              <a href="{{ route('jornadas.destroy', $jornada->id) }}" onClick="return confirm('¿Esta seguro que desea eliminar la jornada {{ $jornada->nombre }}?, esto podría implicar la eliminación en cascada de otros elementos que dependan de este registro (Ejemplo: La eliminación de grados y su vez elementos asociados al grado)')" class="btn btn-danger btn-sm pull-left">Eliminar</a></td>
           </td>
       @endforeach
         </tr>
