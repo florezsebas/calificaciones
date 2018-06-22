@@ -41,7 +41,7 @@ class GruposController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(GruposCreateRequest $request)
+    public function store(Request $request)
     {
         //dd($request->all());
         $grupo = new Grupo($request->all());
