@@ -209,6 +209,10 @@ Route::group(['prefix' => 'docentes', 'middleware' => ['auth', 'teacher']], func
       'uses' => 'Docente\ObservacionesController@update',
       'as' => 'observaciones.update'
    ]);
+   Route::get('observaciones/cursos/{periodo_id}', [
+      'uses' => 'Docente\ObservacionesController@listingCourses',
+      'as' => 'observaciones.listarcursos'
+   ]);
 
 });
 
