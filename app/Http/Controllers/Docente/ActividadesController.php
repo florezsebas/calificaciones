@@ -94,8 +94,8 @@ class ActividadesController extends Controller
         $actividad->delete();
         Flash::warning("La actividad ".$actividad->nombre." se ha eliminado correctamente");
         $curso = Curso::find($actividad->curso_id);
-        $actividades = $curso->actividades;
-        return redirect()->route('actividades.list', $curso->id);
+        $periodo_id = $curso->periodo->id;
+        return redirect()->route('actividades.list', [$periodo_id,$curso->id]);
     }
     
 }
