@@ -57,11 +57,11 @@
   		    <div class="col-sm-4 offset-sm-4">
   		        <div class"infomacion">
   		           <div class"card" id="info">
-  		            <h5 class="card-header text-center">Informacion sobre inicio de sesion y contraseña</h5>
+  		            <h5 class="card-header text-center">Información sobre inicio de sesión y contraseña</h5>
   		            <div class="card-body">
   		                <p>
-  		                    Si es la primera vez que ingresa, la clave es su fecha de nacimiento sin "/", por ejemplo (yyyymmdd)
-  		                    <br>Si desea cambiar su contraseña puede hacerlo a traves del enlace ¿Olvide la contraseña?
+  		                   Si es la primera vez que ingresa, la clave es su fecha de nacimiento sin, por ejemplo (yyyymmdd) 
+  		                   <br>Si desea cambiar su contraseña puede hacerlo a través del enlace ¿Olvidaste la contraseña?
   		                </p>
   		            </div>
   		            </div> 
