@@ -5,6 +5,16 @@
 <br>
 
 <!-- Tabla que muestra los cursos con sus actividades y calificaciones -->
+{!! Form::open(['route' => ['calificaciones.index'], 'method' => 'get']) !!}
+<div class="form-row">
+  <div class="form-group col-md-3">
+    {!! Form::select('periodo_id', $periodos, $selected=null, ['class' => 'form-control','placeholder' => 'Seleccione periodo', 'required']) !!}
+  </div>
+  <div class="form-group col-md-3">
+    {!! Form::submit('consultar', ['class' => 'btn btn-primary']) !!}
+  </div>
+</div>
+{!! Form::close() !!}
 @foreach($cursos as $curso)
   <div class="table-responsive">
     <h5>Curso: {{ $curso->nombre }}</h5>

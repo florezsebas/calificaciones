@@ -1,9 +1,19 @@
 @extends('layouts.acudientes')
 
 @section('content')
-<h2>Calificaciones estudiante {{ $estudiante->user->nombres }} {{ $estudiante->user->apellidos }}</h2>
-<h4>Periodo: {{ $periodo->nombre }}</h4>
+<h2>Calificaciones</h2>
+<h4>{{ $estudiante->user->nombres }} {{ $estudiante->user->nombres }}</h4>
 <br>
+{!! Form::open(['route' => ['calificaciones.list', $user_id], 'method' => 'get']) !!}
+<div class="form-row">
+  <div class="form-group col-md-3">
+    {!! Form::select('periodo_id', $periodos, $selected=null, ['class' => 'form-control','placeholder' => 'Seleccione periodo', 'required']) !!}
+  </div>
+  <div class="form-group col-md-3">
+    {!! Form::submit('consultar', ['class' => 'btn btn-primary']) !!}
+  </div>
+</div>
+{!! Form::close() !!}
 <a href="{{ route('calificaciones.acudientes.index') }}" class="btn btn-primary btn-bg pull-left">Atrás</a>
 <br> <br>
 <!-- Tabla que muestra los cursos con sus actividades y calificaciones -->
