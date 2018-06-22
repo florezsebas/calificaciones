@@ -3,7 +3,7 @@
 @section('content')
 <h2>Estudiante {{ $estudiante->user->apellidos }} {{ $estudiante->user->nombres }}</h2>
 <h2>Observaciones curso {{ $curso->nombre }} grado {{ $curso->grupo->grado->nombre }} grupo {{ $curso->grupo->nombre }} </h2>
-<a href="{{ route('observaciones.cursos', $estudiante->user_id) }}" class="btn btn-primary btn-bg pull-left">Atrás</a>
+<a href="{{ route('observaciones.cursos',[$curso->periodo_id,$estudiante->user_id,$dont_use_request]) }}" class="btn btn-primary btn-bg pull-left">Atrás</a>
 <br>
 <br>
 
