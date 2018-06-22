@@ -24,7 +24,7 @@
           <td>{{ $curso->nombre }}</td>
           <td>{{ $curso->grupo->grado->nombre . " : "  . $curso->grupo->nombre }}</td>
           <td>
-              <a href="{{ route('observaciones.estudiantes', $curso->id) }}" class="btn btn-primary btn-sm pull-left">Estudiantes</a>
+              <a href="{{ route('observaciones.estudiantes', $curso->id) }}" class="btn btn-primary btn-sm pull-left">Ver estudiantes</a>
           </td>
         </tr>
       @endforeach
