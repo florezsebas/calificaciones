@@ -243,7 +243,7 @@ Route::group(['prefix' => 'acudientes', 'middleware' => ['auth', 'attendant']], 
    ]);
    
    Route::get('observaciones','Acudiente\ObservacionesEstudiantesController@index')->name('observaciones.acudientes.index');
-   Route::get('observaciones/cursos/{user_id}', [
+   Route::get('observaciones/cursos/{periodo_id}/{user_id}/{use_request}', [
       'uses' => 'Acudiente\ObservacionesEstudiantesController@listingCourses',
       'as' => 'observaciones.cursos'
    ]);
