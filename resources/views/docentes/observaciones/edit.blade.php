@@ -4,12 +4,6 @@
 <h2>Editar observación</h2> <br>
 {!! Form::open(['route' => ['observaciones.update', $observacion], 'method' => 'put']) !!}
 
-  <div class="form-row">
-    <div class="form-group col-md-3">
-      {!! Form::label('periodo_id', 'Periodo') !!}
-      {!! Form::select('periodo_id', $periodos, $observacion->periodo_id, ['class' => 'form-control','placeholder' => 'Seleccione periodo', 'required']) !!}
-    </div>
-  </div>
 
   <div class="form-row">
     <div class="form-group col-md-3">
