@@ -22,7 +22,7 @@
           <td>{{ $actividad->porcentaje }}</td>
           <td>
               <a href="{{ route('actividades.edit', $actividad->id)  }}" class="btn btn-primary btn-sm pull-left">Editar</a>
-              <a href="{{ route('actividades.destroy', $actividad->id) }}" onClick="return confirm('¿Está seguro que desea eliminar la actividad {{ $actividad->nombre }}?')" class="btn btn-danger btn-sm pull-left">Eliminar</a>
+              <a href="{{ route('actividades.destroy', $actividad->id) }}" onClick="return confirm('¿Está seguro que desea eliminar la actividad {{ $actividad->nombre }}?, esto podría implicar la eliminación en cascada de otros elementos que dependan de este registro (Ejemplo: Notas asociadas a la actividad)')" class="btn btn-danger btn-sm pull-left">Eliminar</a>
           </td>
         </tr>
       @endforeach
