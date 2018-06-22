@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Acudiente;
 use App\Estudiante;
 use App\Periodo;
+use App\Curso;
 
 class CalificacionesEstudiantesController extends Controller
 {
@@ -15,23 +16,34 @@ class CalificacionesEstudiantesController extends Controller
     {
         $usuario = Auth::user();
         $acudiente = $usuario->acudiente;
-        $estudiantes_a_cargo = $acudiente->estudiantes;
-        $estudiantes = array();
-        foreach($estudiantes_a_cargo as $estudiante)
-            $estudiantes[$estudiante->user_id] = $estudiante->user->nombres;
+        //$estudiantes_a_cargo = $acudiente->estudiantes;
+        $estudiantes = $acudiente->estudiantes;
+        //dd($estudiantes->first()->user);
+        //$estudiant = array();
+        //$cursos = $grupo->cursos;
+        // foreach($estudiantes_a_cargo as $estudiante)
+        //     $estudiant[$estudiante->user_id] = $estudiante->user->nombres;
+        // $estudiantes = collect($estudiant);
         $periodos = Periodo::all()->pluck('nombre','id');
         return view('acudientes.calificaciones.index')->with('periodos',$periodos)
                                                       ->with('estudiantes',$estudiantes);
     }
     
-    public function listingGrades(Request $request)
+    public function listingGrades(Request $request, $user_id)
     {
-        $estudiante = Estudiante::find($request->user_id);
+        $estudiante = Estudiante::find($user_id);
+        //dd($user_id);
         $periodo = Periodo::find($request->periodo_id);
+        //dd($request->all());
+        //dd($estudiante);
         $grupo = $estudiante->grupo;
         $cursos = $grupo->cursos;
-        return view('acudientes.calificaciones.listar')->with('periodo',$periodo)
+        $periodos = Periodo::all()->pluck('nombre','id');
+        $cursos = Curso::where('periodo_id',$request->periodo_id)->where('grupo_id', $grupo->id)->get();
+        return view('acudientes.calificaciones.listar')->with('user_id',$user_id)
+                                                       ->with('periodos',$periodos)
                                                        ->with('cursos',$cursos)
-                                                       ->with('estudiante',$estudiante);
+                                                       ->with('estudiante',$estudiante)
+                                                       ->with('periodo',$periodo);
     }
 }
