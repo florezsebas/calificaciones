@@ -60,7 +60,7 @@
   		            <h5 class="card-header text-center">Información sobre inicio de sesión y contraseña</h5>
   		            <div class="card-body">
   		                <p>
-  		                   Si es la primera vez que ingresa, la clave es su fecha de nacimiento sin, por ejemplo (yyyymmdd) 
+  		                   Si es la primera vez que ingresa, la clave es su fecha de nacimiento, por ejemplo (yyyymmdd) 
   		                   <br>Si desea cambiar su contraseña puede hacerlo a través del enlace ¿Olvidaste la contraseña?
   		                </p>
   		            </div>
