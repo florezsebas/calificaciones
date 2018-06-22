@@ -117,9 +117,13 @@ Route::group(['prefix' => 'docentes', 'middleware' => ['auth', 'teacher']], func
    })->name('portal.docente');
   
    Route::get('estudiantes','Docente\ListarEstudiantesController@index')->name('listar.estudiantes.index');
-   Route::get('estudiantes/list/{id}', [
+   Route::get('estudiantes/list/{periodo_id}/{curso_id}', [
       'uses' => 'Docente\ListarEstudiantesController@listingStudents',
       'as' => 'estudiantes.list'
+   ]);
+   Route::get('estudiantes/cursos/{periodo_id}', [
+      'uses' => 'Docente\ListarEstudiantesController@listingCourses',
+      'as' => 'estudiantes.cursos.list'
    ]);
    
    Route::get('actividades','Docente\ActividadesController@index')->name('actividades.index');
@@ -233,7 +237,7 @@ Route::group(['prefix' => 'acudientes', 'middleware' => ['auth', 'attendant']], 
    });
    
    Route::get('calificaciones','Acudiente\CalificacionesEstudiantesController@index')->name('calificaciones.acudientes.index');
-   Route::post('calificaciones/list', [
+   Route::get('calificaciones/list/{user_id}', [
       'uses' => 'Acudiente\CalificacionesEstudiantesController@listingGrades',
       'as' => 'calificaciones.list'
    ]);
