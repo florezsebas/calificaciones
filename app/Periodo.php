@@ -11,6 +11,7 @@ class Periodo extends Model
     'nombre',
     'fecha_inicio',
     'fecha_fin',
+    'anyo',
   ];
   
   public function observaciones() {
