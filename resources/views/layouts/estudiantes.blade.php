@@ -54,7 +54,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('estudiantes/calificaciones') }}">
                                     <span data-feather="check-square"></span>
-                                    Mostrar calificaciones
+                                    Calificaciones
                                 </a>
                             </li>
                             

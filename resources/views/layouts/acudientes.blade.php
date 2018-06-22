@@ -54,14 +54,14 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('acudientes/calificaciones') }}">
                                     <span data-feather="check-square"></span>
-                                    Mostrar calificaciones
+                                    Calificaciones estudiantes
                                 </a>
                             </li>
                             
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('acudientes/observaciones') }}">
                                     <span data-feather="clipboard"></span>
-                                    Mostrar observaciones
+                                    Observaciones estudiantes
                                 </a>
                             </li>
                             
