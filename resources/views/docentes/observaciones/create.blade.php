@@ -6,13 +6,6 @@
   
   <div class="form-row">
     <div class="form-group col-md-3">
-      {!! Form::label('periodo_id', 'Periodo') !!}
-      {!! Form::select('periodo_id', $periodos, $selected=null, ['class' => 'form-control','placeholder' => 'Seleccione periodo', 'required']) !!}
-    </div>
-  </div>
-
-  <div class="form-row">
-    <div class="form-group col-md-3">
       {!! Form::label('titulo', 'Título') !!}
       {!! Form::text('titulo', null, ['class' => 'form-control','placeholder' => 'Titulo', 'required']) !!}
     </div>
