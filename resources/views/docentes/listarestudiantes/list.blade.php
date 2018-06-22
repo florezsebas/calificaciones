@@ -2,7 +2,7 @@
 
 @section('content')
 <h4>Estudiantes del curso {{ $curso->nombre }} grado {{ $curso->grupo->grado->nombre }} grupo {{ $curso->grupo->nombre }} </h4>
-<a href="{{ route('listar.estudiantes.index') }}" class="btn btn-primary btn-bg pull-left">Atrás</a>
+<a href="{{ route('estudiantes.cursos.list' , $periodo_id) }}" class="btn btn-primary btn-bg pull-left">Atrás</a>
 <br>
 <br>
 <!--Tabla que muestra los estudiantes del curso seleccionado-->

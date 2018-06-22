@@ -1,6 +1,7 @@
 @extends('layouts.docentes')
 
 @section('content')
+<h2>Actividades de los cursos</h2>
 <h2>Periodos</h2> <br>
 
 <!-- Tabla que muestra las jornadas -->
