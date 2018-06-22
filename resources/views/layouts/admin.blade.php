@@ -125,11 +125,8 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
           <!---<h2>Section title</h2>-->
-          @include('flash::message')
           @include('template.partials.errors')
           @yield('content')
-
-          
         </main>
       </div>
     </div>
