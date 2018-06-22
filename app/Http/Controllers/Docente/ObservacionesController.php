@@ -16,9 +16,17 @@ class ObservacionesController extends Controller
 
     public function index()
     {
+        $periodos = Periodo::all();
+        return view('docentes.observaciones.index')->with('periodos',$periodos);
+    }
+
+    public function listingCourses(Request $request,$periodo_id)
+    {
         $usuario = Auth::user();
-        $cursos = $usuario->docente->cursos;
-        return view('docentes.observaciones.index')->with('cursos',$cursos);
+        $cursos = Curso::where('periodo_id',$periodo_id)->where('docente_id', $usuario->id)->get();
+        $periodo = Periodo::find($periodo_id);
+        return view('docentes.observaciones.listarcursos')->with('periodo',$periodo)
+                                        ->with('cursos',$cursos);
     }
 
     public function listingStudents(Request $request,$curso_id) 
@@ -43,10 +51,8 @@ class ObservacionesController extends Controller
     {
         $curso = Curso::find($curso_id);
         $estudiante = Estudiante::find($user_id);
-        $periodos = Periodo::all()->pluck('nombre', 'id');
         return view('docentes.observaciones.create')->with('curso',$curso)
-                                                    ->with('estudiante',$estudiante)
-                                                    ->with('periodos', $periodos);
+                                                    ->with('estudiante',$estudiante);
     }
 
     public function store(Request $request, $curso_id, $user_id)
@@ -74,11 +80,9 @@ class ObservacionesController extends Controller
         $observacion = Observacion::find($obs_id);
         $curso = Curso::find($observacion->curso_id);
         $estudiante = Estudiante::find($observacion->estudiante_id);
-        $periodos = Periodo::all()->pluck('nombre','id');
 
         return view('docentes.observaciones.edit')->with('curso',$curso)
                                                     ->with('estudiante',$estudiante)
-                                                    ->with('periodos', $periodos)
                                                     ->with('observacion',$observacion);
     }
 
@@ -88,7 +92,6 @@ class ObservacionesController extends Controller
         $observacion->titulo = $request->titulo;
         $observacion->fecha_digitacion = $request->fecha_digitacion;
         $observacion->descripcion = $request->descripcion;
-        $observacion->periodo_id = $request->periodo_id;
         $observacion->save();
         $curso_id = $observacion->curso_id;
         $user_id = $observacion->estudiante_id;
