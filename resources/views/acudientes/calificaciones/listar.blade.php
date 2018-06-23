@@ -19,7 +19,7 @@
 <!-- Tabla que muestra los cursos con sus actividades y calificaciones -->
 @foreach($cursos as $curso)
   <div class="table-responsive">
-    <h5>Curso: {{ $curso->nombre }}</h5>
+    <h5>Curso: {{ $curso->nombre }} - Promedio en el año: {{ $promedio_final_cursos[$curso->nombre] }}</h5>
     <table class="table table-striped table-sm">
       <thead>
         <tr>
@@ -29,14 +29,8 @@
         </tr>
       </thead>
       <tbody>
-        <?php
-          $actividades_del_periodo = array();
-          foreach($curso->actividades as $actividad)
-            if($actividad->periodo_id == $periodo->id)
-              $actividades_del_periodo[$actividad->id] = $actividad;
-          $promedio = 0.0;
-        ?>
-        @foreach($actividades_del_periodo as $actividad)
+        <?php $promedio = 0.0; ?>
+        @foreach($curso->actividades as $actividad)
           <tr>
             <td>{{ $actividad->nombre }}</td>
             <?php
@@ -49,7 +43,7 @@
             <td>{{ $nota }}</td>
           </tr>
         @endforeach
-        <h5>Promedio: {{ $promedio }}</h5>
+        <h5>Promedio en el periodo: {{ $promedio }}</h5>
       </tbody>
     </table>
     <br>
