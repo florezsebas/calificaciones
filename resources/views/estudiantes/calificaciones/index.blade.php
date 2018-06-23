@@ -17,7 +17,7 @@
 {!! Form::close() !!}
 @foreach($cursos as $curso)
   <div class="table-responsive">
-    <h5>Curso: {{ $curso->nombre }}</h5>
+    <h5>Curso: {{ $curso->nombre }} - Promedio en el año: {{ $promedio_final_cursos[$curso->nombre] }} </h5>
     <table class="table table-striped table-sm">
       <thead>
         <tr>
@@ -41,7 +41,7 @@
             <td>{{ $nota }}</td>
           </tr>
         @endforeach
-        <h5>Promedio: {{ $promedio }}</h5>
+        <h5>Promedio en el periodo: {{ $promedio }}</h5>
       </tbody>
     </table>
     <br>
